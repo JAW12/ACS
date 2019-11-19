@@ -95,6 +95,8 @@
             this.dgvTP.ReadOnly = true;
             this.dgvTP.Size = new System.Drawing.Size(1031, 436);
             this.dgvTP.TabIndex = 16;
+            this.dgvTP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTP_CellClick);
+            this.dgvTP.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTP_CellDoubleClick);
             // 
             // cbSales
             // 
@@ -185,6 +187,7 @@
             this.btnActive.TabIndex = 29;
             this.btnActive.Text = "Active";
             this.btnActive.UseVisualStyleBackColor = false;
+            this.btnActive.Click += new System.EventHandler(this.btnActive_Click);
             // 
             // btnInactive
             // 
@@ -198,6 +201,7 @@
             this.btnInactive.TabIndex = 29;
             this.btnInactive.Text = "Inactive";
             this.btnInactive.UseVisualStyleBackColor = false;
+            this.btnInactive.Click += new System.EventHandler(this.btnInactive_Click);
             // 
             // menuStrip1
             // 
@@ -324,6 +328,7 @@
             this.pbCheck.Size = new System.Drawing.Size(30, 30);
             this.pbCheck.TabIndex = 31;
             this.pbCheck.TabStop = false;
+            this.pbCheck.Click += new System.EventHandler(this.pbCheck_Click);
             // 
             // pbUncheck
             // 
@@ -335,6 +340,7 @@
             this.pbUncheck.Size = new System.Drawing.Size(30, 30);
             this.pbUncheck.TabIndex = 30;
             this.pbUncheck.TabStop = false;
+            this.pbUncheck.Click += new System.EventHandler(this.pbUncheck_Click);
             // 
             // pbUnsearch
             // 

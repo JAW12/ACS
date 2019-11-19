@@ -395,6 +395,7 @@
             this.Name = "HThirdParty";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "1";
+            this.VisibleChanged += new System.EventHandler(this.HThirdParty_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
             this.ResumeLayout(false);

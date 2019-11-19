@@ -35,11 +35,6 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             Hide();
         }
 
-        private void HUser_Load(object sender, EventArgs e)
-        {
-
-        }
-
         public void loadSSH(ref ComboBox cb, string parameter)
         {
             if (parameter == "")

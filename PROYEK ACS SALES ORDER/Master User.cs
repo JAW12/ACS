@@ -105,6 +105,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             loadDGV();
             loadSSH("USER_TYPE", ref cbRole);
             loadSSH("ACTIVE_STATUS", ref cbStatus);
+            MessageBox.Show("Test");
         }
 
         private void pbStatistic_Click(object sender, EventArgs e)

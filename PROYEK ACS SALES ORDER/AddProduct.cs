@@ -96,14 +96,14 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                     {
                         addDetailRow(ref login.dSales.transDs, "detail");
                         MessageBox.Show("add successful");
-                        MessageBox.Show("test");
                     }
                     else
                     {
                         editDatatableDetail(ref login.dSales.transDs, "detail", login.dSales.idxEditDetail);
                         MessageBox.Show("edit successful");
                     }
-                    
+
+                    login.dSales.adaPerubahanDetail = true;
                     this.Hide();
                 }
                 else

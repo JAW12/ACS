@@ -16,7 +16,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         public Login login;
         public String[] arrData;
         public DateTime[] arrDate;
-        public Boolean editDone;
+        public Boolean editDone, awalLoad;
         /*ARR DATA
             0 = third party
             1 = status
@@ -341,6 +341,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void HSalesOrder_VisibleChanged(object sender, EventArgs e)
         {
+            awalLoad = true;
             editDone = false;
             orderRowId = getOrderRowId();
             userId = Convert.ToInt32(login.idUser);
@@ -356,6 +357,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             loadStatusBilled(ref lblBilled, ref btnBill);
             loadDate(ref dtpDate, "order_created_date");
             loadDate(ref dtpDelivery, "delivery_date");
+            awalLoad = false;
         }
 
         private void loadDate(ref DateTimePicker dtp, String field)
@@ -437,26 +439,31 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         }
 
         private void loadStatusBilled(ref Label lbl, ref Button b)
-        {           
+        {
             if (editMode)
             {
-                b.Enabled = false;
-                Object o = login.db.executeScalar($"select initcap(status_billed) as status from h_sorder where order_row_id = '{orderRowId}'");
-                String status = o.ToString();
-                if (status == "Yes")
+                if (awalLoad)
                 {
-                    statusBilled = true;
+                    Object o = login.db.executeScalar($"select lower(status_billed) as status from h_sorder where order_row_id = '{orderRowId}'");
+                    String status = o.ToString();
+                    if (status.ToLower() == "yes")
+                    {
+                        statusBilled = true;
+                    }
+                    else
+                    {
+                        statusBilled = false;
+                    }
                 }
                 else
                 {
-                    statusBilled = false;
+                    statusBilled = !statusBilled;
                 }
             }
             else
             {
-                b.Enabled = true;
                 statusBilled = !statusBilled;
-                
+
             }
             changeBilled(ref lbl, ref b, statusBilled);
         }

@@ -108,8 +108,8 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             {
                 addDetailRow(ref login.dSales.transDs, "detail");
                 MessageBox.Show("add successful");
-                this.Hide();
-                
+                login.dSales.adaPerubahanDetail = true;
+                this.Hide();                
             }
             catch (Exception x)
             {

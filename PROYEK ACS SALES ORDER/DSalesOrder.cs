@@ -16,6 +16,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         public Login login;
         public Boolean closingForm;
         public Boolean editDetailMode;
+        public Boolean adaPerubahanDetail;
         public String[] arrDataDetailStr;
         public Double[] arrDataDetailAngka;
         public String idProduct;
@@ -70,6 +71,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             login.browse.ShowDialog();
             pbSearch_Click(sender, e);
             loadCashflow();
+            setButtonPrint();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -77,15 +79,18 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             login.addProduct.ShowDialog();
             pbSearch_Click(sender, e);
             loadCashflow();
+            setButtonPrint();
         }
 
         private void DSalesOrder_VisibleChanged(object sender, EventArgs e)
         {
             declareArr();
             idProduct = "";
+            adaPerubahanDetail = false;
             editDetailMode = false;
             idxEditDetail = -1;
             login.hSales.loadLabelOrderRow(ref lblSOCode);
+            setButtonPrint();
             LoadAllData(closingForm);
         }
         
@@ -100,6 +105,26 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             tbNote.Text = login.hSales.arrData[5];
             lblDate.Text = login.hSales.arrDate[0].ToShortDateString();
             lblDelivery.Text = login.hSales.arrDate[1].ToShortDateString();
+        }
+
+        public void setButtonPrint()
+        {
+            if (login.hSales.editMode)
+            {
+                if (adaPerubahanDetail)
+                {
+                    pbPrint.Visible = false;
+                }
+                else
+                {
+                    pbPrint.Visible = true;
+                }
+            }
+            else
+            {
+                pbPrint.Visible = false;
+            }
+
         }
 
         private void loadDatasetDetail(ref DataGridView dgv, String keyNama, String keyReduction, String keyCostPrice, String keyMargin, String keyMarkup, String keyInpPrice)

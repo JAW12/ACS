@@ -64,13 +64,21 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         public void loadDGV(string username = "", string nama = "", string jabatan = "", string branch = "", string status_user = "")
         {
             dgvUser.Columns.Clear();
-            if (jabatan != "4")
+            if (jabatan != "4" && status_user != "2")
             {
                 dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS JABATAN,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{jabatan}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{status_user}%' ORDER BY 1");
             }
-            else
+            else if (jabatan != "4" && status_user == "2")
+            {
+                dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS JABATAN,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{jabatan}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{""}%' ORDER BY 1");
+            }
+            else if (jabatan == "4" && status_user != "2")
             {
                 dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS JABATAN,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{""}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{status_user}%' ORDER BY 1");
+            }
+            else
+            {
+                dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS JABATAN,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{""}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{""}%' ORDER BY 1");
             }
             DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
             checkColumn.Name = "checkBox";
@@ -80,7 +88,8 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         public void loadSSH(string parameter, ref ComboBox cb)
         {
-            cb.DataSource = login.db.executeDataTable($"SELECT * FROM SSH_VARIABLES WHERE TIPE='{parameter}'");
+            DataTable dt = login.db.executeDataTable($"SELECT * FROM SSH_VARIABLES WHERE TIPE='{parameter}'");
+            cb.DataSource = dt;
             cb.DisplayMember = "isi";
         }
 
@@ -105,7 +114,6 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             loadDGV();
             loadSSH("USER_TYPE", ref cbRole);
             loadSSH("ACTIVE_STATUS", ref cbStatus);
-            MessageBox.Show("Test");
         }
 
         private void pbStatistic_Click(object sender, EventArgs e)

@@ -68,7 +68,9 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             login.hThirdParty.judul = "Add Third Party";
             Object id = login.db.executeScalar($"SELECT COUNT(ID_THIRD_PARTY)+1 FROM THIRD_PARTY");
-            login.hThirdParty.id = "TP" + id.ToString().PadLeft(3, '0');
+            login.hThirdParty.id = "TP" + id.ToString().PadLeft(3, '0');  
+            string idUser = cbSales.SelectedValue.ToString();
+            login.hThirdParty.iduser = idUser;
             login.hThirdParty.ShowDialog();
         }
 
@@ -242,6 +244,8 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             login.hThirdParty.judul = "Edit Third Party";
             Object id = login.db.executeScalar($"SELECT ID_THIRD_PARTY FROM THIRD_PARTY WHERE FORMAL_NAME='{dgvTP.Rows[e.RowIndex].Cells[0].Value.ToString()}'");
             login.hThirdParty.id = id.ToString();
+            string idUser = cbSales.SelectedValue.ToString();
+            login.hThirdParty.iduser = idUser;
             login.hThirdParty.ShowDialog();
         }
     }

@@ -187,6 +187,7 @@
             this.btnActive.TabIndex = 29;
             this.btnActive.Text = "Active";
             this.btnActive.UseVisualStyleBackColor = false;
+            this.btnActive.Visible = false;
             this.btnActive.Click += new System.EventHandler(this.btnActive_Click);
             // 
             // btnInactive
@@ -201,6 +202,7 @@
             this.btnInactive.TabIndex = 29;
             this.btnInactive.Text = "Inactive";
             this.btnInactive.UseVisualStyleBackColor = false;
+            this.btnInactive.Visible = false;
             this.btnInactive.Click += new System.EventHandler(this.btnInactive_Click);
             // 
             // menuStrip1

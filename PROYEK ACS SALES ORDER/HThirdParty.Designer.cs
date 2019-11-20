@@ -307,6 +307,7 @@
             this.btnSubmit.TabIndex = 68;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnCancel
             // 
@@ -320,6 +321,7 @@
             this.btnCancel.TabIndex = 67;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnStatus
             // 
@@ -331,6 +333,7 @@
             this.btnStatus.TabIndex = 66;
             this.btnStatus.Text = "Active";
             this.btnStatus.UseVisualStyleBackColor = true;
+            this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
             // 
             // lbl_
             // 

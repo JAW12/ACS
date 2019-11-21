@@ -160,10 +160,10 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             //reduction rate = input price - cost price
             int ctrCocok = 0;
-
             dgv.Rows.Clear();
             for (int i = 0; i < transDs.Tables["detail"].Rows.Count; i++)
             {
+                ctrCocok = 0;
                 if (transDs.Tables["detail"].Rows[i][4] == DBNull.Value)
                 {
                     transDs.Tables["detail"].Rows[i][4] = 0;
@@ -182,7 +182,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 countFieldSearch(ref ctrCocok, 5, keyMarkup, i);
                 countFieldSearch(ref ctrCocok, 6, keyInpPrice, i);                
 
-                if (ctrCocok >= 6)
+                if (ctrCocok >= 7)
                 {
                     DataRow r = transDs.Tables["detail"].Rows[i];
                     Object[] o = r.ItemArray;
@@ -196,7 +196,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             if (keyword != "")
             {
-                if (transDs.Tables["detail"].Rows[idxRow][col].ToString().Contains(keyword))
+                if (transDs.Tables["detail"].Rows[idxRow][col].ToString().ToLower().Contains(keyword.ToLower()))
                 {
                     ctr++;
                 }
@@ -234,6 +234,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         public void resetSearchField()
         {
+            tbType.Clear();
             tbName.Clear();
             tbReduction.Clear();
             tbReduction.Clear();
@@ -328,7 +329,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             double sellingPrice = 0, costPrice = 0, tax, marginRate, markupRate, margin, qty, inpPrice;
             Object o = login.db.executeScalar($"select nvl(amount_of_tax,0) from h_sorder where order_row_id = {login.hSales.orderRowId}");
-            tax = Convert.ToInt32(o);
+            tax = Convert.ToDouble(o);
 
             for (int i = 0; i < dgvDetail.Rows.Count; i++)
             {
@@ -336,13 +337,13 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 costPrice += Convert.ToDouble(dgvDetail.Rows[i].Cells[3].Value);
                 inpPrice = Convert.ToDouble(dgvDetail.Rows[i].Cells[6].Value);
                 qty = Convert.ToDouble(dgvDetail.Rows[i].Cells[8].Value);
-                tax +=  10 / 100 * (inpPrice * qty);
+                tax +=  0.1 * inpPrice * qty;
             }
 
             marginRate = (sellingPrice - costPrice) / costPrice;
             markupRate = (sellingPrice - costPrice) / sellingPrice;
 
-            margin = marginRate * (sellingPrice - costPrice);
+            margin = sellingPrice - costPrice;
 
             lblTax.Text = tax.ToString();
             lblSP.Text = Math.Round(sellingPrice, 0).ToString();

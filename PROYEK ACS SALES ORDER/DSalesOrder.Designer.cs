@@ -52,6 +52,17 @@
             this.lblPTerms = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tbInputP = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbReduction = new System.Windows.Forms.TextBox();
@@ -81,17 +92,6 @@
             this.pbUnsearch = new System.Windows.Forms.PictureBox();
             this.pbSearch = new System.Windows.Forms.PictureBox();
             this.tbType = new System.Windows.Forms.TextBox();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -354,57 +354,127 @@
             this.dgvDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellClick);
             this.dgvDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellDoubleClick);
             // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Product Type";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Product Name";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Reduction Rate";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Cost Price";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Margin Rate";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Markup Rate";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Total";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Order ID";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Qty";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // column11
+            // 
+            this.column11.HeaderText = "ID Product";
+            this.column11.Name = "column11";
+            this.column11.ReadOnly = true;
+            this.column11.Visible = false;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Delete";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Text = "Delete";
+            this.Column10.UseColumnTextForButtonValue = true;
+            // 
             // tbInputP
             // 
             this.tbInputP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbInputP.Location = new System.Drawing.Point(577, 500);
+            this.tbInputP.Location = new System.Drawing.Point(523, 500);
             this.tbInputP.Name = "tbInputP";
-            this.tbInputP.Size = new System.Drawing.Size(103, 24);
+            this.tbInputP.Size = new System.Drawing.Size(75, 24);
             this.tbInputP.TabIndex = 111;
             this.tbInputP.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbInputP_KeyDown);
             // 
             // tbName
             // 
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbName.Location = new System.Drawing.Point(138, 500);
+            this.tbName.Location = new System.Drawing.Point(116, 500);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(117, 24);
+            this.tbName.Size = new System.Drawing.Size(101, 24);
             this.tbName.TabIndex = 110;
             this.tbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbName_KeyDown);
             // 
             // tbReduction
             // 
             this.tbReduction.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReduction.Location = new System.Drawing.Point(261, 500);
+            this.tbReduction.Location = new System.Drawing.Point(223, 500);
             this.tbReduction.Name = "tbReduction";
-            this.tbReduction.Size = new System.Drawing.Size(93, 24);
+            this.tbReduction.Size = new System.Drawing.Size(64, 24);
             this.tbReduction.TabIndex = 113;
             this.tbReduction.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbReduction_KeyDown);
             // 
             // tbMargin
             // 
             this.tbMargin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMargin.Location = new System.Drawing.Point(460, 500);
+            this.tbMargin.Location = new System.Drawing.Point(374, 500);
             this.tbMargin.Name = "tbMargin";
-            this.tbMargin.Size = new System.Drawing.Size(51, 24);
+            this.tbMargin.Size = new System.Drawing.Size(72, 24);
             this.tbMargin.TabIndex = 114;
             this.tbMargin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMargin_KeyDown);
             // 
             // tbCostP
             // 
             this.tbCostP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCostP.Location = new System.Drawing.Point(360, 500);
+            this.tbCostP.Location = new System.Drawing.Point(293, 500);
             this.tbCostP.Name = "tbCostP";
-            this.tbCostP.Size = new System.Drawing.Size(94, 24);
+            this.tbCostP.Size = new System.Drawing.Size(75, 24);
             this.tbCostP.TabIndex = 120;
             this.tbCostP.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbCostP_KeyDown);
             // 
             // tbMarkup
             // 
             this.tbMarkup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMarkup.Location = new System.Drawing.Point(520, 500);
+            this.tbMarkup.Location = new System.Drawing.Point(452, 500);
             this.tbMarkup.Name = "tbMarkup";
-            this.tbMarkup.Size = new System.Drawing.Size(51, 24);
+            this.tbMarkup.Size = new System.Drawing.Size(65, 24);
             this.tbMarkup.TabIndex = 121;
             this.tbMarkup.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMarkup_KeyDown);
             // 
@@ -656,79 +726,9 @@
             this.tbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbType.Location = new System.Drawing.Point(15, 500);
             this.tbType.Name = "tbType";
-            this.tbType.Size = new System.Drawing.Size(119, 24);
+            this.tbType.Size = new System.Drawing.Size(95, 24);
             this.tbType.TabIndex = 135;
             this.tbType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbType_KeyDown);
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Product Type";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Product Name";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Reduction Rate";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Cost Price";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Margin Rate";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Markup Rate";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Total";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Order ID";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Visible = false;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Qty";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // column11
-            // 
-            this.column11.HeaderText = "ID Product";
-            this.column11.Name = "column11";
-            this.column11.ReadOnly = true;
-            this.column11.Visible = false;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Delete";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Text = "Delete";
-            this.Column10.UseColumnTextForButtonValue = true;
             // 
             // DSalesOrder
             // 

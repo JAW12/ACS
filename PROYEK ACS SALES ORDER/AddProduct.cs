@@ -241,6 +241,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             {
                 hitungSubtotal();
                 hitungMarginMarkupReduction(Convert.ToDouble(tbPrice.Text));
+                hitungTotalPrice(0);
             }
         }
 

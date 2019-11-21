@@ -23,7 +23,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 				[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
 + @"([a-zA-Z0-9]+[\w-]+\.)+[a-zA-Z]{1}[a-zA-Z0-9-]{1,23})$";
         bool cek = false;
-        public string judul, id,iduser;
+        public string judul, id,iduser,name,city,type,alias,postal,address,email,telp,website,status;
         public Login login;
         public HThirdParty(Login login)
         {
@@ -38,7 +38,6 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void HThirdParty_VisibleChanged(object sender, EventArgs e)
         {
-
             lblJudul.Text = judul;
             lblTPCode.Text = id;
             loadSSH(ref cbType, "THIRD_PARTY_TYPE");
@@ -50,6 +49,40 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             else
             {
                 btnStatus.Enabled = true;
+            }
+            tbName.Text = name;
+            tbCity.Text = city;
+            tbAddress.Text = address;
+            tbEmail.Text = email;
+            tbWeb.Text = website;
+            if (status == "0")
+            {
+                lblStatus.Text = "Non Active";
+                btnStatus.Text = "Active";
+            }
+            else
+            {
+                lblStatus.Text = "Active";
+                btnStatus.Text = "Non Active";
+            }
+            tbTelp.Text = telp;
+            tbPostal.Text = postal;
+            tbAlias.Text = alias;
+            if(type == "0")
+            {
+                cbType.SelectedIndex = 0;
+            }
+            else if (type == "1")
+            {
+                cbType.SelectedIndex = 1;
+            }
+            else if (type == "2")
+            {
+                cbType.SelectedIndex = 2;
+            }
+            else if (type == "3")
+            {
+                cbType.SelectedIndex = 3;
             }
         }
 
@@ -109,6 +142,22 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             tbPostal.Text = "";
             tbTelp.Text = "";
             this.Hide();
+        }
+
+        private void tbEmail_MouseLeave(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(tbEmail.Text, MatchEmailPattern))
+            {
+                tbEmail.BackColor = Color.Red;
+            }
+        }
+
+        private void tbTelp_MouseLeave(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(tbTelp.Text, MatchPhonePattern))
+            {
+                tbTelp.BackColor = Color.Red;
+            }
         }
 
         private void btnStatus_Click(object sender, EventArgs e)

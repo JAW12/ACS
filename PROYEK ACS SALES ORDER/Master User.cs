@@ -66,19 +66,19 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             dgvUser.Columns.Clear();
             if (jabatan != "4" && status_user != "2")
             {
-                dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS JABATAN,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{jabatan}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{status_user}%' ORDER BY 1");
+                dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS TYPE,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{jabatan}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{status_user}%' ORDER BY 1");
             }
             else if (jabatan != "4" && status_user == "2")
             {
-                dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS JABATAN,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{jabatan}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{""}%' ORDER BY 1");
+                dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS TYPE,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{jabatan}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{""}%' ORDER BY 1");
             }
             else if (jabatan == "4" && status_user != "2")
             {
-                dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS JABATAN,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{""}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{status_user}%' ORDER BY 1");
+                dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS TYPE,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{""}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{status_user}%' ORDER BY 1");
             }
             else
             {
-                dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS JABATAN,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{""}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{""}%' ORDER BY 1");
+                dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS TYPE,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{""}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{""}%' ORDER BY 1");
             }
             DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
             checkColumn.Name = "checkBox";
@@ -226,6 +226,31 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             login.hUser.judul = "Edit User";
             Object id = login.db.executeScalar($"SELECT USER_ROW_ID FROM USER_DATA WHERE USERNAME='{dgvUser.Rows[e.RowIndex].Cells[0].Value.ToString()}'");
             login.hUser.id = id.ToString();
+            login.hUser.uname = dgvUser.Rows[e.RowIndex].Cells[0].Value.ToString();
+            login.hUser.name = dgvUser.Rows[e.RowIndex].Cells[1].Value.ToString();
+            Object pass = login.db.executeScalar($"SELECT U_PASSWORD FROM USER_DATA WHERE USERNAME='{dgvUser.Rows[e.RowIndex].Cells[0].Value.ToString()}'");
+            login.hUser.pass = pass.ToString();
+            if (dgvUser.Rows[e.RowIndex].Cells[2].Value.ToString() == "ADMIN")
+            {
+                login.hUser.type = "0";
+            }
+            else if(dgvUser.Rows[e.RowIndex].Cells[2].Value.ToString() == "MANAGER")
+            {
+                login.hUser.type = "1";
+            }
+            else if(dgvUser.Rows[e.RowIndex].Cells[2].Value.ToString() == "SALES")
+            {
+                login.hUser.type = "2";
+            }
+            login.hUser.branch = dgvUser.Rows[e.RowIndex].Cells[3].Value.ToString();
+            if (dgvUser.Rows[e.RowIndex].Cells[4].Value.ToString() == "ACTIVE")
+            {
+                login.hUser.status = "1";
+            }
+            else
+            {
+                login.hUser.status = "0";
+            }
             login.hUser.ShowDialog();
         }
     }

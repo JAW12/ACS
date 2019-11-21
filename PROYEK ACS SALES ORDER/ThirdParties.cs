@@ -246,6 +246,41 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             login.hThirdParty.id = id.ToString();
             string idUser = cbSales.SelectedValue.ToString();
             login.hThirdParty.iduser = idUser;
+            login.hThirdParty.name = dgvTP.Rows[e.RowIndex].Cells[0].Value.ToString();
+            login.hThirdParty.city = dgvTP.Rows[e.RowIndex].Cells[3].Value.ToString();
+            Object alamat = login.db.executeScalar($"SELECT ADDRESS FROM THIRD_PARTY WHERE FORMAL_NAME='{dgvTP.Rows[e.RowIndex].Cells[0].Value.ToString()}'");
+            login.hThirdParty.address = alamat.ToString();
+            Object mail = login.db.executeScalar($"SELECT EMAIL FROM THIRD_PARTY WHERE FORMAL_NAME='{dgvTP.Rows[e.RowIndex].Cells[0].Value.ToString()}'");
+            login.hThirdParty.email = mail.ToString();
+            Object web = login.db.executeScalar($"SELECT WEBSITE FROM THIRD_PARTY WHERE FORMAL_NAME='{dgvTP.Rows[e.RowIndex].Cells[0].Value.ToString()}'");
+            login.hThirdParty.website = web.ToString();
+            if (dgvTP.Rows[e.RowIndex].Cells[7].Value.ToString() == "ACTIVE")
+            {
+                login.hThirdParty.status = "1";
+            }
+            else
+            {
+                login.hThirdParty.status = "0";
+            }
+            login.hThirdParty.telp = dgvTP.Rows[e.RowIndex].Cells[5].Value.ToString();
+            login.hThirdParty.postal = dgvTP.Rows[e.RowIndex].Cells[4].Value.ToString();
+            login.hThirdParty.alias = dgvTP.Rows[e.RowIndex].Cells[1].Value.ToString();
+            if (dgvTP.Rows[e.RowIndex].Cells[6].Value.ToString() == "PROSPECT")
+            {
+                login.hThirdParty.type = "0";
+            }
+            else if(dgvTP.Rows[e.RowIndex].Cells[6].Value.ToString() == "CUSTOMER")
+            {
+                login.hThirdParty.type = "1";
+            }
+            else if (dgvTP.Rows[e.RowIndex].Cells[6].Value.ToString() == "VENDOR")
+            {
+                login.hThirdParty.type = "2";
+            }
+            else if (dgvTP.Rows[e.RowIndex].Cells[6].Value.ToString() == "OTHERS")
+            {
+                login.hThirdParty.type = "3";
+            }
             login.hThirdParty.ShowDialog();
         }
     }

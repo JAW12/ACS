@@ -127,6 +127,31 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             }
             loadSSH(ref cbType, "USER_TYPE");
             loadSSH(ref cbBranch, "");
+            tbFirst.Text = uname;
+            tbLast.Text = name;
+            tbEmail.Text = pass;
+            tbCity.Text = pass;
+            cbType.SelectedIndex = Convert.ToInt32(type);
+            Object namaBranch = login.db.executeScalar($"SELECT BRANCH_NAME FROM V_BRANCH WHERE ID_BRANCH='{branch}'");
+            for (int i = 0; i < cbBranch.Items.Count; i++)
+            {
+                string nama = cbBranch.GetItemText(cbBranch.Items[i]);
+                if (nama == namaBranch.ToString())
+                {
+                    cbBranch.SelectedIndex = i;
+                    break;
+                }
+            }
+            if(status == "0")
+            {
+                lblStatus.Text = "Non Active";
+                btnStatus.Text = "Active";
+            }
+            else
+            {
+                lblStatus.Text = "Active";
+                btnStatus.Text = "Non Active";
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -89,6 +89,7 @@
             this.tbTelp.Name = "tbTelp";
             this.tbTelp.Size = new System.Drawing.Size(182, 24);
             this.tbTelp.TabIndex = 20;
+            this.tbTelp.MouseLeave += new System.EventHandler(this.tbTelp_MouseLeave);
             // 
             // label10
             // 
@@ -125,6 +126,7 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(218, 24);
             this.tbEmail.TabIndex = 20;
+            this.tbEmail.MouseLeave += new System.EventHandler(this.tbEmail_MouseLeave);
             // 
             // lblEmail
             // 
@@ -397,7 +399,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HThirdParty";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "1";
             this.VisibleChanged += new System.EventHandler(this.HThirdParty_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();

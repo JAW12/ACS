@@ -12,7 +12,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 {
     public partial class HUser : Form
     {
-        public string judul, id;
+        public string judul, id,uname,name,pass,type,branch,status;
         public Login login;
         public HUser(Login login)
         {
@@ -30,8 +30,11 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             lblUserID.Text = "-";
             btnStatus.Enabled = false;
             lblStatus.Text = "-";
-            cbBranch.Items.Clear();
             btnStatus.Enabled = false;
+            tbCity.Text = "";
+            tbEmail.Text = "";
+            tbFirst.Text = "";
+            tbLast.Text = "";
             Hide();
         }
 
@@ -39,15 +42,13 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             if (parameter == "")
             {
-                List<Object[]> branch = login.db.executeQuery("SELECT ID_BRANCH FROM V_BRANCH");
-                for (int i = 0; i < branch.Count; i++)
-                {
-                    cb.Items.Add(branch[i][0].ToString());
-                }
+                cb.DataSource = login.db.executeDataTable("SELECT * FROM V_BRANCH");
+                cb.DisplayMember = "BRANCH_NAME";
+                cb.ValueMember = "ID_BRANCH";
             }
             else
             {
-                cb.DataSource = login.db.executeDataTable($"SELECT * FROM SSH_VARIABLES WHERE TIPE='{parameter}'");
+                cb.DataSource = login.db.executeDataTable($"SELECT * FROM SSH_VARIABLES WHERE TIPE='{parameter}' AND ISI != 'ALL'");
                 cb.DisplayMember = "isi";
             }
         }
@@ -78,12 +79,13 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 {
                     if (lblJudul.Text == "Add User")
                     {
-                        login.db.executeNonQuery($"INSERT INTO USER_DATA VALUES('{lblUserID.Text}','{tbFirst.Text}','{tbEmail.Text}','{tbLast.Text}','{(cbType.SelectedIndex + 1).ToString()}','{1}','{cbBranch.SelectedItem.ToString()}')");
+                        login.db.executeNonQuery($"INSERT INTO USER_DATA VALUES('{lblUserID.Text}','{tbFirst.Text}','{tbEmail.Text}','{tbLast.Text}','{(cbType.SelectedIndex + 1).ToString()}','{1}','{cbBranch.SelectedValue.ToString()}')");
                     }
                     else
                     {
-                        login.db.executeNonQuery($"UPDATE USER_DATA SET USERNAME='{tbFirst.Text}',U_PASSWORD='{tbEmail.Text}',U_NAME='{tbLast.Text}',U_STATUS'{(cbType.SelectedIndex + 1).ToString()}',U_ACTIVE_STATUS='{active}',ID_BRANCH='{cbBranch.SelectedItem.ToString()}') WHERE USER_ROW_ID='{lblSUserID.Text}'");
+                        login.db.executeNonQuery($"UPDATE USER_DATA SET USERNAME='{tbFirst.Text}',U_PASSWORD='{tbEmail.Text}',U_NAME='{tbLast.Text}',U_STATUS='{(cbType.SelectedIndex + 1).ToString()}',U_ACTIVE_STATUS='{active}',ID_BRANCH='{cbBranch.SelectedValue.ToString()}' WHERE USER_ROW_ID='{lblUserID.Text}'");
                     }
+                    lblX_Click(sender, e);
                 }
                 else
                 {
@@ -115,7 +117,8 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             {
                 Object newId = login.db.executeScalar("SELECT COUNT(USER_ROW_ID) + 1 FROM USER_DATA");
                 lblUserID.Text = newId.ToString();
-                lblStatus.Text = "Aktif";
+                lblStatus.Text = "Active";
+                btnStatus.Enabled = false;
             }
             else
             {
@@ -124,7 +127,11 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             }
             loadSSH(ref cbType, "USER_TYPE");
             loadSSH(ref cbBranch, "");
-            cbBranch.SelectedIndex = 0;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            lblX_Click(sender, e);
         }
 
         string active = "";

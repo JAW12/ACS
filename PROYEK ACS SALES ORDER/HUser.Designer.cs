@@ -60,6 +60,7 @@
             // 
             // btnStatus
             // 
+            this.btnStatus.Enabled = false;
             this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatus.Location = new System.Drawing.Point(191, 341);
@@ -216,6 +217,7 @@
             this.btnCancel.TabIndex = 62;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSubmit
             // 

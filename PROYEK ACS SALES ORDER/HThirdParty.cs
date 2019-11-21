@@ -75,22 +75,16 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 {
                     if(lblJudul.Text == "Add Third Party")
                     {
-                        try
-                        {
-                            login.db.executeNonQuery($"INSERT INTO THIRD_PARTY VALUES('{lblTPCode.Text}','{tbName.Text}','{tbAlias.Text}','{(cbType.SelectedIndex + 1).ToString()}','{tbCity.Text}','{tbPostal.Text}','{tbAddress.Text}','{tbEmail.Text}','{tbWeb.Text}','{tbTelp.Text}','{1}',{iduser})");
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
+                        login.db.executeNonQuery($"INSERT INTO THIRD_PARTY VALUES('{lblTPCode.Text}','{tbName.Text}','{tbAlias.Text}','{(cbType.SelectedIndex + 1).ToString()}','{tbCity.Text}','{tbPostal.Text}','{tbAddress.Text}','{tbEmail.Text}','{tbWeb.Text}','{tbTelp.Text}','{1}',{iduser})");
                     }
                     else
                     {
-                        login.db.executeNonQuery($"UPDATE THIRD_PARTY SET ID_THIRD_PARTY='{lblTPCode.Text}',FORMAL_NAME='{tbName.Text}',ALIAS_NAME='{tbAlias.Text}',THIRD_PARTY_TYPE='{(cbType.SelectedIndex + 1).ToString()}',CITY='{tbCity.Text}',POSTAL_CODE='{tbPostal.Text}',ADDRESS='{tbAddress.Text}',EMAIL='{tbEmail.Text}',WEBSITE='{tbWeb.Text}',PHONE_NUMBER='{tbTelp.Text}',ACTIVE_STATUS='{active}',USER_ROW_ID={iduser}");
+                        login.db.executeNonQuery($"UPDATE THIRD_PARTY SET FORMAL_NAME='{tbName.Text}',ALIAS_NAME='{tbAlias.Text}',THIRD_PARTY_TYPE='{(cbType.SelectedIndex + 1).ToString()}',CITY='{tbCity.Text}',POSTAL_CODE='{tbPostal.Text}',ADDRESS='{tbAddress.Text}',EMAIL='{tbEmail.Text}',WEBSITE='{tbWeb.Text}',PHONE_NUMBER='{tbTelp.Text}',ACTIVE_STATUS='{active}',USER_ROW_ID='{iduser}' WHERE ID_THIRD_PARTY='{lblTPCode.Text}'");
                     }
+                    lblX_Click(sender, e);
                 }
             }
-            if (cek && tbName.Text != "" && tbCity.Text != "" && tbAddress.Text != "" && tbWeb.Text != "" && tbAlias.Text != "" && tbPostal.Text != "")
+            else if (!cek && tbName.Text != "" && tbCity.Text != "" && tbAddress.Text != "" && tbWeb.Text != "" && tbAlias.Text != "" && tbPostal.Text != "")
             {
                 if (lblJudul.Text == "Add Third Party")
                 {
@@ -98,8 +92,9 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 }
                 else
                 {
-                    login.db.executeNonQuery($"UPDATE THIRD_PARTY SET ID_THIRD_PARTY='{lblTPCode.Text}',FORMAL_NAME='{tbName.Text}',ALIAS_NAME='{tbAlias.Text}',THIRD_PARTY_TYPE='{(cbType.SelectedIndex + 1).ToString()}',CITY='{tbCity.Text}',POSTAL_CODE='{tbPostal.Text}',ADDRESS='{tbAddress.Text}',EMAIL='{null}',WEBSITE='{tbWeb.Text}',PHONE_NUMBER='{null}',ACTIVE_STATUS='{active}',USER_ROW_ID={iduser}");
+                    login.db.executeNonQuery($"UPDATE THIRD_PARTY SET FORMAL_NAME='{tbName.Text}',ALIAS_NAME='{tbAlias.Text}',THIRD_PARTY_TYPE='{(cbType.SelectedIndex + 1).ToString()}',CITY='{tbCity.Text}',POSTAL_CODE='{tbPostal.Text}',ADDRESS='{tbAddress.Text}',EMAIL='{null}',WEBSITE='{tbWeb.Text}',PHONE_NUMBER='{null}',ACTIVE_STATUS='{active}' ,USER_ROW_ID={iduser} WHERE ID_THIRD_PARTY='{lblTPCode.Text}'");
                 }
+                lblX_Click(sender, e);
             }
         }
 

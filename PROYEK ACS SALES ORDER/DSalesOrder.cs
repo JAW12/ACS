@@ -134,7 +134,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             dgv.DataSource = null;
             transDs = new DataSet();
 
-            String query = $"SELECT PRODUCT_TYPE, PRODUCT_NAME, REDUCTION_RATE, COSTPRICE, MARGIN_RATE, MARKUP_RATE, INPUT_PRICE, ORDER_ROW_ID, QTY, ID_PRODUCT FROM D_SORDER WHERE ORDER_ROW_ID = {login.hSales.orderRowId}";
+            String query = $"SELECT PRODUCT_TYPE, PRODUCT_NAME, REDUCTION_RATE, COSTPRICE, MARGIN_RATE, MARKUP_RATE, INPUT_PRICE, ORDER_ROW_ID, QTY, ID_PRODUCT, DETAIL_ROW_ID FROM D_SORDER WHERE ORDER_ROW_ID = {login.hSales.orderRowId}";
 
             cmd = new OracleCommand(query, conn);
             da = new OracleDataAdapter(cmd);
@@ -145,6 +145,32 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
             da.Fill(transDs, "detail");
             conn.Close();
+        }
+
+        public void setButtonColumnDelete(ref DataGridView dgv)
+        {
+            int idxDetailId = dgv.Columns.Count - 2;
+            DataGridViewButtonColumn btnDelete = (DataGridViewButtonColumn)dgv.Columns[idxDetailId + 1];
+            btnDelete.FlatStyle = FlatStyle.Popup;
+
+            for (int i = 0; i < dgv.Rows.Count; i++)
+            {
+                DataGridViewButtonCell bc = (DataGridViewButtonCell)dgv.Rows[i].Cells[idxDetailId + 1];
+                if (dgv.Rows[i].Cells[idxDetailId].Value.ToString() != "")
+                {
+                    bc.Style.BackColor = Color.FromArgb(224, 222, 222);
+                    bc.Style.SelectionBackColor = Color.FromArgb(224, 222, 222);
+                    bc.UseColumnTextForButtonValue = false;
+                    
+                }
+                else
+                {
+                    bc.Style.BackColor = Color.FromArgb(255, 46, 46);
+                    bc.Style.SelectionBackColor = Color.FromArgb(240, 58, 58);
+                    bc.Style.ForeColor = Color.White;
+                    bc.UseColumnTextForButtonValue = true;
+                }
+            }
         }
 
         public void declareArr()
@@ -189,6 +215,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                     dgv.Rows.Add(o);
                 }
             }
+            setButtonColumnDelete(ref dgv);
             loadCashflow();
         }
         
@@ -404,14 +431,23 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void dgvDetail_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int idxDetailId = dgvDetail.Columns.Count - 2;
             if (e.RowIndex > -1)
             {
                 if (e.ColumnIndex == dgvDetail.Columns.Count - 1)
                 {
                     if (transDs.Tables["detail"].Rows.Count > 0)
                     {
-                        transDs.Tables["detail"].Rows.RemoveAt(e.RowIndex);
-                        pbSearch_Click(sender, e);
+                        if (dgvDetail.Rows[e.RowIndex].Cells[idxDetailId].Value.ToString() == "")
+                        {
+                            transDs.Tables["detail"].Rows.RemoveAt(e.RowIndex);
+                            pbSearch_Click(sender, e);
+                        }
+                        else
+                        {
+                            MessageBox.Show("you can't delete detail order from database", "Delete Failed");
+                        }
+                        
                     }
                 }
             }

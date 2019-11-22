@@ -78,6 +78,7 @@
             this.dtpDate.Size = new System.Drawing.Size(203, 24);
             this.dtpDate.TabIndex = 95;
             this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
+            this.dtpDate.Leave += new System.EventHandler(this.dtpDate_Leave);
             // 
             // tbNotes
             // 
@@ -234,6 +235,7 @@
             this.dtpDelivery.Name = "dtpDelivery";
             this.dtpDelivery.Size = new System.Drawing.Size(182, 24);
             this.dtpDelivery.TabIndex = 99;
+            this.dtpDelivery.Leave += new System.EventHandler(this.dtpDelivery_Leave);
             // 
             // lblPayment
             // 

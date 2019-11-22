@@ -286,14 +286,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             if (dgvDetail.Rows.Count < 1)
             {
-                if (login.hSales.editMode)
-                {
-                    MessageBox.Show("there is no data");
-                }
-                else
-                {
-                    MessageBox.Show("there is no data");
-                }
+                MessageBox.Show("There is No Data", "Unable to Add New Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -330,17 +323,17 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                         cmd.Parameters.Add(":idsales", login.sales.getSalesRowId());
                         cmd.ExecuteNonQuery();
 
-                        msgHeader = "inserting new order ";
+                        msgHeader = "Inserting New Order ";
                     }
                     else
                     {
-                        msgHeader = "updating order ";
+                        msgHeader = "Updating Order ";
                     }
 
                     da.Update(transDs, "detail");
                     otrans.Commit();
                     transDs.Clear();
-                    MessageBox.Show(msgHeader + "succesful");
+                    MessageBox.Show(msgHeader + "Succesful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     login.hSales.editDone = true;
                     this.Hide();
                 }
@@ -445,7 +438,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                         }
                         else
                         {
-                            MessageBox.Show("you can't delete detail order from database", "Delete Failed");
+                            MessageBox.Show("You can't delete old detail order", "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         
                     }

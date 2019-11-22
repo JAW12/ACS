@@ -95,12 +95,12 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                     if (!login.dSales.editDetailMode)
                     {
                         addDetailRow(ref login.dSales.transDs, "detail");
-                        MessageBox.Show("add successful");
+                        MessageBox.Show("Adding successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
                         editDatatableDetail(ref login.dSales.transDs, "detail", login.dSales.idxEditDetail);
-                        MessageBox.Show("edit successful");
+                        MessageBox.Show("Editing successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                     login.dSales.adaPerubahanDetail = true;
@@ -108,14 +108,14 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 }
                 else
                 {
-                    MessageBox.Show("please complete product data first");
+                    MessageBox.Show("Please complete product's data first", "Unable to Add Product", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 
                 
             }
             catch (Exception x)
             {
-                MessageBox.Show(x.Message, "adding new detail failed");
+                MessageBox.Show(x.Message, "Adding new detail order failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

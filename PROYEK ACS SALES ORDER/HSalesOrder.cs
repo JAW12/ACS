@@ -259,7 +259,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             if (dtpDelivery.Value < dtpDate.Value)
             {
-                MessageBox.Show("the delivery date must be after the order created date", "order failed");
+                MessageBox.Show("the delivery date must be after the order created date", "Order Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -278,7 +278,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                         cmd.Parameters.Add(":deliver", dtpDelivery.Value);
                         cmd.Parameters.Add(":id", orderRowId);
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("changes saved");
+                        MessageBox.Show("All changes are saved!", "Editing Order Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception x)
                     {
@@ -433,6 +433,30 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             }
         }
 
+        private void checkDateFocusLeave(ref DateTimePicker dtp)
+        {
+            if (dtpDelivery.Value < dtpDate.Value)
+            {
+                dtp.Focus();
+                btnSubmit.Enabled = false;
+                MessageBox.Show("the delivery date must be after the order created date", "Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                btnSubmit.Enabled = true;
+            }
+        }
+        
+        private void dtpDelivery_Leave(object sender, EventArgs e)
+        {
+            checkDateFocusLeave(ref dtpDelivery);
+        }
+
+        private void dtpDate_Leave(object sender, EventArgs e)
+        {
+            checkDateFocusLeave(ref dtpDate);
+        }
+        
         private void dtpDate_ValueChanged(object sender, EventArgs e)
         {
             

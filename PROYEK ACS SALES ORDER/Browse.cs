@@ -107,13 +107,13 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             try
             {
                 addDetailRow(ref login.dSales.transDs, "detail");
-                MessageBox.Show("add successful");
+                MessageBox.Show("Adding Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 login.dSales.adaPerubahanDetail = true;
                 this.Hide();                
             }
             catch (Exception x)
             {
-                MessageBox.Show(x.Message, "adding new detail failed");
+                MessageBox.Show(x.Message, "Adding Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //throw;
             }
             

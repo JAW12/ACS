@@ -95,7 +95,14 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             }
             else if (statusJabatan == 3) //sales
             {
-                connStr += " and isi = 'DRAFT' or LOWER(tipe) = 'order_status' and isi = 'CANCELLED'";
+                if (editMode)
+                {
+                    connStr += " and isi = 'DRAFT' or LOWER(tipe) = 'order_status' and isi = 'CANCELLED'";
+                }
+                else
+                {
+                    connStr += " and isi = 'DRAFT'";
+                }
             }
 
             login.db.executeDataSet(connStr, ref ds, "status");

@@ -71,12 +71,18 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
-            resetHOrder();
-            login.hSales.ShowDialog();
+            if(login.jabatanUser != "Manager") { 
+                resetHOrder();
+                login.hSales.ShowDialog();
 
-            //tambahan winda untuk munculin orderan baru/perubahan orderan
-            loadDataTable();
-            loadDGV();
+                //tambahan winda untuk munculin orderan baru/perubahan orderan
+                loadDataTable();
+                loadDGV();
+            }
+            else
+            {
+                MessageBox.Show("Manager Tidak Bisa Menambahkan Sales Order");
+            }
         }
 
         public void resetHOrder()
@@ -115,7 +121,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             idBranch = login.db.executeScalar($"SELECT ID_BRANCH FROM BRANCH WHERE BRANCH_NAME = '{login.branchUser}'").ToString();
             if (login.jabatanUser == "Sales")
             {
-                cbSales.Text = login.idUser;
+                loadCBSales();
                 cbSales.Visible = false;
                 lblSales.Visible = false;
             }
@@ -148,6 +154,14 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             {
                 ds = new DataSet();
                 login.db.executeDataSet($"SELECT NULL AS \"USER_ROW_ID\", '' AS \"U_NAME\" FROM DUAL UNION SELECT USER_ROW_ID, U_NAME FROM USER_DATA WHERE ID_BRANCH = '{idBranch}' AND U_STATUS <> 2 ORDER BY 2 ASC NULLS FIRST", ref ds, "sales");
+                cbSales.DataSource = ds.Tables["sales"];
+                cbSales.DisplayMember = "U_NAME";
+                cbSales.ValueMember = "USER_ROW_ID";
+            }
+            else if(login.jabatanUser == "Sales")
+            {
+                ds = new DataSet();
+                login.db.executeDataSet($"SELECT USER_ROW_ID, U_NAME FROM USER_DATA WHERE ID_BRANCH = '{idBranch}' AND USER_ROW_ID = {login.idUser} AND U_STATUS <> 2 ORDER BY 2 ASC NULLS FIRST", ref ds, "sales");
                 cbSales.DataSource = ds.Tables["sales"];
                 cbSales.DisplayMember = "U_NAME";
                 cbSales.ValueMember = "USER_ROW_ID";

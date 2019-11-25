@@ -88,7 +88,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         public void loadSSH(string parameter, ref ComboBox cb)
         {
-            DataTable dt = login.db.executeDataTable($"SELECT * FROM SSH_VARIABLES WHERE TIPE='{parameter}'");
+            DataTable dt = login.db.executeDataTable($"SELECT * FROM SSH_VARIABLES WHERE TIPE='{parameter}' ORDER BY CASE WHEN ISI = 'ALL' THEN 0 ELSE 1 END");
             cb.DataSource = dt;
             cb.DisplayMember = "isi";
         }

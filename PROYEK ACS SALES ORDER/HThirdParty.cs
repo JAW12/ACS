@@ -13,7 +13,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 {
     public partial class HThirdParty : Form
     {
-        string active = "";
+        string active = "1";
         string MatchPhonePattern = @"^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$";
         string MatchEmailPattern =
     @"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@"
@@ -149,6 +149,12 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             if (!Regex.IsMatch(tbEmail.Text, MatchEmailPattern))
             {
                 tbEmail.BackColor = Color.Red;
+                tbEmail.ForeColor = Color.White;
+            }
+            else
+            {
+                tbEmail.BackColor = Color.White;
+                tbEmail.ForeColor = Color.Black;
             }
         }
 
@@ -157,6 +163,12 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             if (!Regex.IsMatch(tbTelp.Text, MatchPhonePattern))
             {
                 tbTelp.BackColor = Color.Red;
+                tbTelp.ForeColor = Color.White;
+            }
+            else
+            {
+                tbTelp.BackColor = Color.White;
+                tbTelp.ForeColor = Color.Black;
             }
         }
 

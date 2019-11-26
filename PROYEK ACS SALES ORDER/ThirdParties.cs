@@ -66,12 +66,21 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
+            string idUser = "";
             login.hThirdParty.judul = "Add Third Party";
             Object id = login.db.executeScalar($"SELECT COUNT(ID_THIRD_PARTY)+1 FROM THIRD_PARTY");
-            login.hThirdParty.id = "TP" + id.ToString().PadLeft(3, '0');  
-            string idUser = cbSales.SelectedValue.ToString();
+            login.hThirdParty.id = "TP" + id.ToString().PadLeft(3, '0');
+            if (cbSales.Items.Count > 0)
+            {
+                idUser = cbSales.SelectedValue.ToString();
+            }
+            else
+            {
+                idUser = login.idUser;
+            }
             login.hThirdParty.iduser = idUser;
             login.hThirdParty.ShowDialog();
+            loadDGV();
         }
 
         public void loadSSH(string parameter, ref ComboBox cb,string cabang="")
@@ -121,7 +130,12 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         public void loadDGV(string name = "", string alias = "", string id = "", string city = "", string code = "",string phone = "",string type="",string status="")
         {
             dgvTP.Columns.Clear();
+            if(cbSales.Items.Count>0)
             dgvTP.DataSource = login.db.executeDataTable($"SELECT FORMAL_NAME AS NAME,ALIAS_NAME AS ALIAS, ID_THIRD_PARTY AS CODE,CITY,POSTAL_CODE AS POSTCODE,PHONE_NUMBER AS PHONE,CASE THIRD_PARTY_TYPE WHEN '1' THEN 'PROSPECT' WHEN '2' THEN 'CUSTOMER' WHEN '3' THEN 'VENDOR' WHEN '4' THEN 'OTHERS' END AS TYPE,CASE ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM THIRD_PARTY WHERE FORMAL_NAME like '%{name}%' AND ALIAS_NAME like '%{alias}%' AND ID_THIRD_PARTY like '%{id}%' AND CITY like '%{city}%' AND POSTAL_CODE like '%{code}%' AND PHONE_NUMBER like '%{phone}%' AND THIRD_PARTY_TYPE like '%{type}%' AND ACTIVE_STATUS like '%{status}%' AND USER_ROW_ID={cbSales.SelectedValue} ORDER BY 1");
+            else if(login.jabatanUser == "Sales")
+            dgvTP.DataSource = login.db.executeDataTable($"SELECT FORMAL_NAME AS NAME,ALIAS_NAME AS ALIAS, ID_THIRD_PARTY AS CODE,CITY,POSTAL_CODE AS POSTCODE,PHONE_NUMBER AS PHONE,CASE THIRD_PARTY_TYPE WHEN '1' THEN 'PROSPECT' WHEN '2' THEN 'CUSTOMER' WHEN '3' THEN 'VENDOR' WHEN '4' THEN 'OTHERS' END AS TYPE,CASE ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM THIRD_PARTY WHERE FORMAL_NAME like '%{name}%' AND ALIAS_NAME like '%{alias}%' AND ID_THIRD_PARTY like '%{id}%' AND CITY like '%{city}%' AND POSTAL_CODE like '%{code}%' AND PHONE_NUMBER like '%{phone}%' AND THIRD_PARTY_TYPE like '%{type}%' AND ACTIVE_STATUS like '%{status}%' AND USER_ROW_ID={login.idUser} ORDER BY 1");
+            else
+            dgvTP.DataSource = login.db.executeDataTable($"SELECT FORMAL_NAME AS NAME,ALIAS_NAME AS ALIAS, ID_THIRD_PARTY AS CODE,CITY,POSTAL_CODE AS POSTCODE,PHONE_NUMBER AS PHONE,CASE THIRD_PARTY_TYPE WHEN '1' THEN 'PROSPECT' WHEN '2' THEN 'CUSTOMER' WHEN '3' THEN 'VENDOR' WHEN '4' THEN 'OTHERS' END AS TYPE,CASE ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM THIRD_PARTY WHERE 1=2");
             DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
             checkColumn.Name = "checkBox";
             checkColumn.HeaderText = "CHECK";
@@ -241,10 +255,18 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void dgvTP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            string idUser = "";
             login.hThirdParty.judul = "Edit Third Party";
             Object id = login.db.executeScalar($"SELECT ID_THIRD_PARTY FROM THIRD_PARTY WHERE FORMAL_NAME='{dgvTP.Rows[e.RowIndex].Cells[0].Value.ToString()}'");
             login.hThirdParty.id = id.ToString();
-            string idUser = cbSales.SelectedValue.ToString();
+            if (cbSales.Items.Count > 0)
+            {
+                idUser = cbSales.SelectedValue.ToString();
+            }
+            else
+            {
+                idUser = login.idUser;
+            }
             login.hThirdParty.iduser = idUser;
             login.hThirdParty.name = dgvTP.Rows[e.RowIndex].Cells[0].Value.ToString();
             login.hThirdParty.city = dgvTP.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -282,6 +304,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 login.hThirdParty.type = "3";
             }
             login.hThirdParty.ShowDialog();
+            loadDGV();
         }
     }
 }

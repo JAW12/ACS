@@ -58,6 +58,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             login.hUser.judul = "Add User";
             login.hUser.ShowDialog();
+            loadDGV();
         }
 
 
@@ -252,6 +253,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 login.hUser.status = "0";
             }
             login.hUser.ShowDialog();
+            loadDGV();
         }
     }
 }

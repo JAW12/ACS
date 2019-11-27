@@ -377,7 +377,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void dgvHOrder_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > -1)
+            if (e.RowIndex > -1 && e.ColumnIndex > -1 && e.ColumnIndex < dgvHOrder.Columns.Count - 1)
             {
                 login.hSales.editMode = true;
                 login.hSales.invoiceNumber = dgvHOrder.Rows[e.RowIndex].Cells[0].Value.ToString();

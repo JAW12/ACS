@@ -133,7 +133,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 Boolean masihBisaMilih = false;
                 if (statusOrder != "") //ada status nya -> bukan add -> langsung selected aja tapi dicek dulu
                 {
-                    if (statusJabatan == 1)
+                    if (statusJabatan == 1) //admin
                     {
                         masihBisaMilih = true;
                     }
@@ -161,6 +161,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                         {
                             cb.Items.Add("Pending");
                             cb.SelectedIndex = cb.Items.Count - 1;
+                            btnSubmit.Text = "Submit";
                         }
                         else
                         {
@@ -219,6 +220,8 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                     dtp.Enabled = enable;
                 }
             }
+
+            cbStatus.Enabled = true;
         }
 
         private void setFormForManager()
@@ -329,8 +332,20 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                         }
                         catch (Exception x)
                         {
-                            MessageBox.Show(x.Message, "editing header failed");
+                            MessageBox.Show(x.Message, "editing header order failed");
                         }
+                    }
+                    else
+                    {
+                        String query = $"select order_status from h_sorder where order_row_id = {orderRowId}";
+                        Object currentStatusOrder = login.db.executeScalar(query);
+                        if (currentStatusOrder != DBNull.Value && currentStatusOrder.ToString() == "Pending")
+                        {
+                            query = $"update h_sorder set order_status = '{cbStatus.SelectedItem.ToString()}' where order_row_id = {orderRowId}";
+                            login.db.executeNonQuery(query);
+                            MessageBox.Show("All changes are saved!", "Editing Order Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        
                     }
                     
                 }
@@ -396,6 +411,9 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             userId = Convert.ToInt32(login.idUser);
             statusBilled = true;
             statusJabatan = getStatusJabatan();
+
+            setFormForManager();
+
             loadBranch();
             loadLabelOrderRow(ref lblSOCode);
             loadCbStatus(statusJabatan, ref cbStatus, orderRowId);
@@ -406,7 +424,6 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             loadStatusBilled(ref lblBilled, ref btnBill);
             loadDate(ref dtpDate, "order_created_date");
             loadDate(ref dtpDelivery, "delivery_date");
-            setFormForManager();
             awalLoad = false;
         }
 

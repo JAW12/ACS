@@ -81,7 +81,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             }
             else
             {
-                MessageBox.Show("Manager Tidak Bisa Menambahkan Sales Order");
+                MessageBox.Show("Manager Can't Add New Sales Order");
             }
         }
 
@@ -386,10 +386,6 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 //tambahan winda untuk munculin orderan baru/perubahan orderan
                 loadDataTable();
                 loadDGV();
-            }
-            else
-            {
-
             }
         }
         

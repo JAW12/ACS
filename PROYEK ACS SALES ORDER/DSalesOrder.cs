@@ -91,6 +91,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             idxEditDetail = -1;
             login.hSales.loadLabelOrderRow(ref lblSOCode);
             setButtonPrint();
+            setFormForManager();
             LoadAllData(closingForm);
         }
         
@@ -290,58 +291,66 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             }
             else
             {
-                conn.Close();
-                conn.Open();
-
-                otrans = conn.BeginTransaction();
-                cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.Transaction = otrans;
-
-                String msgHeader = "";
-
-                try
+                if (login.jabatanUser != "Manager")
                 {
-                    if (!login.hSales.editMode)
+                    conn.Close();
+                    conn.Open();
+
+                    otrans = conn.BeginTransaction();
+                    cmd = new OracleCommand();
+                    cmd.Connection = conn;
+                    cmd.Transaction = otrans;
+
+                    String msgHeader = "";
+
+                    try
                     {
-                        String statusBilled = "NO";
-                        if (login.hSales.statusBilled)
+                        if (!login.hSales.editMode)
                         {
-                            statusBilled = "YES";
+                            String statusBilled = "NO";
+                            if (login.hSales.statusBilled)
+                            {
+                                statusBilled = "YES";
+                            }
+
+                            cmd = new OracleCommand("insert into h_sorder(id_third_party,order_status,customer_name,payment_terms,payment_type,notes,order_created_date,delivery_date, status_billed, sales_row_id) values(:idtp,:status,:cust,:pterms,:ptype,:notes,:created,:delivery,:billed,:idsales)", conn);
+                            cmd.Parameters.Add(":idtp", login.hSales.arrData[0]);
+                            cmd.Parameters.Add(":status", login.hSales.arrData[1]);
+                            cmd.Parameters.Add(":cust", login.hSales.arrData[2]);
+                            cmd.Parameters.Add(":pterms", login.hSales.arrData[3]);
+                            cmd.Parameters.Add(":ptype", login.hSales.arrData[4]);
+                            cmd.Parameters.Add(":notes", login.hSales.arrData[5]);
+                            cmd.Parameters.Add(":created", login.hSales.arrDate[0]);
+                            cmd.Parameters.Add(":delivery", login.hSales.arrDate[1]);
+                            cmd.Parameters.Add(":billed", statusBilled);
+                            cmd.Parameters.Add(":idsales", login.sales.getSalesRowId());
+                            cmd.ExecuteNonQuery();
+
+                            msgHeader = "Inserting New Order ";
+                        }
+                        else
+                        {
+                            msgHeader = "Updating Order ";
                         }
 
-                        cmd = new OracleCommand("insert into h_sorder(id_third_party,order_status,customer_name,payment_terms,payment_type,notes,order_created_date,delivery_date, status_billed, sales_row_id) values(:idtp,:status,:cust,:pterms,:ptype,:notes,:created,:delivery,:billed,:idsales)", conn);
-                        cmd.Parameters.Add(":idtp", login.hSales.arrData[0]);
-                        cmd.Parameters.Add(":status", login.hSales.arrData[1]);
-                        cmd.Parameters.Add(":cust", login.hSales.arrData[2]);
-                        cmd.Parameters.Add(":pterms", login.hSales.arrData[3]);
-                        cmd.Parameters.Add(":ptype", login.hSales.arrData[4]);
-                        cmd.Parameters.Add(":notes", login.hSales.arrData[5]);
-                        cmd.Parameters.Add(":created", login.hSales.arrDate[0]);
-                        cmd.Parameters.Add(":delivery", login.hSales.arrDate[1]);
-                        cmd.Parameters.Add(":billed", statusBilled);
-                        cmd.Parameters.Add(":idsales", login.sales.getSalesRowId());
-                        cmd.ExecuteNonQuery();
-
-                        msgHeader = "Inserting New Order ";
+                        da.Update(transDs, "detail");
+                        otrans.Commit();
+                        transDs.Clear();
+                        MessageBox.Show(msgHeader + "Succesful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        login.hSales.editDone = true;
                     }
-                    else
+                    catch (Exception x)
                     {
-                        msgHeader = "Updating Order ";
+                        otrans.Rollback();
+                        MessageBox.Show(x.Message, msgHeader + "failed");
                     }
-
-                    da.Update(transDs, "detail");
-                    otrans.Commit();
-                    transDs.Clear();
-                    MessageBox.Show(msgHeader + "Succesful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    login.hSales.editDone = true;
-                    this.Hide();
                 }
-                catch (Exception x)
+                else
                 {
-                    otrans.Rollback();
-                    MessageBox.Show(x.Message, msgHeader + "failed");
+                    login.hSales.editDone = true;
                 }
+
+                this.Hide();
             }
         }
 
@@ -377,6 +386,33 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             closingForm = true;
             this.Hide();
+        }
+
+        private void setVisibleButtons(Boolean visible)
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is Button)
+                {
+                    Button b = (Button)c;
+                    b.Visible = visible;
+                }
+            }
+            btnSubmit.Visible = true;
+        }
+
+        private void setFormForManager()
+        {
+            if (login.jabatanUser == "Manager")
+            {
+                setVisibleButtons(false);
+                btnSubmit.Text = "OK";
+            }
+            else
+            {
+                setVisibleButtons(true);
+                btnSubmit.Text = "Submit";
+            }
         }
 
         private void enterSearch(object sender, KeyEventArgs e)

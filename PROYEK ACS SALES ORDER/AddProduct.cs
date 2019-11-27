@@ -125,6 +125,12 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         }
 
 
+        private void cekJabatanManager()
+        {
+
+        }
+
+
         private void hitungSubtotal()
         {
             if (tbPrice.Text.Length >= 1)

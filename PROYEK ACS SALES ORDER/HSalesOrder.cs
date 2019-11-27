@@ -199,6 +199,44 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             }
         }
 
+        private void setEnabledControls(Boolean enable)
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is TextBox)
+                {
+                    TextBox tb = (TextBox)c;
+                    tb.Enabled = enable;
+                }
+                else if (c is ComboBox)
+                {
+                    ComboBox cb = (ComboBox)c;
+                    cb.Enabled = enable;
+                }
+                else if (c is DateTimePicker)
+                {
+                    DateTimePicker dtp = (DateTimePicker)c;
+                    dtp.Enabled = enable;
+                }
+            }
+        }
+
+        private void setFormForManager()
+        {
+            if (login.jabatanUser == "Manager")
+            {
+                setEnabledControls(false);
+                btnBill.Visible = false;
+                btnSubmit.Text = "See Details";
+            }
+            else
+            {
+                setEnabledControls(true);
+                btnBill.Visible = true;
+                btnSubmit.Text = "Submit";
+            }
+        }
+
         private void loadCbThirdParty(ref ComboBox cb)
         {
             ds = new DataSet();
@@ -272,25 +310,29 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             {
                 if (editMode && orderRowId >= 0)
                 {
-                    String query = $"update h_sorder set id_third_party = '{cbTP.SelectedValue.ToString()}' , order_status = '{cbStatus.SelectedItem.ToString()}' , customer_name = '{tbContact.Text}', payment_terms = '{cbPTerms.SelectedValue.ToString()}', payment_type = '{cbPType.SelectedValue.ToString()}',notes = '{tbNotes.Text}' where order_row_id = {orderRowId}";
-                    login.db.executeNonQuery(query);
+                    if (login.jabatanUser != "Manager")
+                    {
+                        String query = $"update h_sorder set id_third_party = '{cbTP.SelectedValue.ToString()}' , order_status = '{cbStatus.SelectedItem.ToString()}' , customer_name = '{tbContact.Text}', payment_terms = '{cbPTerms.SelectedValue.ToString()}', payment_type = '{cbPType.SelectedValue.ToString()}',notes = '{tbNotes.Text}' where order_row_id = {orderRowId}";
+                        login.db.executeNonQuery(query);
 
-                    //harus manual, parameter tanggal ga jalan di query pake model yang di atas
-                    try
-                    {
-                        OracleConnection conn = new OracleConnection("data source = " + login.dbSource + ";user id = " + login.dbUser + ";password = " + login.dbPass);
-                        conn.Open();
-                        OracleCommand cmd = new OracleCommand("update h_sorder set order_created_date = :created, delivery_date = :deliver where order_row_id = :id", conn);
-                        cmd.Parameters.Add(":created", dtpDate.Value);
-                        cmd.Parameters.Add(":deliver", dtpDelivery.Value);
-                        cmd.Parameters.Add(":id", orderRowId);
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("All changes are saved!", "Editing Order Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //harus manual, parameter tanggal ga jalan di query pake model yang di atas
+                        try
+                        {
+                            OracleConnection conn = new OracleConnection("data source = " + login.dbSource + ";user id = " + login.dbUser + ";password = " + login.dbPass);
+                            conn.Open();
+                            OracleCommand cmd = new OracleCommand("update h_sorder set order_created_date = :created, delivery_date = :deliver where order_row_id = :id", conn);
+                            cmd.Parameters.Add(":created", dtpDate.Value);
+                            cmd.Parameters.Add(":deliver", dtpDelivery.Value);
+                            cmd.Parameters.Add(":id", orderRowId);
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("All changes are saved!", "Editing Order Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception x)
+                        {
+                            MessageBox.Show(x.Message, "editing header failed");
+                        }
                     }
-                    catch (Exception x)
-                    {
-                        MessageBox.Show(x.Message, "editing header failed");
-                    }
+                    
                 }
 
                 /*
@@ -364,6 +406,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             loadStatusBilled(ref lblBilled, ref btnBill);
             loadDate(ref dtpDate, "order_created_date");
             loadDate(ref dtpDelivery, "delivery_date");
+            setFormForManager();
             awalLoad = false;
         }
 

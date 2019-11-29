@@ -133,13 +133,16 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             tbCity.Text = pass;
             cbType.SelectedIndex = Convert.ToInt32(type);
             Object namaBranch = login.db.executeScalar($"SELECT BRANCH_NAME FROM V_BRANCH WHERE ID_BRANCH='{branch}'");
-            for (int i = 0; i < cbBranch.Items.Count; i++)
+            if(namaBranch.ToString().Length > 0)
             {
-                string nama = cbBranch.GetItemText(cbBranch.Items[i]);
-                if (nama == namaBranch.ToString())
+                for (int i = 0; i < cbBranch.Items.Count; i++)
                 {
-                    cbBranch.SelectedIndex = i;
-                    break;
+                    string nama = cbBranch.GetItemText(cbBranch.Items[i]);
+                    if (nama == namaBranch.ToString())
+                    {
+                        cbBranch.SelectedIndex = i;
+                        break;
+                    }
                 }
             }
             if(status == "0")

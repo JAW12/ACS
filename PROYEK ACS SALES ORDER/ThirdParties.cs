@@ -62,7 +62,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         private void pbPrint_Click(object sender, EventArgs e)
         {
             RThirdParties crm = new RThirdParties();
-            crm.SetDatabaseLogon("proyekacs", "proryekacs", "orcl", "");
+            crm.SetDatabaseLogon("proyekacs", "proryekacs", "XE", "");
             login.print.crViewer.ReportSource = crm;
             login.print.ShowDialog();
         }
@@ -109,6 +109,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 masterUserToolStripMenuItem.Visible = true;
                 lblBranch.Text = "";
                 loadSSH("Admin", ref cbSales);
+                pbAdd.Enabled = true;
             }
             else if (login.jabatanUser == "Manager")
             {
@@ -116,6 +117,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 lblBranch.Text = login.branchUser;
                 Object idBranch = login.db.executeScalar($"Select id_branch from branch where branch_name='{login.branchUser}'");
                 loadSSH("Manager", ref cbSales, idBranch.ToString());
+                pbAdd.Enabled = false;
             }
             else if (login.jabatanUser == "Sales")
             {
@@ -123,6 +125,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 lblBranch.Text = login.branchUser;
                 lblSales.Visible = false;
                 cbSales.Visible = false;
+                pbAdd.Enabled = true;
             }
             lblUser.Text = login.namaUser + " (" + login.jabatanUser + ")";
             loadDGV();

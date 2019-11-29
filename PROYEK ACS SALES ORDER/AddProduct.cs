@@ -15,6 +15,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         public Login login;
         Double costPrice;
 
+
         public AddProduct(Login login)
         {
             InitializeComponent();

@@ -28,5 +28,10 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void crViewer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

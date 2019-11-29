@@ -58,6 +58,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void pbPrint_Click(object sender, EventArgs e)
         {
+
             login.print.ShowDialog();
         }
 
@@ -92,7 +93,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             else if (cbStatus.SelectedText.ToString() == "Active") hasil = "1";
             else hasil = "0";
             ds = new DataSet();
-            login.db.executeDataSet($"select C.ID_CONTACT, C.LAST_NAME,C.FIRST_NAME,C.JOB_POSITION, C.CITY, C.MOBILE_NUMBER, C.EMAIL, T.FORMAL_NAME,DECODE(C.ACTIVE_STATUS,'0','No Active','1','Active') as STATUS from CONTACT C, THIRD_PARTY T WHERE T.ID_THIRD_PARTY=C.ID_THIRD_PARTY AND C.LAST_NAME LIKE '%{tbLast.Text}%' AND C.FIRST_NAME LIKE '%{tbFirst.Text}%' AND C.JOB_POSITION LIKE '%{tbJob.Text}%' AND C.CITY LIKE '%{tbCity.Text}%' and C.MOBILE_NUMBER LIKE '%{tbMobile.Text}%' and C.EMAIL LIKE '%{tbEmail.Text}%' AND c.ACTIVE_STATUS LIKE '%{hasil}%'", ref ds, "dgvcontact");
+            login.db.executeDataSet($"select C.ID_CONTACT, C.LAST_NAME,C.FIRST_NAME,C.JOB_POSITION, C.CITY, C.MOBILE_NUMBER, C.EMAIL, T.FORMAL_NAME,DECODE(C.ACTIVE_STATUS,'0','No Active','1','Active') as STATUS from CONTACT C, THIRD_PARTY T WHERE T.ID_THIRD_PARTY=C.ID_THIRD_PARTY AND C.LAST_NAME LIKE '%{tbLast.Text}%' AND C.FIRST_NAME LIKE '%{tbFirst.Text}%' AND C.JOB_POSITION LIKE '%{tbJob.Text}%' AND C.CITY LIKE '%{tbCity.Text}%' and C.MOBILE_NUMBER LIKE '%{tbMobile.Text}%' and C.EMAIL LIKE '%{tbEmail.Text}%' and T.FORMAL_NAME LIKE '%{tbTP.Text}%'AND c.ACTIVE_STATUS LIKE '%{hasil}%'", ref ds, "dgvcontact");
         }
         private void isi_dgv()
         {

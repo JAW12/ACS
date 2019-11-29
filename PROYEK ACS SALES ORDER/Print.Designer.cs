@@ -42,9 +42,12 @@
             this.crViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crViewer.Cursor = System.Windows.Forms.Cursors.Default;
             this.crViewer.Location = new System.Drawing.Point(0, 0);
+            this.crViewer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.crViewer.Name = "crViewer";
-            this.crViewer.Size = new System.Drawing.Size(800, 450);
+            this.crViewer.Size = new System.Drawing.Size(1066, 553);
             this.crViewer.TabIndex = 0;
+            this.crViewer.ToolPanelWidth = 267;
+            this.crViewer.Load += new System.EventHandler(this.crViewer_Load);
             // 
             // lbl_
             // 
@@ -54,9 +57,10 @@
             this.lbl_.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(80)))), ((int)(((byte)(137)))));
-            this.lbl_.Location = new System.Drawing.Point(751, 9);
+            this.lbl_.Location = new System.Drawing.Point(1001, 11);
+            this.lbl_.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_.Name = "lbl_";
-            this.lbl_.Size = new System.Drawing.Size(17, 18);
+            this.lbl_.Size = new System.Drawing.Size(21, 24);
             this.lbl_.TabIndex = 112;
             this.lbl_.Text = "_";
             this.lbl_.Click += new System.EventHandler(this.lbl__Click);
@@ -69,22 +73,24 @@
             this.lblX.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblX.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblX.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(80)))), ((int)(((byte)(137)))));
-            this.lblX.Location = new System.Drawing.Point(770, 9);
+            this.lblX.Location = new System.Drawing.Point(1027, 11);
+            this.lblX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblX.Name = "lblX";
-            this.lblX.Size = new System.Drawing.Size(19, 18);
+            this.lblX.Size = new System.Drawing.Size(25, 24);
             this.lblX.TabIndex = 113;
             this.lblX.Text = "X";
             this.lblX.Click += new System.EventHandler(this.lblX_Click);
             // 
             // Print
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.lbl_);
             this.Controls.Add(this.lblX);
             this.Controls.Add(this.crViewer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Print";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Print";
@@ -95,9 +101,8 @@
         }
 
         #endregion
-
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crViewer;
         private System.Windows.Forms.Label lbl_;
         private System.Windows.Forms.Label lblX;
+        public CrystalDecisions.Windows.Forms.CrystalReportViewer crViewer;
     }
 }

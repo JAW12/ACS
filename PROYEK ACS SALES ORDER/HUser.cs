@@ -113,6 +113,8 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         private void HUser_VisibleChanged(object sender, EventArgs e)
         {
             lblJudul.Text = judul;
+            loadSSH(ref cbType, "USER_TYPE");
+            loadSSH(ref cbBranch, "");
             if (lblJudul.Text == "Add User")
             {
                 Object newId = login.db.executeScalar("SELECT COUNT(USER_ROW_ID) + 1 FROM USER_DATA");
@@ -124,17 +126,12 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             {
                 btnStatus.Enabled = true;
                 lblUserID.Text = id;
-            }
-            loadSSH(ref cbType, "USER_TYPE");
-            loadSSH(ref cbBranch, "");
-            tbFirst.Text = uname;
-            tbLast.Text = name;
-            tbEmail.Text = pass;
-            tbCity.Text = pass;
-            cbType.SelectedIndex = Convert.ToInt32(type);
-            Object namaBranch = login.db.executeScalar($"SELECT BRANCH_NAME FROM V_BRANCH WHERE ID_BRANCH='{branch}'");
-            if(namaBranch.ToString().Length > 0)
-            {
+                tbFirst.Text = uname;
+                tbLast.Text = name;
+                tbEmail.Text = pass;
+                tbCity.Text = pass;
+                cbType.SelectedIndex = Convert.ToInt32(type);
+                Object namaBranch = login.db.executeScalar($"SELECT BRANCH_NAME FROM V_BRANCH WHERE ID_BRANCH='{branch}'");
                 for (int i = 0; i < cbBranch.Items.Count; i++)
                 {
                     string nama = cbBranch.GetItemText(cbBranch.Items[i]);

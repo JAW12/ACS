@@ -58,7 +58,11 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void pbPrint_Click(object sender, EventArgs e)
         {
-
+            RContact crm = new RContact();
+            
+            crm.SetDatabaseLogon("proyekacs", "proyekacs", "orcl", "");
+            crm.SetParameterValue(0, tbTP.Text);
+            login.print.crViewer.ReportSource = crm;
             login.print.ShowDialog();
         }
 

@@ -17,7 +17,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             InitializeComponent();
             this.dbUser = "proyekacs";
             this.dbPass = "proyekacs";
-            this.dbSource = "XE";
+            this.dbSource = "orcl";
         }
 
         public String dbUser, dbPass, dbSource;

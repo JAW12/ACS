@@ -82,6 +82,43 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 cbJenis.SelectedIndex = 0;
 
             }
+            else if(tipe == "US")
+            {
+                cbJenis.Visible = false;
+                dtpFrom.Visible = false;
+                lblUntil.Visible = false;
+                dtpTo.Visible = false;
+                btnShow.Visible = false;
+                dt = new DataTable();
+                dt = login.db.executeDataTable("SELECT CASE U_STATUS WHEN '1' THEN 'Admin' WHEN '2' THEN 'Manager' WHEN '3' THEN 'Sales' END AS TYPE, COUNT(U_STATUS) AS AMOUNT FROM USER_DATA GROUP BY U_STATUS");
+                dgvTable.DataSource = dt;
+                dgvTable.Columns[0].Width = dgvTable.Columns[1].Width + 200;
+
+                chStatistic.Series.Clear();
+                chStatistic.Legends.Clear();
+
+                //Add a new Legend(if needed) and do some formating
+                chStatistic.Legends.Add("Type");
+                chStatistic.Legends[0].LegendStyle = LegendStyle.Table;
+                chStatistic.Legends[0].Docking = Docking.Bottom;
+                chStatistic.Legends[0].Alignment = StringAlignment.Center;
+                chStatistic.Legends[0].Title = "User Type";
+                chStatistic.Legends[0].BorderColor = Color.Black;
+
+                //Add a new chart-series
+                string seriesname = "USType";
+                chStatistic.Series.Add(seriesname);
+                //set the chart-type to "Pie"
+                chStatistic.Series[seriesname].ChartType = SeriesChartType.Pie;
+                chStatistic.Series[seriesname].LabelForeColor = Color.White;
+                chStatistic.Series[seriesname].Font = new Font("default", 14, FontStyle.Bold);
+
+                //Add some datapoints so the series. in this case you can pass the values to this method
+                foreach (DataGridViewRow row in dgvTable.Rows)
+                {
+                    chStatistic.Series[seriesname].Points.AddXY(row.Cells[0].Value, row.Cells[1].Value);
+                }
+            }
         }
 
         private void cbJenis_SelectedIndexChanged(object sender, EventArgs e)

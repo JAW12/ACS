@@ -79,11 +79,25 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             {
                 masterUserToolStripMenuItem.Visible = true;
                 lblBranch.Text = "";
+                pbAdd.Visible = true;
+                pbCheck.Enabled = true;
+                pbUncheck.Enabled = true;
+            }
+            else if (login.jabatanUser=="Sales")
+            {
+                masterUserToolStripMenuItem.Visible = false;
+                lblBranch.Text = login.branchUser;
+                pbAdd.Visible = true;
+                pbCheck.Enabled = true;
+                pbUncheck.Enabled = true;
             }
             else
             {
                 masterUserToolStripMenuItem.Visible = false;
                 lblBranch.Text = login.branchUser;
+                pbAdd.Visible = false;
+                pbCheck.Enabled = false;
+                pbUncheck.Enabled = false;
             }
             lblUser.Text = login.namaUser + " (" + login.jabatanUser + ")";
             isi_dataset();
@@ -97,7 +111,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             else if (cbStatus.SelectedText.ToString() == "Active") hasil = "1";
             else hasil = "0";
             ds = new DataSet();
-            login.db.executeDataSet($"select C.ID_CONTACT, C.LAST_NAME,C.FIRST_NAME,C.JOB_POSITION, C.CITY, C.MOBILE_NUMBER, C.EMAIL, T.FORMAL_NAME,DECODE(C.ACTIVE_STATUS,'0','No Active','1','Active') as STATUS from CONTACT C, THIRD_PARTY T WHERE T.ID_THIRD_PARTY=C.ID_THIRD_PARTY AND C.LAST_NAME LIKE '%{tbLast.Text}%' AND C.FIRST_NAME LIKE '%{tbFirst.Text}%' AND C.JOB_POSITION LIKE '%{tbJob.Text}%' AND C.CITY LIKE '%{tbCity.Text}%' and C.MOBILE_NUMBER LIKE '%{tbMobile.Text}%' and C.EMAIL LIKE '%{tbEmail.Text}%' and T.FORMAL_NAME LIKE '%{tbTP.Text}%'AND c.ACTIVE_STATUS LIKE '%{hasil}%'", ref ds, "dgvcontact");
+            login.db.executeDataSet($"select C.ID_CONTACT, C.LAST_NAME,C.FIRST_NAME,C.JOB_POSITION, C.CITY, C.MOBILE_NUMBER, C.EMAIL, T.FORMAL_NAME as THIRD_PARTY ,DECODE(C.ACTIVE_STATUS,'0','No Active','1','Active') as STATUS from CONTACT C, THIRD_PARTY T WHERE T.ID_THIRD_PARTY=C.ID_THIRD_PARTY AND C.LAST_NAME LIKE '%{tbLast.Text}%' AND C.FIRST_NAME LIKE '%{tbFirst.Text}%' AND C.JOB_POSITION LIKE '%{tbJob.Text}%' AND C.CITY LIKE '%{tbCity.Text}%' and C.MOBILE_NUMBER LIKE '%{tbMobile.Text}%' and C.EMAIL LIKE '%{tbEmail.Text}%' and T.FORMAL_NAME LIKE '%{tbTP.Text}%'AND c.ACTIVE_STATUS LIKE '%{hasil}%'", ref ds, "dgvcontact");
         }
         private void isi_dgv()
         {
@@ -155,23 +169,26 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void dgvContact_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 9)
+            if (login.jabatanUser == "Admin" || login.jabatanUser == "Sales")
             {
-                if (dgvContact.Rows[e.RowIndex].Cells[9].Value == null || dgvContact.Rows[e.RowIndex].Cells[9].Value.ToString() == "False")
+                if (e.ColumnIndex == 9)
                 {
-                    dgvContact.Rows[e.RowIndex].Cells[9].Value = true;
+                    if (dgvContact.Rows[e.RowIndex].Cells[9].Value == null || dgvContact.Rows[e.RowIndex].Cells[9].Value.ToString() == "False")
+                    {
+                        dgvContact.Rows[e.RowIndex].Cells[9].Value = true;
+                    }
+                    else
+                    {
+                        dgvContact.Rows[e.RowIndex].Cells[9].Value = false;
+                    }
                 }
-                else
+                else if (e.ColumnIndex > -1)
                 {
-                    dgvContact.Rows[e.RowIndex].Cells[9].Value = false;
+                    HContact hc = new HContact(login, dgvContact.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    hc.ShowDialog();
+                    isi_dataset();
+                    isi_dgv();
                 }
-            }
-            else if (e.ColumnIndex > -1)
-            {
-                HContact hc = new HContact(login, dgvContact.Rows[e.RowIndex].Cells[0].Value.ToString());
-                hc.ShowDialog();
-                isi_dataset();
-                isi_dgv();
             }
         }
         private void bersih()

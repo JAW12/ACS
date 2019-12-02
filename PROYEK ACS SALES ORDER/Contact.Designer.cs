@@ -88,7 +88,7 @@
             this.dgvContact.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvContact.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvContact.Location = new System.Drawing.Point(16, 174);
-            this.dgvContact.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvContact.Margin = new System.Windows.Forms.Padding(4);
             this.dgvContact.Name = "dgvContact";
             this.dgvContact.ReadOnly = true;
             this.dgvContact.Size = new System.Drawing.Size(1375, 538);
@@ -99,7 +99,7 @@
             // tbLast
             // 
             this.tbLast.Location = new System.Drawing.Point(16, 144);
-            this.tbLast.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbLast.Margin = new System.Windows.Forms.Padding(4);
             this.tbLast.Name = "tbLast";
             this.tbLast.Size = new System.Drawing.Size(132, 22);
             this.tbLast.TabIndex = 19;
@@ -107,7 +107,7 @@
             // tbFirst
             // 
             this.tbFirst.Location = new System.Drawing.Point(157, 144);
-            this.tbFirst.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbFirst.Margin = new System.Windows.Forms.Padding(4);
             this.tbFirst.Name = "tbFirst";
             this.tbFirst.Size = new System.Drawing.Size(172, 22);
             this.tbFirst.TabIndex = 20;
@@ -115,7 +115,7 @@
             // tbJob
             // 
             this.tbJob.Location = new System.Drawing.Point(339, 144);
-            this.tbJob.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbJob.Margin = new System.Windows.Forms.Padding(4);
             this.tbJob.Name = "tbJob";
             this.tbJob.Size = new System.Drawing.Size(131, 22);
             this.tbJob.TabIndex = 21;
@@ -123,7 +123,7 @@
             // tbCity
             // 
             this.tbCity.Location = new System.Drawing.Point(479, 144);
-            this.tbCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCity.Margin = new System.Windows.Forms.Padding(4);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(132, 22);
             this.tbCity.TabIndex = 22;
@@ -131,7 +131,7 @@
             // tbMobile
             // 
             this.tbMobile.Location = new System.Drawing.Point(620, 144);
-            this.tbMobile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMobile.Margin = new System.Windows.Forms.Padding(4);
             this.tbMobile.Name = "tbMobile";
             this.tbMobile.Size = new System.Drawing.Size(132, 22);
             this.tbMobile.TabIndex = 22;
@@ -139,7 +139,7 @@
             // tbEmail
             // 
             this.tbEmail.Location = new System.Drawing.Point(761, 144);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(185, 22);
             this.tbEmail.TabIndex = 23;
@@ -148,7 +148,7 @@
             // 
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(1129, 144);
-            this.cbStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbStatus.Margin = new System.Windows.Forms.Padding(4);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(164, 24);
             this.cbStatus.TabIndex = 25;
@@ -156,7 +156,7 @@
             // tbTP
             // 
             this.tbTP.Location = new System.Drawing.Point(956, 144);
-            this.tbTP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTP.Margin = new System.Windows.Forms.Padding(4);
             this.tbTP.Name = "tbTP";
             this.tbTP.Size = new System.Drawing.Size(164, 22);
             this.tbTP.TabIndex = 32;
@@ -217,7 +217,7 @@
             this.pbLogo.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.logo;
             this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbLogo.Location = new System.Drawing.Point(16, 47);
-            this.pbLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(159, 50);
             this.pbLogo.TabIndex = 39;
@@ -228,7 +228,7 @@
             this.pbIcon.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.contact;
             this.pbIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbIcon.Location = new System.Drawing.Point(181, 30);
-            this.pbIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbIcon.Margin = new System.Windows.Forms.Padding(4);
             this.pbIcon.Name = "pbIcon";
             this.pbIcon.Size = new System.Drawing.Size(93, 80);
             this.pbIcon.TabIndex = 40;
@@ -240,7 +240,7 @@
             this.pbCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbCheck.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbCheck.Location = new System.Drawing.Point(1303, 139);
-            this.pbCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCheck.Margin = new System.Windows.Forms.Padding(4);
             this.pbCheck.Name = "pbCheck";
             this.pbCheck.Size = new System.Drawing.Size(40, 37);
             this.pbCheck.TabIndex = 52;
@@ -253,7 +253,7 @@
             this.pbUncheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbUncheck.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbUncheck.Location = new System.Drawing.Point(1351, 139);
-            this.pbUncheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbUncheck.Margin = new System.Windows.Forms.Padding(4);
             this.pbUncheck.Name = "pbUncheck";
             this.pbUncheck.Size = new System.Drawing.Size(40, 37);
             this.pbUncheck.TabIndex = 51;
@@ -267,7 +267,7 @@
             this.btnInactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInactive.ForeColor = System.Drawing.Color.White;
             this.btnInactive.Location = new System.Drawing.Point(1129, 102);
-            this.btnInactive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInactive.Margin = new System.Windows.Forms.Padding(4);
             this.btnInactive.Name = "btnInactive";
             this.btnInactive.Size = new System.Drawing.Size(168, 37);
             this.btnInactive.TabIndex = 49;
@@ -283,7 +283,7 @@
             this.btnActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActive.ForeColor = System.Drawing.Color.Black;
             this.btnActive.Location = new System.Drawing.Point(953, 102);
-            this.btnActive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActive.Margin = new System.Windows.Forms.Padding(4);
             this.btnActive.Name = "btnActive";
             this.btnActive.Size = new System.Drawing.Size(168, 37);
             this.btnActive.TabIndex = 50;
@@ -298,7 +298,7 @@
             this.pbUnsearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbUnsearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbUnsearch.Location = new System.Drawing.Point(1351, 102);
-            this.pbUnsearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbUnsearch.Margin = new System.Windows.Forms.Padding(4);
             this.pbUnsearch.Name = "pbUnsearch";
             this.pbUnsearch.Size = new System.Drawing.Size(40, 37);
             this.pbUnsearch.TabIndex = 48;
@@ -311,7 +311,7 @@
             this.pbSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbSearch.Location = new System.Drawing.Point(1303, 102);
-            this.pbSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pbSearch.Name = "pbSearch";
             this.pbSearch.Size = new System.Drawing.Size(40, 37);
             this.pbSearch.TabIndex = 47;
@@ -350,7 +350,7 @@
             this.pbPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbPrint.Location = new System.Drawing.Point(1196, 46);
-            this.pbPrint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbPrint.Margin = new System.Windows.Forms.Padding(4);
             this.pbPrint.Name = "pbPrint";
             this.pbPrint.Size = new System.Drawing.Size(63, 52);
             this.pbPrint.TabIndex = 61;
@@ -363,7 +363,7 @@
             this.pbAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbAdd.Location = new System.Drawing.Point(1267, 46);
-            this.pbAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pbAdd.Name = "pbAdd";
             this.pbAdd.Size = new System.Drawing.Size(124, 52);
             this.pbAdd.TabIndex = 60;
@@ -421,7 +421,7 @@
             this.Controls.Add(this.pbSearch);
             this.Controls.Add(this.pbIcon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Contact";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "a";

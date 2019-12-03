@@ -14,7 +14,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
     public partial class HThirdParty : Form
     {
         string active = "1";
-        string MatchPhonePattern = @"^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$";
+        string MatchPhonePattern = @"^(\+\d{1,2}\s)?\(?\d{3}\)?\d{3}\d{4}$";
         string MatchEmailPattern =
     @"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@"
 + @"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?

@@ -65,15 +65,15 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         public void loadDGV(string username = "", string nama = "", string jabatan = "", string branch = "", string status_user = "")
         {
             dgvUser.Columns.Clear();
-            if (jabatan != "4" && status_user != "2")
+            if (jabatan != "0" && status_user != "2")
             {
                 dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS TYPE,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{jabatan}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{status_user}%' ORDER BY 1");
             }
-            else if (jabatan != "4" && status_user == "2")
+            else if (jabatan != "0" && status_user == "2")
             {
                 dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS TYPE,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{jabatan}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{""}%' ORDER BY 1");
             }
-            else if (jabatan == "4" && status_user != "2")
+            else if (jabatan == "0" && status_user != "2")
             {
                 dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS TYPE,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{""}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{status_user}%' ORDER BY 1");
             }
@@ -89,7 +89,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         public void loadSSH(string parameter, ref ComboBox cb)
         {
-            DataTable dt = login.db.executeDataTable($"SELECT * FROM SSH_VARIABLES WHERE TIPE='{parameter}' ORDER BY CASE WHEN ISI = 'ALL' THEN 0 ELSE 1 END");
+            DataTable dt = login.db.executeDataTable($"SELECT * FROM SSH_VARIABLES WHERE TIPE='{parameter}' ORDER BY CASE WHEN ISI = 'ALL' THEN 0 ELSE 1 END,1");
             cb.DataSource = dt;
             cb.DisplayMember = "isi";
         }
@@ -106,7 +106,18 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void pbSearch_Click(object sender, EventArgs e)
         {
-            loadDGV(tbUsername.Text, tbName.Text, (cbRole.SelectedIndex + 1).ToString(), tbBranch.Text, cbStatus.SelectedIndex.ToString());
+            if (cbStatus.SelectedIndex == 1)
+            {
+                loadDGV(tbUsername.Text, tbName.Text, (cbRole.SelectedIndex).ToString(), tbBranch.Text, "0");
+            }
+            else if (cbStatus.SelectedIndex == 2)
+            {
+                loadDGV(tbUsername.Text, tbName.Text, (cbRole.SelectedIndex).ToString(), tbBranch.Text, "1");
+            }
+            else
+            {
+                loadDGV(tbUsername.Text, tbName.Text, (cbRole.SelectedIndex).ToString(), tbBranch.Text, "2");
+            }
         }
 
         private void Master_User_VisibleChanged(object sender, EventArgs e)

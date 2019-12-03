@@ -130,7 +130,8 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void pbStatistic_Click(object sender, EventArgs e)
         {
-
+            login.statistic.tipe = "US";
+            login.statistic.ShowDialog();
         }
 
         private void pbPrint_Click(object sender, EventArgs e)

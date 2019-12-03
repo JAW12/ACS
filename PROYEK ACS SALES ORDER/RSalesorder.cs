@@ -16,14 +16,14 @@ namespace PROYEK_ACS_SALES_ORDER_V1 {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class RContact : ReportClass {
+    public class RSalesorder : ReportClass {
         
-        public RContact() {
+        public RSalesorder() {
         }
         
         public override string ResourceName {
             get {
-                return "RContact.rpt";
+                return "RSalesorder.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1 {
         
         public override string FullResourceName {
             get {
-                return "PROYEK_ACS_SALES_ORDER_V1.RContact.rpt";
+                return "PROYEK_ACS_SALES_ORDER_V1.RSalesorder.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1 {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1 {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,41 +82,17 @@ namespace PROYEK_ACS_SALES_ORDER_V1 {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[6];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Param1 {
-            get {
-                return this.DataDefinition.ParameterFields[0];
+                return this.ReportDefinition.Sections[4];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedRContact : Component, ICachedReport {
+    public class CachedRSalesorder : Component, ICachedReport {
         
-        public CachedRContact() {
+        public CachedRSalesorder() {
         }
         
         [Browsable(false)]
@@ -153,7 +129,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1 {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            RContact rpt = new RContact();
+            RSalesorder rpt = new RSalesorder();
             rpt.Site = this.Site;
             return rpt;
         }

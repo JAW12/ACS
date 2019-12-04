@@ -44,7 +44,13 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 dtpTo.Visible = false;
                 btnShow.Visible = false;
                 dt = new DataTable();
-                dt = login.db.executeDataTable("SELECT CASE THIRD_PARTY_TYPE WHEN '1' THEN 'Prospect' WHEN '2' THEN 'Customer' WHEN '3' THEN 'Vendor' WHEN '4' THEN 'Others' END AS TYPE, COUNT(THIRD_PARTY_TYPE) AS AMOUNT FROM THIRD_PARTY GROUP BY THIRD_PARTY_TYPE");
+                if(login.jabatanUser != "Admin") {
+                    dt = login.db.executeDataTable($"SELECT CASE T.THIRD_PARTY_TYPE WHEN '1' THEN 'Prospect' WHEN '2' THEN 'Customer' WHEN '3' THEN 'Vendor' WHEN '4' THEN 'Others' END AS TYPE, COUNT(T.THIRD_PARTY_TYPE) AS AMOUNT FROM THIRD_PARTY T, USER_DATA U WHERE T.USER_ROW_ID = U.USER_ROW_ID AND U.ID_BRANCH = '%{login.idBranchUser}%' GROUP BY T.THIRD_PARTY_TYPE");
+                }
+                else
+                {
+                    dt = login.db.executeDataTable("SELECT CASE T.THIRD_PARTY_TYPE WHEN '1' THEN 'Prospect' WHEN '2' THEN 'Customer' WHEN '3' THEN 'Vendor' WHEN '4' THEN 'Others' END AS TYPE, COUNT(T.THIRD_PARTY_TYPE) AS AMOUNT FROM THIRD_PARTY T GROUP BY T.THIRD_PARTY_TYPE");
+                }
                 dgvTable.DataSource = dt;
                 dgvTable.Columns[0].Width = dgvTable.Columns[1].Width + 200;
 
@@ -90,26 +96,19 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 dtpTo.Visible = false;
                 btnShow.Visible = false;
                 dt = new DataTable();
-                dt = login.db.executeDataTable("SELECT CASE U_STATUS WHEN '1' THEN 'Admin' WHEN '2' THEN 'Manager' WHEN '3' THEN 'Sales' END AS TYPE, COUNT(U_STATUS) AS AMOUNT FROM USER_DATA GROUP BY U_STATUS");
+                //dt = login.db.executeDataTable($"SELECT CASE U_STATUS WHEN '1' THEN 'Admin' WHEN '2' THEN 'Manager' WHEN '3' THEN 'Sales' END AS TYPE, COUNT(U_STATUS) AS AMOUNT FROM USER_DATA GROUP BY U_STATUS");
+                dt = login.db.executeDataTable($"SELECT U.U_NAME AS NAME, SUM(H.NET_TOTAL) AS TRANSACTION FROM USER_DATA U, H_SORDER H WHERE U.USER_ROW_ID = H.SALES_ROW_ID GROUP BY U.U_NAME");
                 dgvTable.DataSource = dt;
                 dgvTable.Columns[0].Width = dgvTable.Columns[1].Width + 200;
 
                 chStatistic.Series.Clear();
                 chStatistic.Legends.Clear();
 
-                //Add a new Legend(if needed) and do some formating
-                chStatistic.Legends.Add("Type");
-                chStatistic.Legends[0].LegendStyle = LegendStyle.Table;
-                chStatistic.Legends[0].Docking = Docking.Bottom;
-                chStatistic.Legends[0].Alignment = StringAlignment.Center;
-                chStatistic.Legends[0].Title = "User Type";
-                chStatistic.Legends[0].BorderColor = Color.Black;
-
                 //Add a new chart-series
                 string seriesname = "USType";
                 chStatistic.Series.Add(seriesname);
-                //set the chart-type to "Pie"
-                chStatistic.Series[seriesname].ChartType = SeriesChartType.Pie;
+                //set the chart-type to "Bar"
+                chStatistic.Series[seriesname].ChartType = SeriesChartType.Bar;
                 chStatistic.Series[seriesname].LabelForeColor = Color.White;
                 chStatistic.Series[seriesname].Font = new Font("default", 14, FontStyle.Bold);
 
@@ -117,6 +116,49 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 foreach (DataGridViewRow row in dgvTable.Rows)
                 {
                     chStatistic.Series[seriesname].Points.AddXY(row.Cells[0].Value, row.Cells[1].Value);
+                }
+                for(int i =0; i < dgvTable.Rows.Count; i++)
+                {
+                    if (i % 2 == 0)
+                    {
+                        chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(38, 133, 203);
+                    }
+                    if (i % 3 == 0)
+                    {
+                        chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(74, 217, 90);
+                    }
+                    if (i % 4 == 0)
+                    {
+                        chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(254, 200, 27);
+                    }
+                    if (i % 5 == 0)
+                    {
+                        chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(253, 141, 20);
+                    }
+                    if (i % 6 == 0)
+                    {
+                        chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(206, 0, 230);
+                    }
+                    if (i % 7 == 0)
+                    {
+                        chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(75, 74, 211);
+                    }
+                    if (i % 8 == 0)
+                    {
+                        chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(252, 48, 38);
+                    }
+                    if (i % 9 == 0)
+                    {
+                        chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(125, 184, 255);
+                    }
+                    if (i % 10 == 0)
+                    {
+                        chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(106, 220, 136);
+                    }
+                    if (i % 11 == 0)
+                    {
+                        chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(254, 228, 95);
+                    }
                 }
             }
         }
@@ -132,26 +174,26 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                     dtpTo.Visible = false;
                     btnShow.Visible = false;
                     dt = new DataTable();
-                    dt = login.db.executeDataTable("SELECT ORDER_STATUS AS STATUS, COUNT(ORDER_STATUS) AS AMOUNT FROM H_SORDER GROUP BY ORDER_STATUS");
+                    if(login.jabatanUser != "Admin")
+                    {
+                        dt = login.db.executeDataTable($"SELECT ORDER_STATUS AS STATUS, COUNT(ORDER_STATUS) AS AMOUNT FROM H_SORDER WHERE ID_BRANCH LIKE '${login.idBranchUser}%' GROUP BY ORDER_STATUS");
+                    }
+                    else
+                    {
+                        dt = login.db.executeDataTable("SELECT ORDER_STATUS AS STATUS, COUNT(ORDER_STATUS) AS AMOUNT FROM H_SORDER GROUP BY ORDER_STATUS");
+                    }
+
                     dgvTable.DataSource = dt;
                     dgvTable.Columns[0].Width = dgvTable.Columns[1].Width + 200;
 
                     chStatistic.Series.Clear();
                     chStatistic.Legends.Clear();
 
-                    //Add a new Legend(if needed) and do some formating
-                    chStatistic.Legends.Add("Status");
-                    chStatistic.Legends[0].LegendStyle = LegendStyle.Table;
-                    chStatistic.Legends[0].Docking = Docking.Bottom;
-                    chStatistic.Legends[0].Alignment = StringAlignment.Center;
-                    chStatistic.Legends[0].Title = "Sales Order Status";
-                    chStatistic.Legends[0].BorderColor = Color.Black;
-
                     //Add a new chart-series
                     string seriesname = "SOStatus";
                     chStatistic.Series.Add(seriesname);
                     //set the chart-type to "Pie"
-                    chStatistic.Series[seriesname].ChartType = SeriesChartType.Pie;
+                    chStatistic.Series[seriesname].ChartType = SeriesChartType.Bar;
                     chStatistic.Series[seriesname].LabelForeColor = Color.White;
                     chStatistic.Series[seriesname].Font = new Font("default", 10, FontStyle.Bold);
 
@@ -159,6 +201,49 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                     foreach (DataGridViewRow row in dgvTable.Rows)
                     {
                         chStatistic.Series[seriesname].Points.AddXY(row.Cells[0].Value, row.Cells[1].Value);
+                    }
+                    for (int i = 0; i < dgvTable.Rows.Count; i++)
+                    {
+                        if (i % 2 == 0)
+                        {
+                            chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(38, 133, 203);
+                        }
+                        if (i % 3 == 0)
+                        {
+                            chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(74, 217, 90);
+                        }
+                        if (i % 4 == 0)
+                        {
+                            chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(254, 200, 27);
+                        }
+                        if (i % 5 == 0)
+                        {
+                            chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(253, 141, 20);
+                        }
+                        if (i % 6 == 0)
+                        {
+                            chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(206, 0, 230);
+                        }
+                        if (i % 7 == 0)
+                        {
+                            chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(75, 74, 211);
+                        }
+                        if (i % 8 == 0)
+                        {
+                            chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(252, 48, 38);
+                        }
+                        if (i % 9 == 0)
+                        {
+                            chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(125, 184, 255);
+                        }
+                        if (i % 10 == 0)
+                        {
+                            chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(106, 220, 136);
+                        }
+                        if (i % 11 == 0)
+                        {
+                            chStatistic.Series[seriesname].Points[i].Color = Color.FromArgb(254, 228, 95);
+                        }
                     }
                 }
                 else if (cbJenis.SelectedIndex == 1)
@@ -218,9 +303,18 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 chStatistic.Series[seriesname].ChartType = SeriesChartType.Line;
                 chStatistic.Series[seriesname].LabelForeColor = Color.White;
                 chStatistic.Series[seriesname].Font = new Font("default", 10, FontStyle.Bold);
+                chStatistic.Series[seriesname].BorderWidth = 5;
 
                 DataTable dt = new DataTable();
-                dt = login.db.executeDataTable($"SELECT H.ORDER_CREATED_DATE AS TGL, ((D.INPUT_PRICE - D.COSTPRICE) * D.QTY) AS PROFIT FROM D_SORDER D, H_SORDER H WHERE D.ID_PRODUCT = '{idProduk}' AND D.ORDER_ROW_ID = H.ORDER_ROW_ID AND H.ORDER_CREATED_DATE >= TO_DATE('{dtpFrom.Value.ToShortDateString()}', 'DD/MM/YYYY') AND H.ORDER_CREATED_DATE <= TO_DATE('{dtpTo.Value.ToShortDateString()}', 'DD/MM/YYYY')");
+                if(login.jabatanUser == "Admin")
+                {
+                    dt = login.db.executeDataTable($"SELECT H.ORDER_CREATED_DATE AS TGL, ((D.INPUT_PRICE - D.COSTPRICE) * D.QTY) AS PROFIT FROM D_SORDER D, H_SORDER H WHERE D.ID_PRODUCT = '{idProduk}' AND D.ORDER_ROW_ID = H.ORDER_ROW_ID AND H.ORDER_CREATED_DATE >= TO_DATE('{dtpFrom.Value.ToShortDateString()}', 'DD/MM/YYYY') AND H.ORDER_CREATED_DATE <= TO_DATE('{dtpTo.Value.ToShortDateString()}', 'DD/MM/YYYY')");
+                }
+                else
+                {
+                    dt = login.db.executeDataTable($"SELECT H.ORDER_CREATED_DATE AS TGL, ((D.INPUT_PRICE - D.COSTPRICE) * D.QTY) AS PROFIT FROM D_SORDER D, H_SORDER H WHERE D.ID_PRODUCT = '{idProduk}' AND D.ORDER_ROW_ID = H.ORDER_ROW_ID AND H.ORDER_CREATED_DATE >= TO_DATE('{dtpFrom.Value.ToShortDateString()}', 'DD/MM/YYYY') AND H.ORDER_CREATED_DATE <= TO_DATE('{dtpTo.Value.ToShortDateString()}', 'DD/MM/YYYY') AND H.ID_BRANCH LIKE '%{login.idBranchUser}%'");
+                }
+               
                 //Add some datapoints so the series. in this case you can pass the values to this method
                 foreach (DataRow row in dt.Rows)
                 {

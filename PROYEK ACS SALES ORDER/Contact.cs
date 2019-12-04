@@ -60,7 +60,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             RContact crm = new RContact();
             
-            crm.SetDatabaseLogon("proyekacs", "proyekacs", "orcl", "");
+            crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
             crm.SetParameterValue(0, tbTP.Text);
             login.print.crViewer.ReportSource = crm;
             login.print.ShowDialog();

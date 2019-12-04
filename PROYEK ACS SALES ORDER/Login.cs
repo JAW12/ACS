@@ -17,7 +17,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             InitializeComponent();
             this.dbUser = "proyekacs";
             this.dbPass = "proyekacs";
-            this.dbSource = "orcl";
+            this.dbSource = "xe";
         }
 
         public String dbUser, dbPass, dbSource;
@@ -41,6 +41,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         public string namaUser;
         public string jabatanUser;
         public string branchUser;
+        public string idBranchUser;
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -70,19 +71,21 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                         {
                             jabatanUser = "Admin";
                             branchUser = "ALL";
+                            idBranchUser = "";
                         }
                         else if (user[idxUser][4].ToString() == "2")
                         {
                             jabatanUser = "Manager";
                             branchUser = db.executeScalar($"SELECT B.BRANCH_NAME FROM BRANCH B, USER_DATA U WHERE U.USER_ROW_ID = '{idUser}' AND U.ID_BRANCH = B.ID_BRANCH").ToString();
+                            idBranchUser = db.executeScalar($"SELECT B.ID_BRANCH FROM BRANCH B, USER_DATA U WHERE U.USER_ROW_ID = '{idUser}' AND U.ID_BRANCH = B.ID_BRANCH").ToString();
                         }
                         else if (user[idxUser][4].ToString() == "3")
                         {
                             jabatanUser = "Sales";
                             branchUser = db.executeScalar($"SELECT B.BRANCH_NAME FROM BRANCH B, USER_DATA U WHERE U.USER_ROW_ID = '{idUser}' AND U.ID_BRANCH = B.ID_BRANCH").ToString();
+                            idBranchUser = db.executeScalar($"SELECT B.ID_BRANCH FROM BRANCH B, USER_DATA U WHERE U.USER_ROW_ID = '{idUser}' AND U.ID_BRANCH = B.ID_BRANCH").ToString();
                         }
                        
-
                         MessageBox.Show("Login As " + jabatanUser);
                         thirdParties.Show();
                         Hide();

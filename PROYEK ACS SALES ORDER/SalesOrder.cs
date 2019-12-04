@@ -71,18 +71,12 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
-            if(login.jabatanUser != "Manager") { 
-                resetHOrder();
-                login.hSales.ShowDialog();
+            resetHOrder();
+            login.hSales.ShowDialog();
 
-                //tambahan winda untuk munculin orderan baru/perubahan orderan
-                loadDataTable();
-                loadDGV();
-            }
-            else
-            {
-                MessageBox.Show("Manager Can't Add New Sales Order");
-            }
+            //tambahan winda untuk munculin orderan baru/perubahan orderan
+            loadDataTable();
+            loadDGV();
         }
 
         public void resetHOrder()
@@ -106,7 +100,6 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             {
                 row.Cells[9].Value = false;
             }
-
             if (login.jabatanUser == "Admin")
             {
                 masterUserToolStripMenuItem.Visible = true;
@@ -118,7 +111,6 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 lblBranch.Text = login.branchUser;
             }
             lblUser.Text = login.namaUser + " (" + login.jabatanUser + ")";
-            idBranch = login.db.executeScalar($"SELECT ID_BRANCH FROM BRANCH WHERE BRANCH_NAME = '{login.branchUser}'").ToString();
             if (login.jabatanUser == "Sales")
             {
                 loadCBSales();
@@ -153,7 +145,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             else if(login.jabatanUser == "Manager")
             {
                 ds = new DataSet();
-                login.db.executeDataSet($"SELECT NULL AS \"USER_ROW_ID\", '' AS \"U_NAME\" FROM DUAL UNION SELECT USER_ROW_ID, U_NAME FROM USER_DATA WHERE ID_BRANCH = '{idBranch}' AND U_STATUS <> 2 ORDER BY 2 ASC NULLS FIRST", ref ds, "sales");
+                login.db.executeDataSet($"SELECT NULL AS \"USER_ROW_ID\", '' AS \"U_NAME\" FROM DUAL UNION SELECT USER_ROW_ID, U_NAME FROM USER_DATA WHERE ID_BRANCH LIKE '%{login.idBranchUser}%' AND U_STATUS <> 2 ORDER BY 2 ASC NULLS FIRST", ref ds, "sales");
                 cbSales.DataSource = ds.Tables["sales"];
                 cbSales.DisplayMember = "U_NAME";
                 cbSales.ValueMember = "USER_ROW_ID";
@@ -161,18 +153,17 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             else if(login.jabatanUser == "Sales")
             {
                 ds = new DataSet();
-                login.db.executeDataSet($"SELECT USER_ROW_ID, U_NAME FROM USER_DATA WHERE ID_BRANCH = '{idBranch}' AND USER_ROW_ID = {login.idUser} AND U_STATUS <> 2 ORDER BY 2 ASC NULLS FIRST", ref ds, "sales");
+                login.db.executeDataSet($"SELECT USER_ROW_ID, U_NAME FROM USER_DATA WHERE ID_BRANCH LIKE '%{login.idBranchUser}%' AND USER_ROW_ID = {login.idUser} AND U_STATUS <> 2 ORDER BY 2 ASC NULLS FIRST", ref ds, "sales");
                 cbSales.DataSource = ds.Tables["sales"];
                 cbSales.DisplayMember = "U_NAME";
                 cbSales.ValueMember = "USER_ROW_ID";
             }
         }
-        string idBranch;
         DataSet ds;
         private void loadDataTable()
         {
             ds = new DataSet();
-            login.db.executeDataSet($"SELECT H.INVOICE_NUMBER AS \"INV NUMBER\", T.FORMAL_NAME AS \"NAME\", T.CITY, T.POSTAL_CODE AS \"POSTAL CODE\", TO_CHAR(H.ORDER_CREATED_DATE, 'DD/MM/YYYY') AS \"ORDER DATE\", TO_CHAR(H.DELIVERY_DATE, 'DD/MM/YYYY') AS \"DELIVERY DATE\", H.NET_TOTAL AS \"TOTAL\", INITCAP(H.STATUS_BILLED) AS \"BILLED\", H.ORDER_STATUS AS \"STATUS\" FROM H_SORDER H, THIRD_PARTY T WHERE H.ID_THIRD_PARTY = T.ID_THIRD_PARTY AND H.INVOICE_NUMBER LIKE '%{tbCode.Text}%' AND T.FORMAL_NAME LIKE '%{tbTP.Text}%' AND T.CITY LIKE '%{tbCity.Text}%' AND T.POSTAL_CODE LIKE '%{tbPostcode.Text}%' AND TO_CHAR(H.ORDER_CREATED_DATE, 'MM') LIKE '%{cbMOrder.Text}%' AND TO_CHAR(H.ORDER_CREATED_DATE, 'YYYY') LIKE '%{cbTOrder.Text}%' AND TO_CHAR(H.DELIVERY_DATE, 'MM') LIKE '%{cbMDelivery.Text}%' AND TO_CHAR(H.DELIVERY_DATE, 'YYYY') LIKE '%{cbTDelivery.Text}%' AND H.NET_TOTAL LIKE '%{tbTotal.Text}%' AND H.STATUS_BILLED LIKE '%{cbBill.Text.ToUpper()}%' AND H.ORDER_STATUS LIKE '%{cbStatus.Text}%' AND SALES_ROW_ID LIKE '%{cbSales.SelectedValue}%' ORDER BY 1", ref ds, "dgv");
+            login.db.executeDataSet($"SELECT H.INVOICE_NUMBER AS \"INV NUMBER\", T.FORMAL_NAME AS \"NAME\", T.CITY, T.POSTAL_CODE AS \"POSTAL CODE\", TO_CHAR(H.ORDER_CREATED_DATE, 'DD/MM/YYYY') AS \"ORDER DATE\", TO_CHAR(H.DELIVERY_DATE, 'DD/MM/YYYY') AS \"DELIVERY DATE\", H.NET_TOTAL AS \"TOTAL\", INITCAP(H.STATUS_BILLED) AS \"BILLED\", H.ORDER_STATUS AS \"STATUS\" FROM H_SORDER H, THIRD_PARTY T WHERE H.ID_THIRD_PARTY = T.ID_THIRD_PARTY AND H.INVOICE_NUMBER LIKE '%{tbCode.Text}%' AND T.FORMAL_NAME LIKE '%{tbTP.Text}%' AND T.CITY LIKE '%{tbCity.Text}%' AND T.POSTAL_CODE LIKE '%{tbPostcode.Text}%' AND TO_CHAR(H.ORDER_CREATED_DATE, 'MM') LIKE '%{cbMOrder.Text}%' AND TO_CHAR(H.ORDER_CREATED_DATE, 'YYYY') LIKE '%{cbTOrder.Text}%' AND TO_CHAR(H.DELIVERY_DATE, 'MM') LIKE '%{cbMDelivery.Text}%' AND TO_CHAR(H.DELIVERY_DATE, 'YYYY') LIKE '%{cbTDelivery.Text}%' AND H.NET_TOTAL LIKE '%{tbTotal.Text}%' AND H.STATUS_BILLED LIKE '%{cbBill.Text.ToUpper()}%' AND H.ORDER_STATUS LIKE '%{cbStatus.Text}%' AND SALES_ROW_ID LIKE '%{cbSales.SelectedValue}%' AND ID_BRANCH LIKE '%{login.idBranchUser}%' ORDER BY 1", ref ds, "dgv");
         }
 
         private void loadDGV()

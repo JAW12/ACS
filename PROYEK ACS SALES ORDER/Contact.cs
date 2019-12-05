@@ -80,24 +80,33 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 masterUserToolStripMenuItem.Visible = true;
                 lblBranch.Text = "";
                 pbAdd.Visible = true;
-                pbCheck.Enabled = true;
-                pbUncheck.Enabled = true;
+                pbCheck.Visible = true;
+                pbUncheck.Visible = true;
+                pbPrint.Left = 900;
+                pbSearch.Top = 82;
+                pbUnsearch.Top = 82;
             }
             else if (login.jabatanUser=="Sales")
             {
                 masterUserToolStripMenuItem.Visible = false;
                 lblBranch.Text = login.branchUser;
                 pbAdd.Visible = true;
-                pbCheck.Enabled = true;
-                pbUncheck.Enabled = true;
+                pbCheck.Visible = true;
+                pbUncheck.Visible = true;
+                pbPrint.Left = 900;
+                pbSearch.Top = 82;
+                pbUnsearch.Top = 82;
             }
             else
             {
                 masterUserToolStripMenuItem.Visible = false;
                 lblBranch.Text = login.branchUser;
                 pbAdd.Visible = false;
-                pbCheck.Enabled = false;
-                pbUncheck.Enabled = false;
+                pbCheck.Visible = false;
+                pbUncheck.Visible = false;
+                pbPrint.Left = 1000;
+                pbSearch.Top = 112;
+                pbUnsearch.Top = 112;
             }
             lblUser.Text = login.namaUser + " (" + login.jabatanUser + ")";
             isi_dataset();

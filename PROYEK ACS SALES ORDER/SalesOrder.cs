@@ -100,6 +100,39 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void SalesOrder_VisibleChanged(object sender, EventArgs e)
         {
+            if (login.jabatanUser == "Admin")
+            {
+                masterUserToolStripMenuItem.Visible = true;
+                pbAdd.Visible = true;
+                pbCheck.Visible = true;
+                pbUncheck.Visible = true;
+                pbPrint.Left = 750;
+                pbStatistic.Left = 800;
+                pbSearch.Top = 82;
+                pbUnsearch.Top = 82;
+            }
+            else if (login.jabatanUser == "Sales")
+            {
+                masterUserToolStripMenuItem.Visible = false;
+                pbAdd.Visible = true;
+                pbCheck.Visible = true;
+                pbUncheck.Visible = true;
+                pbPrint.Left = 750;
+                pbStatistic.Left = 800;
+                pbSearch.Top = 82;
+                pbUnsearch.Top = 82;
+            }
+            else
+            {
+                masterUserToolStripMenuItem.Visible = false;
+                pbAdd.Visible = false;
+                pbCheck.Visible = false;
+                pbUncheck.Visible = false;
+                pbPrint.Left = 850;
+                pbStatistic.Left = 900;
+                pbSearch.Top = 112;
+                pbUnsearch.Top = 112;
+            }
             invoiceNumber = "";
             foreach (DataGridViewRow row in dgvHOrder.Rows)
             {

@@ -89,10 +89,10 @@
       <DependentUpon>RContact.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="RSalesorder.cs">
+    <Compile Include="Rsalesorder.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RSalesorder.rpt</DependentUpon>
+      <DependentUpon>Rsalesorder.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RThirdParties.cs">
@@ -179,9 +179,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RContact.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="RSalesorder.rpt">
+    <EmbeddedResource Include="Rsalesorder.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RSalesorder.cs</LastGenOutput>
+      <LastGenOutput>Rsalesorder.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RThirdParties.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

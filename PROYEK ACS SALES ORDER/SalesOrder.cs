@@ -60,6 +60,11 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void pbPrint_Click(object sender, EventArgs e)
         {
+            Rsalesorder crm = new Rsalesorder();
+
+            crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
+            crm.SetParameterValue(0, login.idBranchUser);
+            login.print.crViewer.ReportSource = crm;
             login.print.ShowDialog();
         }
 

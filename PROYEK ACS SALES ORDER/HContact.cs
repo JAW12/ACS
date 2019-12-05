@@ -16,6 +16,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
     {
         public Login login;
         int activegak = 0;
+        Boolean validasi = true;
         string tempidcontact;
         string idcontact = "";
         public const string MatchEmailPattern =
@@ -52,9 +53,55 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            validasi = true;
+            if (cbTP.SelectedIndex ==-1)
+            {
+                cbTP.BackColor = Color.Red;
+                validasi = false;
+            }
+            if (cbTitle.SelectedIndex==-1)
+            {
+                cbTitle.BackColor = Color.Red;
+                validasi = false;
+            }
+            if (tbFirst.Text=="")
+            {
+                tbFirst.BackColor = Color.Red;
+                validasi = false;
+            }
+            if (tbCity.Text=="")
+            {
+                tbCity.BackColor = Color.Red;
+                validasi = false;
+            }
+            if (tbAddress.Text=="")
+            {
+                tbAddress.BackColor = Color.Red;
+                validasi = false;
+            }
+            if (cbJob.SelectedIndex==-1)
+            {
+                cbJob.BackColor = Color.Red;
+                validasi = false;
+            }
+            if (tbLast.Text=="")
+            {
+                tbLast.BackColor = Color.Red;
+                validasi = false;
+            }
+            if (tbBirth.Text=="")
+            {
+                tbBirth.BackColor = Color.Red;
+                validasi = false;
+            }
+            if (tbMobile.Text=="")
+            {
+                tbMobile.BackColor = Color.Red;
+                validasi = false;
+            }
             if (tbEmail.Text != null) benaremail = Regex.IsMatch(tbEmail.Text, MatchEmailPattern);
             else benaremail = false;
-            if (benaremail == true)
+            if (benaremail == true&& validasi==true)
             {
                 if (idcontact == "")
                 {
@@ -82,19 +129,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                          $"'{cbJob.SelectedItem.ToString()}', " +
                          $"'{cbTP.SelectedValue.ToString()}', " +
                          $"'1')");
-                    tbFirst.Text = "";
-                    tbEmail.Text = "";
-                    tbCity.Text = "";
-                    tbAddress.Text = "";
-                    tbLast.Text = "";
-                    tbAddress.Text = "";
-                    tbBirth.Text = "";
-                    tbTelp.Text = "";
-                    tbMobile.Text = "";
-                    cbJob.SelectedIndex = 0;
-                    cbTitle.SelectedIndex = 0;
-                    cbTP.SelectedIndex = 0;
-                    autogenerate();
+                    bershin_data();
                 }
                 else
                 {
@@ -124,7 +159,11 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             }
             else if (benaremail == false)
             {
-                MessageBox.Show("Email salah");
+                tbEmail.BackColor = Color.Red;
+            }
+            if (validasi==false)
+            {
+                MessageBox.Show("Please Check again");
             }
         }
 
@@ -141,7 +180,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 btnStatus.Text = "No Active";
             }
         }
-
+       
         private void isicomboxthird()
         {
             DataTable dt = login.db.executeDataTable("select ID_THIRD_PARTY,FORMAL_NAME from third_party");
@@ -168,9 +207,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             }
             lblCCode.Text = tempidcontact;
         }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
+        private void bershin_data() {
             tbFirst.Text = "";
             tbEmail.Text = "";
             tbCity.Text = "";
@@ -183,6 +220,22 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             cbJob.SelectedIndex = 0;
             cbTitle.SelectedIndex = 0;
             cbTP.SelectedIndex = 0;
+            tbFirst.BackColor = Color.White;
+            tbEmail.BackColor = Color.White;
+            tbCity.BackColor = Color.White;
+            tbAddress.BackColor = Color.White;
+            tbLast.BackColor = Color.White;
+            tbAddress.BackColor = Color.White;
+            tbBirth.BackColor = Color.White;
+            tbMobile.BackColor = Color.White;
+            cbJob.BackColor = Color.White;
+            cbTitle.BackColor = Color.White;
+            cbTP.BackColor = Color.White;
+            this.Close();
+        }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            bershin_data();
         }
 
         private void HContact_VisibleChanged(object sender, EventArgs e)
@@ -229,6 +282,22 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 {
                     btnStatus.Text = "Active";
                 }
+            }
+        }
+
+        private void tbTelp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (Char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbMobile_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (Char)Keys.Back)
+            {
+                e.Handled = true;
             }
         }
     }

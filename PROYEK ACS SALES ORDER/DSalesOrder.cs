@@ -82,30 +82,60 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             setButtonPrint();
         }
 
-        private void DSalesOrder_VisibleChanged(object sender, EventArgs e)
+        private void setButtonEditHeader()
+        {
+            if (login.hSales.Visible)
+            {
+                pbEditHeader.Visible = false;
+            }
+            else
+            {
+                pbEditHeader.Visible = true;
+            }
+        }
+
+        public void setUpDSales()
         {
             declareArr();
             idProduct = "";
             adaPerubahanDetail = false;
             editDetailMode = false;
             idxEditDetail = -1;
+            setButtonEditHeader();
             login.hSales.loadLabelOrderRow(ref lblSOCode);
             setButtonPrint();
             setFormForManager();
             LoadAllData(closingForm);
         }
+
+        private void DSalesOrder_VisibleChanged(object sender, EventArgs e)
+        {
+            setUpDSales();
+        }
         
         public void loadDataHeader()
         {
             login.hSales.loadLabelOrderRow(ref lblSOCode);
-            lblStatus.Text = login.hSales.arrData[1];
-            lblTP.Text = loadNamaTp(login.hSales.arrData[0]);
-            lblContact.Text = login.hSales.arrData[2];
-            lblPTerms.Text = login.hSales.arrData[3];
-            lblPType.Text = login.hSales.arrData[4];
+            lblStatus.Text = initcapOf(login.hSales.arrData[1]);
+            lblTP.Text = initcapOf(loadNamaTp(login.hSales.arrData[0]));
+            lblContact.Text = initcapOf(login.hSales.arrData[2]);
+            lblPTerms.Text = initcapOf(login.hSales.arrData[3]);
+            lblPType.Text = initcapOf((login.hSales.arrData[4]));
             tbNote.Text = login.hSales.arrData[5];
             lblDate.Text = login.hSales.arrDate[0].ToShortDateString();
             lblDelivery.Text = login.hSales.arrDate[1].ToShortDateString();
+        }
+
+        public String initcapOf(String str)
+        {
+            String hasil = "";
+            String[] arrKata = str.ToLower().Trim().Split(' ');
+
+            foreach (String kata in arrKata)
+            {
+                hasil += kata[0].ToString().ToUpper() + kata.Substring(1, kata.Length - 1) + " ";
+            }
+            return hasil;
         }
 
         public void setButtonPrint()
@@ -313,7 +343,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                                 statusBilled = "YES";
                             }
 
-                            cmd = new OracleCommand("insert into h_sorder(id_third_party,order_status,customer_name,payment_terms,payment_type,notes,order_created_date,delivery_date, status_billed, sales_row_id) values(:idtp,:status,:cust,:pterms,:ptype,:notes,:created,:delivery,:billed,:idsales)", conn);
+                            cmd = new OracleCommand("insert into h_sorder(id_third_party,order_status,customer_name,payment_terms,payment_type,notes,order_created_date,delivery_date, status_billed, sales_row_id, id_branch) values(:idtp,:status,:cust,:pterms,:ptype,:notes,:created,:delivery,:billed,:idsales,:idbranch)", conn);
                             cmd.Parameters.Add(":idtp", login.hSales.arrData[0]);
                             cmd.Parameters.Add(":status", login.hSales.arrData[1]);
                             cmd.Parameters.Add(":cust", login.hSales.arrData[2]);
@@ -324,6 +354,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                             cmd.Parameters.Add(":delivery", login.hSales.arrDate[1]);
                             cmd.Parameters.Add(":billed", statusBilled);
                             cmd.Parameters.Add(":idsales", login.sales.getSalesRowId());
+                            cmd.Parameters.Add(":idbranch", login.hSales.userIdBranch);
                             cmd.ExecuteNonQuery();
 
                             msgHeader = "Inserting New Order ";
@@ -385,6 +416,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         private void btnCancel_Click(object sender, EventArgs e)
         {
             closingForm = true;
+            login.hSales.editDone = false;
             this.Hide();
         }
 
@@ -522,5 +554,14 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 pbSearch_Click(sender, e);
             }
         }
+
+        private void pbEditHeader_Click(object sender, EventArgs e)
+        {
+            if (!login.hSales.Visible)
+            {
+                login.hSales.ShowDialog();
+            }
+        }
+        
     }
 }

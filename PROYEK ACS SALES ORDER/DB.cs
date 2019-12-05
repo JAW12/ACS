@@ -15,7 +15,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             conn = new OracleConnection($"Data Source = {datasource}; User ID = {user}; Password = {pass};");
         }
-
+        
         public Object executeScalar(string query)
         {
             conn.Close();

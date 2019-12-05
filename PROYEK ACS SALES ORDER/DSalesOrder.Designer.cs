@@ -40,8 +40,6 @@
             this.lblSStatus = new System.Windows.Forms.Label();
             this.lblSSOCode = new System.Windows.Forms.Label();
             this.lblJudul = new System.Windows.Forms.Label();
-            this.pbIcon = new System.Windows.Forms.PictureBox();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.lblSContact = new System.Windows.Forms.Label();
             this.lblPayment = new System.Windows.Forms.Label();
             this.lblTP = new System.Windows.Forms.Label();
@@ -52,6 +50,18 @@
             this.lblPTerms = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvDetail = new System.Windows.Forms.DataGridView();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tbInputP = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbReduction = new System.Windows.Forms.TextBox();
@@ -75,30 +85,22 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnBrowse = new System.Windows.Forms.Button();
-            this.pbPrint = new System.Windows.Forms.PictureBox();
             this.lbl_ = new System.Windows.Forms.Label();
             this.lblX = new System.Windows.Forms.Label();
+            this.tbType = new System.Windows.Forms.TextBox();
             this.pbUnsearch = new System.Windows.Forms.PictureBox();
             this.pbSearch = new System.Windows.Forms.PictureBox();
-            this.tbType = new System.Windows.Forms.TextBox();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            this.pbPrint = new System.Windows.Forms.PictureBox();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.pbIcon = new System.Windows.Forms.PictureBox();
+            this.pbEditHeader = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPrint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUnsearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPrint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEditHeader)).BeginInit();
             this.SuspendLayout();
             // 
             // tbNote
@@ -221,26 +223,6 @@
             this.lblJudul.TabIndex = 67;
             this.lblJudul.Text = "Sales Order";
             // 
-            // pbIcon
-            // 
-            this.pbIcon.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.so;
-            this.pbIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbIcon.Location = new System.Drawing.Point(145, 8);
-            this.pbIcon.Name = "pbIcon";
-            this.pbIcon.Size = new System.Drawing.Size(50, 50);
-            this.pbIcon.TabIndex = 66;
-            this.pbIcon.TabStop = false;
-            // 
-            // pbLogo
-            // 
-            this.pbLogo.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.logo;
-            this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbLogo.Location = new System.Drawing.Point(12, 12);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(119, 41);
-            this.pbLogo.TabIndex = 65;
-            this.pbLogo.TabStop = false;
-            // 
             // lblSContact
             // 
             this.lblSContact.AutoSize = true;
@@ -355,6 +337,83 @@
             this.dgvDetail.TabIndex = 108;
             this.dgvDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellClick);
             this.dgvDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellDoubleClick);
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Product Type";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Product Name";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Reduction Rate";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Cost Price";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Margin Rate";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Markup Rate";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Total";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Order ID";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Qty";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // column11
+            // 
+            this.column11.HeaderText = "ID Product";
+            this.column11.Name = "column11";
+            this.column11.ReadOnly = true;
+            this.column11.Visible = false;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Detail ID";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Visible = false;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Delete";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Text = "Delete";
+            this.Column10.UseColumnTextForButtonValue = true;
             // 
             // tbInputP
             // 
@@ -595,16 +654,6 @@
             this.btnBrowse.UseVisualStyleBackColor = false;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
-            // pbPrint
-            // 
-            this.pbPrint.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.print;
-            this.pbPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbPrint.Location = new System.Drawing.Point(318, 8);
-            this.pbPrint.Name = "pbPrint";
-            this.pbPrint.Size = new System.Drawing.Size(50, 50);
-            this.pbPrint.TabIndex = 119;
-            this.pbPrint.TabStop = false;
-            // 
             // lbl_
             // 
             this.lbl_.AutoSize = true;
@@ -628,6 +677,15 @@
             this.lblX.TabIndex = 132;
             this.lblX.Text = "X";
             this.lblX.Click += new System.EventHandler(this.lblX_Click);
+            // 
+            // tbType
+            // 
+            this.tbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbType.Location = new System.Drawing.Point(15, 500);
+            this.tbType.Name = "tbType";
+            this.tbType.Size = new System.Drawing.Size(95, 24);
+            this.tbType.TabIndex = 135;
+            this.tbType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbType_KeyDown);
             // 
             // pbUnsearch
             // 
@@ -653,97 +711,53 @@
             this.pbSearch.TabStop = false;
             this.pbSearch.Click += new System.EventHandler(this.pbSearch_Click);
             // 
-            // tbType
+            // pbPrint
             // 
-            this.tbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbType.Location = new System.Drawing.Point(15, 500);
-            this.tbType.Name = "tbType";
-            this.tbType.Size = new System.Drawing.Size(95, 24);
-            this.tbType.TabIndex = 135;
-            this.tbType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbType_KeyDown);
+            this.pbPrint.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.print;
+            this.pbPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbPrint.Location = new System.Drawing.Point(318, 8);
+            this.pbPrint.Name = "pbPrint";
+            this.pbPrint.Size = new System.Drawing.Size(50, 50);
+            this.pbPrint.TabIndex = 119;
+            this.pbPrint.TabStop = false;
             // 
-            // Column8
+            // pbLogo
             // 
-            this.Column8.HeaderText = "Product Type";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
+            this.pbLogo.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.logo;
+            this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbLogo.Location = new System.Drawing.Point(12, 12);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(119, 41);
+            this.pbLogo.TabIndex = 65;
+            this.pbLogo.TabStop = false;
             // 
-            // Column1
+            // pbIcon
             // 
-            this.Column1.HeaderText = "Product Name";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.pbIcon.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.so;
+            this.pbIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbIcon.Location = new System.Drawing.Point(145, 8);
+            this.pbIcon.Name = "pbIcon";
+            this.pbIcon.Size = new System.Drawing.Size(50, 50);
+            this.pbIcon.TabIndex = 66;
+            this.pbIcon.TabStop = false;
             // 
-            // Column2
+            // pbEditHeader
             // 
-            this.Column2.HeaderText = "Reduction Rate";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Cost Price";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Margin Rate";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Markup Rate";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Total";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Order ID";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Visible = false;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Qty";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // column11
-            // 
-            this.column11.HeaderText = "ID Product";
-            this.column11.Name = "column11";
-            this.column11.ReadOnly = true;
-            this.column11.Visible = false;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Detail ID";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Visible = false;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Delete";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Text = "Delete";
-            this.Column10.UseColumnTextForButtonValue = true;
+            this.pbEditHeader.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.edit_header;
+            this.pbEditHeader.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbEditHeader.Location = new System.Drawing.Point(702, 60);
+            this.pbEditHeader.Name = "pbEditHeader";
+            this.pbEditHeader.Size = new System.Drawing.Size(50, 50);
+            this.pbEditHeader.TabIndex = 136;
+            this.pbEditHeader.TabStop = false;
+            this.pbEditHeader.Click += new System.EventHandler(this.pbEditHeader_Click);
             // 
             // DSalesOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 968);
+            this.Controls.Add(this.pbEditHeader);
             this.Controls.Add(this.tbType);
             this.Controls.Add(this.pbUnsearch);
             this.Controls.Add(this.pbSearch);
@@ -802,12 +816,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "word";
             this.VisibleChanged += new System.EventHandler(this.DSalesOrder_VisibleChanged);
-            ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPrint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUnsearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPrint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEditHeader)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -879,5 +894,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewButtonColumn Column10;
+        private System.Windows.Forms.PictureBox pbEditHeader;
     }
 }

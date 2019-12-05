@@ -305,6 +305,19 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            editDone = true;
+            if (editMode)
+            {
+                submitChanges(false);
+            }
+            else
+            {
+                submitChanges(true);
+            }
+        }
+
+        public void submitChanges(Boolean adaEdit)
+        {
             if (dtpDelivery.Value < dtpDate.Value)
             {
                 MessageBox.Show("the delivery date must be after the order created date", "Order Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -328,11 +341,17 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                             cmd.Parameters.Add(":deliver", dtpDelivery.Value);
                             cmd.Parameters.Add(":id", orderRowId);
                             cmd.ExecuteNonQuery();
-                            MessageBox.Show("All changes are saved!", "Editing Order Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (adaEdit)
+                            {
+                                MessageBox.Show("All changes are saved!", "Editing Order Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
                         catch (Exception x)
                         {
-                            MessageBox.Show(x.Message, "editing header order failed");
+                            if (adaEdit)
+                            {
+                                MessageBox.Show(x.Message, "editing header order failed");
+                            }
                         }
                     }
                     else
@@ -343,13 +362,13 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                         {
                             query = $"update h_sorder set order_status = '{cbStatus.SelectedItem.ToString()}' where order_row_id = {orderRowId}";
                             login.db.executeNonQuery(query);
-                            MessageBox.Show("All changes are saved!", "Editing Order Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (adaEdit)
+                            {
+                                MessageBox.Show("All changes are saved!", "Editing Order Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
-                        
                     }
-                    
                 }
-
                 /*
                     0 = third party
                     1 = status
@@ -369,14 +388,21 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 arrDate[1] = dtpDelivery.Value;
 
                 login.dSales.closingForm = false;
-                login.dSales.ShowDialog();
+                if (adaEdit == false)
+                {
+                    login.dSales.loadDataHeader();
+                }
+
+                if (!login.dSales.Visible)
+                {
+                    login.dSales.ShowDialog();
+                }
 
                 if (editDone)
                 {
                     this.Hide();
                 }
             }
-            
         }
 
         private void loadTbContact(ref TextBox tb)
@@ -404,6 +430,11 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         }
 
         private void HSalesOrder_VisibleChanged(object sender, EventArgs e)
+        {
+            setUpHsales();
+        }
+
+        public void setUpHsales()
         {
             awalLoad = true;
             editDone = false;

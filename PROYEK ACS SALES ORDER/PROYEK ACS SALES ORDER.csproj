@@ -64,6 +64,12 @@
     <Compile Include="AddProduct.Designer.cs">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSettingDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSettingDB.Designer.cs">
+      <DependentUpon>FormSettingDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="HUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </Compile>
     <EmbeddedResource Include="AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettingDB.resx">
+      <DependentUpon>FormSettingDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HUser.resx">
       <DependentUpon>HUser.cs</DependentUpon>
@@ -320,6 +329,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_header.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

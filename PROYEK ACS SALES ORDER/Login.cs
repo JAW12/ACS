@@ -15,9 +15,9 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         public Login()
         {
             InitializeComponent();
-            this.dbUser = "proyekacs";
-            this.dbPass = "proyekacs";
-            this.dbSource = "orcl";
+            //this.dbUser = "proyekacs";
+            //this.dbPass = "proyekacs";
+            //this.dbSource = "xe";
         }
 
         public String dbUser, dbPass, dbSource;
@@ -88,6 +88,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                        
                         MessageBox.Show("Login As " + jabatanUser);
                         thirdParties.Show();
+                        clearAllTextbox();
                         Hide();
                     }
                     else
@@ -105,6 +106,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void Login_Load(object sender, EventArgs e)
         {
+            login = this;
             db = new Database(dbSource, dbUser, dbPass);
             addProduct = new AddProduct(this);
             browse = new Browse(this);
@@ -114,7 +116,6 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             hSales = new HSalesOrder(this);
             hThirdParty = new HThirdParty(this);
             hUser = new HUser(this);
-            login = this;
             master_User = new Master_User(this);
             print = new Print(this);
             sales = new SalesOrder(this);
@@ -148,5 +149,38 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 Eye = !Eye;
             }
         }
+
+        //start of tambahan winda
+        private void enterEqualsButtonClicked(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
+        
+        private void tbUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            enterEqualsButtonClicked(sender, e);
+        }
+        
+        private void tbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            enterEqualsButtonClicked(sender, e);
+        }
+
+        private void clearAllTextbox()
+        {
+            foreach (Component c in this.Controls)
+            {
+                if (c is TextBox)
+                {
+                    TextBox tb = (TextBox)c;
+                    tb.Clear();
+                }
+            }
+            tbUsername.Focus();
+        }
+        //end of tambahan winda
     }
 }

@@ -410,9 +410,12 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             {
                 login.hSales.editMode = true;
                 login.hSales.invoiceNumber = dgvHOrder.Rows[e.RowIndex].Cells[0].Value.ToString();
-                login.hSales.ShowDialog();
-
-                //tambahan winda untuk munculin orderan baru/perubahan orderan
+                //untuk pura2 munculin hsales 
+                login.hSales.setUpHsales();
+                //untuk membuat header order langsung tertutup dan membuka form detail
+                login.hSales.editDone = true;
+                login.hSales.submitChanges(false);
+                
                 loadDataTable();
                 loadDGV();
             }

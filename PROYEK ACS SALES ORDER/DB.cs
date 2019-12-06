@@ -11,9 +11,14 @@ namespace PROYEK_ACS_SALES_ORDER_V1
     public class Database
     {
         OracleConnection conn;
-        public Database(string datasource, string user, string pass)
+        public Database(string datasource, string ip, string user, string pass)
         {
-            conn = new OracleConnection($"Data Source = {datasource}; User ID = {user}; Password = {pass};");
+            conn = new OracleConnection($"Data Source=" +
+                    "(DESCRIPTION=" +
+                    "(ADDRESS_LIST= (ADDRESS=(PROTOCOL=TCP)" +
+                    "(HOST= " + ip + ")(PORT=1521)))" +
+                    "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=" + datasource + ")));" +
+                    "user id=" + user + ";password=" + pass);
         }
         
         public Object executeScalar(string query)

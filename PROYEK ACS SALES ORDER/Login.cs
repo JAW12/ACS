@@ -20,7 +20,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             //this.dbSource = "xe";
         }
 
-        public String dbUser, dbPass, dbSource;
+        public String dbUser, dbPass, dbSource, dbIP;
         public Database db;
         public AddProduct addProduct;
         public Browse browse;
@@ -107,7 +107,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         private void Login_Load(object sender, EventArgs e)
         {
             login = this;
-            db = new Database(dbSource, dbUser, dbPass);
+            db = new Database(dbSource,dbIP, dbUser, dbPass);
             addProduct = new AddProduct(this);
             browse = new Browse(this);
             contact = new Contact(this);

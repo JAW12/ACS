@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,12 +22,27 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             InitializeComponent();
         }
 
+        public static string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
+        }
+
         private void btnGo_Click(object sender, EventArgs e)
         {
-            String dbsource = "", dbuser = "", dbpassword = "";
+            String dbsource = "", dbuser = "", dbpassword = "", dbip = "";
             dbsource = tbDataSource.Text;
             dbuser = tbDBUsername.Text;
             dbpassword = tbDBPassword.Text;
+            dbip = GetLocalIPAddress();
+            MessageBox.Show(dbip);
 
             if (dbsource != "" && dbuser != "" && dbpassword != "")
             {
@@ -43,6 +60,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                     formLogin.dbSource = dbsource;
                     formLogin.dbUser = dbuser;
                     formLogin.dbPass = dbpassword;
+                    formLogin.dbIP = dbip;
                     formLogin.Show();
                 }
                 

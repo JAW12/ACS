@@ -41,7 +41,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             dbsource = tbDataSource.Text;
             dbuser = tbDBUsername.Text;
             dbpassword = tbDBPassword.Text;
-            dbip = GetLocalIPAddress();
+            dbip = "Current IP Address : " + GetLocalIPAddress();
             MessageBox.Show(dbip);
 
             if (dbsource != "" && dbuser != "" && dbpassword != "")

@@ -64,6 +64,26 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
             crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
             crm.SetParameterValue(0, login.idBranchUser);
+            if (cbMOrder.SelectedIndex!=-1)
+            {
+                crm.SetParameterValue(1, Convert.ToInt32(cbMOrder.Text.ToString()));
+                crm.SetParameterValue(2, Convert.ToInt32(cbMOrder.Text.ToString()));
+            }
+            else
+            {
+                crm.SetParameterValue(1, 0);
+                crm.SetParameterValue(2, 12);
+            }
+            if (cbTOrder.SelectedIndex!=-1)
+            {
+                crm.SetParameterValue(3, Convert.ToInt32(cbTOrder.Text.ToString()));
+                crm.SetParameterValue(4, Convert.ToInt32(cbTOrder.Text.ToString()));
+            }
+            else
+            {
+                crm.SetParameterValue(3, 2000);
+                crm.SetParameterValue(4, 9999);
+            }
             login.print.crViewer.ReportSource = crm;
             login.print.ShowDialog();
         }

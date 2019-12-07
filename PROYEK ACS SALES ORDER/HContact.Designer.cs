@@ -94,8 +94,8 @@
             // 
             this.tbMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMobile.Location = new System.Drawing.Point(547, 326);
-            this.tbMobile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbMobile.MaxLength = 11;
+            this.tbMobile.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMobile.MaxLength = 12;
             this.tbMobile.Name = "tbMobile";
             this.tbMobile.Size = new System.Drawing.Size(241, 29);
             this.tbMobile.TabIndex = 55;
@@ -105,7 +105,7 @@
             // 
             this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAddress.Location = new System.Drawing.Point(131, 363);
-            this.tbAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbAddress.Margin = new System.Windows.Forms.Padding(4);
             this.tbAddress.Multiline = true;
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(657, 82);
@@ -137,8 +137,8 @@
             // 
             this.tbTelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTelp.Location = new System.Drawing.Point(547, 289);
-            this.tbTelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbTelp.MaxLength = 10;
+            this.tbTelp.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTelp.MaxLength = 11;
             this.tbTelp.Name = "tbTelp";
             this.tbTelp.Size = new System.Drawing.Size(241, 29);
             this.tbTelp.TabIndex = 49;
@@ -148,7 +148,7 @@
             // 
             this.tbLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbLast.Location = new System.Drawing.Point(547, 215);
-            this.tbLast.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbLast.Margin = new System.Windows.Forms.Padding(4);
             this.tbLast.Name = "tbLast";
             this.tbLast.Size = new System.Drawing.Size(241, 29);
             this.tbLast.TabIndex = 47;
@@ -157,7 +157,7 @@
             // 
             this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail.Location = new System.Drawing.Point(131, 289);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(269, 29);
             this.tbEmail.TabIndex = 46;
@@ -166,7 +166,7 @@
             // 
             this.tbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCity.Location = new System.Drawing.Point(131, 326);
-            this.tbCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCity.Margin = new System.Windows.Forms.Padding(4);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(269, 29);
             this.tbCity.TabIndex = 45;
@@ -175,7 +175,7 @@
             // 
             this.tbFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbFirst.Location = new System.Drawing.Point(131, 215);
-            this.tbFirst.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbFirst.Margin = new System.Windows.Forms.Padding(4);
             this.tbFirst.Name = "tbFirst";
             this.tbFirst.Size = new System.Drawing.Size(269, 29);
             this.tbFirst.TabIndex = 44;
@@ -262,7 +262,7 @@
             this.pbLogo.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.logo;
             this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbLogo.Location = new System.Drawing.Point(13, 16);
-            this.pbLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(159, 50);
             this.pbLogo.TabIndex = 33;
@@ -273,7 +273,7 @@
             this.pbIcon.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.contact;
             this.pbIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbIcon.Location = new System.Drawing.Point(192, 11);
-            this.pbIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbIcon.Margin = new System.Windows.Forms.Padding(4);
             this.pbIcon.Name = "pbIcon";
             this.pbIcon.Size = new System.Drawing.Size(67, 62);
             this.pbIcon.TabIndex = 34;
@@ -305,7 +305,7 @@
             // 
             this.dtpBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpBirth.Location = new System.Drawing.Point(131, 252);
-            this.dtpBirth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpBirth.Margin = new System.Windows.Forms.Padding(4);
             this.dtpBirth.Name = "dtpBirth";
             this.dtpBirth.Size = new System.Drawing.Size(269, 29);
             this.dtpBirth.TabIndex = 63;
@@ -325,7 +325,7 @@
             // 
             this.tbBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBirth.Location = new System.Drawing.Point(547, 251);
-            this.tbBirth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbBirth.Margin = new System.Windows.Forms.Padding(4);
             this.tbBirth.Name = "tbBirth";
             this.tbBirth.Size = new System.Drawing.Size(241, 29);
             this.tbBirth.TabIndex = 47;
@@ -361,7 +361,7 @@
             "MRS.",
             "MS."});
             this.cbTitle.Location = new System.Drawing.Point(131, 172);
-            this.cbTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbTitle.Margin = new System.Windows.Forms.Padding(4);
             this.cbTitle.Name = "cbTitle";
             this.cbTitle.Size = new System.Drawing.Size(160, 32);
             this.cbTitle.TabIndex = 64;
@@ -381,7 +381,7 @@
             "SALES STAFF",
             "OTHERS"});
             this.cbJob.Location = new System.Drawing.Point(547, 172);
-            this.cbJob.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbJob.Margin = new System.Windows.Forms.Padding(4);
             this.cbJob.Name = "cbJob";
             this.cbJob.Size = new System.Drawing.Size(241, 32);
             this.cbJob.TabIndex = 64;
@@ -391,7 +391,7 @@
             this.cbTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTP.FormattingEnabled = true;
             this.cbTP.Location = new System.Drawing.Point(131, 133);
-            this.cbTP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbTP.Margin = new System.Windows.Forms.Padding(4);
             this.cbTP.Name = "cbTP";
             this.cbTP.Size = new System.Drawing.Size(656, 32);
             this.cbTP.TabIndex = 66;
@@ -413,7 +413,7 @@
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.Location = new System.Drawing.Point(494, 466);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(159, 50);
             this.btnSubmit.TabIndex = 69;
@@ -428,7 +428,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancel.Location = new System.Drawing.Point(160, 466);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(159, 50);
             this.btnCancel.TabIndex = 68;
@@ -441,7 +441,7 @@
             this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatus.Location = new System.Drawing.Point(327, 466);
-            this.btnStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStatus.Margin = new System.Windows.Forms.Padding(4);
             this.btnStatus.Name = "btnStatus";
             this.btnStatus.Size = new System.Drawing.Size(159, 50);
             this.btnStatus.TabIndex = 67;
@@ -517,7 +517,7 @@
             this.Controls.Add(this.pbIcon);
             this.Controls.Add(this.pbLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HContact";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HContact";

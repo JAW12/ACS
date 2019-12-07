@@ -573,5 +573,15 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             login.print.crViewer.ReportSource = crm;
             login.print.ShowDialog();
         }
+
+        private void pbEditHeader_MouseEnter(object sender, EventArgs e)
+        {
+            pbEditHeader.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.edith;
+        }
+
+        private void pbEditHeader_MouseLeave(object sender, EventArgs e)
+        {
+            pbEditHeader.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.edit;
+        }
     }
 }

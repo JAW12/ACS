@@ -143,6 +143,8 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 lblBranch.Text = "";
                 loadSSH("Admin", ref cbSales);
                 pbAdd.Enabled = true;
+                lblSales.Visible = true;
+                cbSales.Visible = true;
             }
             else if (login.jabatanUser == "Manager")
             {
@@ -151,6 +153,9 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 Object idBranch = login.db.executeScalar($"Select id_branch from branch where branch_name='{login.branchUser}'");
                 loadSSH("Manager", ref cbSales, idBranch.ToString());
                 pbAdd.Enabled = false;
+                lblSales.Visible = true;
+                cbSales.Visible = true;
+
             }
             else if (login.jabatanUser == "Sales")
             {

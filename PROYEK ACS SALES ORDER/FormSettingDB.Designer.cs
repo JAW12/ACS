@@ -105,7 +105,7 @@
             this.tbDataSource.Location = new System.Drawing.Point(249, 274);
             this.tbDataSource.Name = "tbDataSource";
             this.tbDataSource.Size = new System.Drawing.Size(205, 24);
-            this.tbDataSource.TabIndex = 7;
+            this.tbDataSource.TabIndex = 3;
             this.tbDataSource.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbDataSource_KeyDown);
             // 
             // tbDBUsername
@@ -114,7 +114,7 @@
             this.tbDBUsername.Location = new System.Drawing.Point(249, 304);
             this.tbDBUsername.Name = "tbDBUsername";
             this.tbDBUsername.Size = new System.Drawing.Size(205, 24);
-            this.tbDBUsername.TabIndex = 8;
+            this.tbDBUsername.TabIndex = 4;
             this.tbDBUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbDBPassword_KeyDown);
             // 
             // tbDBPassword
@@ -123,7 +123,7 @@
             this.tbDBPassword.Location = new System.Drawing.Point(249, 334);
             this.tbDBPassword.Name = "tbDBPassword";
             this.tbDBPassword.Size = new System.Drawing.Size(205, 24);
-            this.tbDBPassword.TabIndex = 9;
+            this.tbDBPassword.TabIndex = 5;
             this.tbDBPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbDBUsername_KeyDown);
             // 
             // lbl_
@@ -179,7 +179,7 @@
             this.rbServer.Location = new System.Drawing.Point(249, 250);
             this.rbServer.Name = "rbServer";
             this.rbServer.Size = new System.Drawing.Size(56, 17);
-            this.rbServer.TabIndex = 14;
+            this.rbServer.TabIndex = 0;
             this.rbServer.TabStop = true;
             this.rbServer.Text = "Server";
             this.rbServer.UseVisualStyleBackColor = true;
@@ -191,7 +191,7 @@
             this.rbClient.Location = new System.Drawing.Point(311, 250);
             this.rbClient.Name = "rbClient";
             this.rbClient.Size = new System.Drawing.Size(51, 17);
-            this.rbClient.TabIndex = 14;
+            this.rbClient.TabIndex = 1;
             this.rbClient.Text = "Client";
             this.rbClient.UseVisualStyleBackColor = true;
             this.rbClient.CheckedChanged += new System.EventHandler(this.rbConnect);
@@ -203,7 +203,7 @@
             this.tbClient.Location = new System.Drawing.Point(366, 245);
             this.tbClient.Name = "tbClient";
             this.tbClient.Size = new System.Drawing.Size(88, 24);
-            this.tbClient.TabIndex = 15;
+            this.tbClient.TabIndex = 2;
             // 
             // FormSettingDB
             // 

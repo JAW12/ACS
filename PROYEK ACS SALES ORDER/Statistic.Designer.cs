@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblJudul = new System.Windows.Forms.Label();
             this.pbIcon = new System.Windows.Forms.PictureBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
@@ -42,12 +42,13 @@
             this.cbJenis = new System.Windows.Forms.ComboBox();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
-            this.btnShow = new System.Windows.Forms.Button();
             this.lblUntil = new System.Windows.Forms.Label();
+            this.pbPrint = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chStatistic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // lblJudul
@@ -87,14 +88,14 @@
             this.dgvTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTable.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTable.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvTable.Location = new System.Drawing.Point(13, 60);
             this.dgvTable.Name = "dgvTable";
             this.dgvTable.ReadOnly = true;
@@ -128,16 +129,16 @@
             // 
             // chStatistic
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chStatistic.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chStatistic.Legends.Add(legend3);
+            chartArea5.Name = "ChartArea1";
+            this.chStatistic.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chStatistic.Legends.Add(legend5);
             this.chStatistic.Location = new System.Drawing.Point(13, 284);
             this.chStatistic.Name = "chStatistic";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chStatistic.Series.Add(series3);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chStatistic.Series.Add(series5);
             this.chStatistic.Size = new System.Drawing.Size(875, 454);
             this.chStatistic.TabIndex = 115;
             this.chStatistic.Text = "chart1";
@@ -145,7 +146,7 @@
             // cbJenis
             // 
             this.cbJenis.FormattingEnabled = true;
-            this.cbJenis.Location = new System.Drawing.Point(304, 32);
+            this.cbJenis.Location = new System.Drawing.Point(287, 21);
             this.cbJenis.Name = "cbJenis";
             this.cbJenis.Size = new System.Drawing.Size(137, 21);
             this.cbJenis.TabIndex = 116;
@@ -153,44 +154,51 @@
             // 
             // dtpFrom
             // 
-            this.dtpFrom.Location = new System.Drawing.Point(447, 33);
+            this.dtpFrom.CustomFormat = "dd MMMM yyyy";
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFrom.Location = new System.Drawing.Point(430, 22);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(133, 20);
             this.dtpFrom.TabIndex = 117;
+            this.dtpFrom.ValueChanged += new System.EventHandler(this.dateChange);
             // 
             // dtpTo
             // 
-            this.dtpTo.Location = new System.Drawing.Point(602, 33);
+            this.dtpTo.CustomFormat = "dd MMMM yyyy";
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTo.Location = new System.Drawing.Point(584, 22);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(133, 20);
             this.dtpTo.TabIndex = 118;
-            // 
-            // btnShow
-            // 
-            this.btnShow.Location = new System.Drawing.Point(741, 31);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(75, 23);
-            this.btnShow.TabIndex = 119;
-            this.btnShow.Text = "Show";
-            this.btnShow.UseVisualStyleBackColor = true;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            this.dtpTo.ValueChanged += new System.EventHandler(this.dateChange);
             // 
             // lblUntil
             // 
             this.lblUntil.AutoSize = true;
-            this.lblUntil.Location = new System.Drawing.Point(586, 35);
+            this.lblUntil.Location = new System.Drawing.Point(568, 24);
             this.lblUntil.Name = "lblUntil";
             this.lblUntil.Size = new System.Drawing.Size(10, 13);
             this.lblUntil.TabIndex = 120;
             this.lblUntil.Text = "-";
+            // 
+            // pbPrint
+            // 
+            this.pbPrint.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.print;
+            this.pbPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbPrint.Location = new System.Drawing.Point(787, 12);
+            this.pbPrint.Name = "pbPrint";
+            this.pbPrint.Size = new System.Drawing.Size(39, 37);
+            this.pbPrint.TabIndex = 121;
+            this.pbPrint.TabStop = false;
             // 
             // Statistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 750);
+            this.Controls.Add(this.pbPrint);
             this.Controls.Add(this.lblUntil);
-            this.Controls.Add(this.btnShow);
             this.Controls.Add(this.dtpTo);
             this.Controls.Add(this.dtpFrom);
             this.Controls.Add(this.cbJenis);
@@ -210,6 +218,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chStatistic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPrint)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,7 +235,7 @@
         private System.Windows.Forms.ComboBox cbJenis;
         private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.DateTimePicker dtpTo;
-        private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.Label lblUntil;
+        private System.Windows.Forms.PictureBox pbPrint;
     }
 }

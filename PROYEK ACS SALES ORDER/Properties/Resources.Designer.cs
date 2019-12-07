@@ -123,9 +123,19 @@ namespace PROYEK_ACS_SALES_ORDER_V1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap edit_header {
+        internal static System.Drawing.Bitmap edit {
             get {
-                object obj = ResourceManager.GetObject("edit_header", resourceCulture);
+                object obj = ResourceManager.GetObject("edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edith {
+            get {
+                object obj = ResourceManager.GetObject("edith", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

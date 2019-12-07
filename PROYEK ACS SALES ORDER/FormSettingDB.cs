@@ -41,12 +41,19 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             dbsource = tbDataSource.Text;
             dbuser = tbDBUsername.Text;
             dbpassword = tbDBPassword.Text;
-            dbip = GetLocalIPAddress();
-            MessageBox.Show("Current IP Address : " + dbip);
-
-            if (dbsource != "" && dbuser != "" && dbpassword != "")
+            if (rbServer.Checked)
             {
-                Boolean berhasil = connectionSuccessful(dbsource, dbuser, dbpassword);
+                dbip = GetLocalIPAddress();
+            }
+            else if (rbClient.Checked)
+            {
+                dbip = tbClient.Text;
+            }
+            MessageBox.Show("Connect As IP Address : " + dbip);
+
+            if (dbsource != "" && dbuser != "" && dbpassword != "" && dbip != "")
+            {
+                Boolean berhasil = connectionSuccessful(dbip, dbsource, dbuser, dbpassword);
                 if (!berhasil)
                 {
                     this.tbDataSource.Focus();
@@ -116,12 +123,17 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             }
         }
 
-        private Boolean connectionSuccessful(String datasource, String user, String pass)
+        private Boolean connectionSuccessful(String ip, String datasource, String user, String pass)
         {
             Boolean success = false;
             try
             {
-                OracleConnection conn = new OracleConnection($"Data Source = {datasource}; User ID = {user}; Password = {pass};");
+                OracleConnection conn = new OracleConnection($"Data Source=" +
+                    "(DESCRIPTION=" +
+                    "(ADDRESS_LIST= (ADDRESS=(PROTOCOL=TCP)" +
+                    "(HOST= " + ip + ")(PORT=1521)))" +
+                    "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=" + datasource + ")));" +
+                    "user id=" + user + ";password=" + pass);
                 conn.Open();
                 conn.Close();
                 success = true;
@@ -153,6 +165,18 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             Eye = true;
             pbEye_Click(sender, e);
+        }
+
+        private void rbConnect(object sender, EventArgs e)
+        {
+            if (rbServer.Checked)
+            {
+                tbClient.Enabled = false;
+            }
+            else if (rbClient.Checked)
+            {
+                tbClient.Enabled = true;
+            }
         }
     }
 }

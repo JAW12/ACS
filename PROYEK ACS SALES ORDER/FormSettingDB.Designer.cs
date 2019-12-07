@@ -39,6 +39,10 @@
             this.lbl_ = new System.Windows.Forms.Label();
             this.lblX = new System.Windows.Forms.Label();
             this.pbEye = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.rbServer = new System.Windows.Forms.RadioButton();
+            this.rbClient = new System.Windows.Forms.RadioButton();
+            this.tbClient = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEye)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +60,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(121, 292);
+            this.label1.Location = new System.Drawing.Point(121, 311);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 13);
             this.label1.TabIndex = 3;
@@ -66,7 +70,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(156, 248);
+            this.label2.Location = new System.Drawing.Point(156, 281);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 4;
@@ -98,7 +102,7 @@
             // tbDataSource
             // 
             this.tbDataSource.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDataSource.Location = new System.Drawing.Point(249, 241);
+            this.tbDataSource.Location = new System.Drawing.Point(249, 274);
             this.tbDataSource.Name = "tbDataSource";
             this.tbDataSource.Size = new System.Drawing.Size(205, 24);
             this.tbDataSource.TabIndex = 7;
@@ -107,7 +111,7 @@
             // tbDBUsername
             // 
             this.tbDBUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDBUsername.Location = new System.Drawing.Point(249, 285);
+            this.tbDBUsername.Location = new System.Drawing.Point(249, 304);
             this.tbDBUsername.Name = "tbDBUsername";
             this.tbDBUsername.Size = new System.Drawing.Size(205, 24);
             this.tbDBUsername.TabIndex = 8;
@@ -158,11 +162,58 @@
             this.pbEye.TabStop = false;
             this.pbEye.Click += new System.EventHandler(this.pbEye_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label4.Location = new System.Drawing.Point(160, 252);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Connect As : ";
+            // 
+            // rbServer
+            // 
+            this.rbServer.AutoSize = true;
+            this.rbServer.Checked = true;
+            this.rbServer.Location = new System.Drawing.Point(249, 250);
+            this.rbServer.Name = "rbServer";
+            this.rbServer.Size = new System.Drawing.Size(56, 17);
+            this.rbServer.TabIndex = 14;
+            this.rbServer.TabStop = true;
+            this.rbServer.Text = "Server";
+            this.rbServer.UseVisualStyleBackColor = true;
+            this.rbServer.CheckedChanged += new System.EventHandler(this.rbConnect);
+            // 
+            // rbClient
+            // 
+            this.rbClient.AutoSize = true;
+            this.rbClient.Location = new System.Drawing.Point(311, 250);
+            this.rbClient.Name = "rbClient";
+            this.rbClient.Size = new System.Drawing.Size(51, 17);
+            this.rbClient.TabIndex = 14;
+            this.rbClient.Text = "Client";
+            this.rbClient.UseVisualStyleBackColor = true;
+            this.rbClient.CheckedChanged += new System.EventHandler(this.rbConnect);
+            // 
+            // tbClient
+            // 
+            this.tbClient.Enabled = false;
+            this.tbClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbClient.Location = new System.Drawing.Point(366, 245);
+            this.tbClient.Name = "tbClient";
+            this.tbClient.Size = new System.Drawing.Size(88, 24);
+            this.tbClient.TabIndex = 15;
+            // 
             // FormSettingDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(583, 451);
+            this.Controls.Add(this.tbClient);
+            this.Controls.Add(this.rbClient);
+            this.Controls.Add(this.rbServer);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.pbEye);
             this.Controls.Add(this.lbl_);
             this.Controls.Add(this.lblX);
@@ -198,5 +249,9 @@
         private System.Windows.Forms.Label lbl_;
         private System.Windows.Forms.Label lblX;
         private System.Windows.Forms.PictureBox pbEye;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RadioButton rbServer;
+        private System.Windows.Forms.RadioButton rbClient;
+        private System.Windows.Forms.TextBox tbClient;
     }
 }

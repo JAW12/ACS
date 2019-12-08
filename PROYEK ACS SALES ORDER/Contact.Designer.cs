@@ -74,10 +74,9 @@
             // 
             this.lblJudul.AutoSize = true;
             this.lblJudul.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJudul.Location = new System.Drawing.Point(255, 54);
-            this.lblJudul.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblJudul.Location = new System.Drawing.Point(191, 44);
             this.lblJudul.Name = "lblJudul";
-            this.lblJudul.Size = new System.Drawing.Size(247, 29);
+            this.lblJudul.Size = new System.Drawing.Size(197, 24);
             this.lblJudul.TabIndex = 13;
             this.lblJudul.Text = "Contact / Addresses";
             // 
@@ -87,78 +86,69 @@
             this.dgvContact.AllowUserToDeleteRows = false;
             this.dgvContact.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvContact.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContact.Location = new System.Drawing.Point(16, 174);
-            this.dgvContact.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvContact.Location = new System.Drawing.Point(12, 141);
             this.dgvContact.Name = "dgvContact";
             this.dgvContact.ReadOnly = true;
-            this.dgvContact.Size = new System.Drawing.Size(1375, 538);
+            this.dgvContact.Size = new System.Drawing.Size(1031, 437);
             this.dgvContact.TabIndex = 16;
             this.dgvContact.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContact_CellContentClick);
             this.dgvContact.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContact_CellValueChanged);
             // 
             // tbLast
             // 
-            this.tbLast.Location = new System.Drawing.Point(16, 144);
-            this.tbLast.Margin = new System.Windows.Forms.Padding(4);
+            this.tbLast.Location = new System.Drawing.Point(12, 117);
             this.tbLast.Name = "tbLast";
-            this.tbLast.Size = new System.Drawing.Size(132, 22);
+            this.tbLast.Size = new System.Drawing.Size(100, 20);
             this.tbLast.TabIndex = 19;
             // 
             // tbFirst
             // 
-            this.tbFirst.Location = new System.Drawing.Point(157, 144);
-            this.tbFirst.Margin = new System.Windows.Forms.Padding(4);
+            this.tbFirst.Location = new System.Drawing.Point(118, 117);
             this.tbFirst.Name = "tbFirst";
-            this.tbFirst.Size = new System.Drawing.Size(172, 22);
+            this.tbFirst.Size = new System.Drawing.Size(130, 20);
             this.tbFirst.TabIndex = 20;
             // 
             // tbJob
             // 
-            this.tbJob.Location = new System.Drawing.Point(339, 144);
-            this.tbJob.Margin = new System.Windows.Forms.Padding(4);
+            this.tbJob.Location = new System.Drawing.Point(254, 117);
             this.tbJob.Name = "tbJob";
-            this.tbJob.Size = new System.Drawing.Size(131, 22);
+            this.tbJob.Size = new System.Drawing.Size(99, 20);
             this.tbJob.TabIndex = 21;
             // 
             // tbCity
             // 
-            this.tbCity.Location = new System.Drawing.Point(479, 144);
-            this.tbCity.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCity.Location = new System.Drawing.Point(359, 117);
             this.tbCity.Name = "tbCity";
-            this.tbCity.Size = new System.Drawing.Size(132, 22);
+            this.tbCity.Size = new System.Drawing.Size(100, 20);
             this.tbCity.TabIndex = 22;
             // 
             // tbMobile
             // 
-            this.tbMobile.Location = new System.Drawing.Point(620, 144);
-            this.tbMobile.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMobile.Location = new System.Drawing.Point(465, 117);
             this.tbMobile.Name = "tbMobile";
-            this.tbMobile.Size = new System.Drawing.Size(132, 22);
+            this.tbMobile.Size = new System.Drawing.Size(100, 20);
             this.tbMobile.TabIndex = 22;
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(761, 144);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.tbEmail.Location = new System.Drawing.Point(571, 117);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(185, 22);
+            this.tbEmail.Size = new System.Drawing.Size(140, 20);
             this.tbEmail.TabIndex = 23;
             // 
             // cbStatus
             // 
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(1129, 144);
-            this.cbStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.cbStatus.Location = new System.Drawing.Point(847, 117);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(164, 24);
+            this.cbStatus.Size = new System.Drawing.Size(124, 21);
             this.cbStatus.TabIndex = 25;
             // 
             // tbTP
             // 
-            this.tbTP.Location = new System.Drawing.Point(956, 144);
-            this.tbTP.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTP.Location = new System.Drawing.Point(717, 117);
             this.tbTP.Name = "tbTP";
-            this.tbTP.Size = new System.Drawing.Size(164, 22);
+            this.tbTP.Size = new System.Drawing.Size(124, 20);
             this.tbTP.TabIndex = 32;
             // 
             // menuStrip1
@@ -173,42 +163,41 @@
             this.logOutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1407, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1055, 28);
             this.menuStrip1.TabIndex = 34;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // masterUserToolStripMenuItem
             // 
             this.masterUserToolStripMenuItem.Name = "masterUserToolStripMenuItem";
-            this.masterUserToolStripMenuItem.Size = new System.Drawing.Size(125, 29);
+            this.masterUserToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
             this.masterUserToolStripMenuItem.Text = "Master User";
             this.masterUserToolStripMenuItem.Click += new System.EventHandler(this.masterUserToolStripMenuItem_Click);
             // 
             // thirdPartyToolStripMenuItem
             // 
             this.thirdPartyToolStripMenuItem.Name = "thirdPartyToolStripMenuItem";
-            this.thirdPartyToolStripMenuItem.Size = new System.Drawing.Size(115, 29);
+            this.thirdPartyToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
             this.thirdPartyToolStripMenuItem.Text = "Third Party";
             this.thirdPartyToolStripMenuItem.Click += new System.EventHandler(this.thirdPartyToolStripMenuItem_Click);
             // 
             // contactToolStripMenuItem
             // 
             this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
-            this.contactToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
+            this.contactToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.contactToolStripMenuItem.Text = "Contact";
             // 
             // salesOrderToolStripMenuItem
             // 
             this.salesOrderToolStripMenuItem.Name = "salesOrderToolStripMenuItem";
-            this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(121, 29);
+            this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.salesOrderToolStripMenuItem.Text = "Sales Order";
             this.salesOrderToolStripMenuItem.Click += new System.EventHandler(this.salesOrderToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(91, 29);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -216,10 +205,9 @@
             // 
             this.pbLogo.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.logo;
             this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbLogo.Location = new System.Drawing.Point(16, 47);
-            this.pbLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.pbLogo.Location = new System.Drawing.Point(12, 38);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(159, 50);
+            this.pbLogo.Size = new System.Drawing.Size(119, 41);
             this.pbLogo.TabIndex = 39;
             this.pbLogo.TabStop = false;
             // 
@@ -227,10 +215,9 @@
             // 
             this.pbIcon.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.contact;
             this.pbIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbIcon.Location = new System.Drawing.Point(181, 30);
-            this.pbIcon.Margin = new System.Windows.Forms.Padding(4);
+            this.pbIcon.Location = new System.Drawing.Point(136, 24);
             this.pbIcon.Name = "pbIcon";
-            this.pbIcon.Size = new System.Drawing.Size(93, 80);
+            this.pbIcon.Size = new System.Drawing.Size(70, 65);
             this.pbIcon.TabIndex = 40;
             this.pbIcon.TabStop = false;
             // 
@@ -239,10 +226,9 @@
             this.pbCheck.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.check;
             this.pbCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbCheck.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbCheck.Location = new System.Drawing.Point(1303, 139);
-            this.pbCheck.Margin = new System.Windows.Forms.Padding(4);
+            this.pbCheck.Location = new System.Drawing.Point(977, 113);
             this.pbCheck.Name = "pbCheck";
-            this.pbCheck.Size = new System.Drawing.Size(40, 37);
+            this.pbCheck.Size = new System.Drawing.Size(30, 30);
             this.pbCheck.TabIndex = 52;
             this.pbCheck.TabStop = false;
             this.pbCheck.Click += new System.EventHandler(this.pbCheck_Click);
@@ -252,10 +238,9 @@
             this.pbUncheck.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.uncheck;
             this.pbUncheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbUncheck.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbUncheck.Location = new System.Drawing.Point(1351, 139);
-            this.pbUncheck.Margin = new System.Windows.Forms.Padding(4);
+            this.pbUncheck.Location = new System.Drawing.Point(1013, 113);
             this.pbUncheck.Name = "pbUncheck";
-            this.pbUncheck.Size = new System.Drawing.Size(40, 37);
+            this.pbUncheck.Size = new System.Drawing.Size(30, 30);
             this.pbUncheck.TabIndex = 51;
             this.pbUncheck.TabStop = false;
             this.pbUncheck.Click += new System.EventHandler(this.pbUncheck_Click);
@@ -266,10 +251,9 @@
             this.btnInactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInactive.ForeColor = System.Drawing.Color.White;
-            this.btnInactive.Location = new System.Drawing.Point(1129, 102);
-            this.btnInactive.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInactive.Location = new System.Drawing.Point(847, 83);
             this.btnInactive.Name = "btnInactive";
-            this.btnInactive.Size = new System.Drawing.Size(168, 37);
+            this.btnInactive.Size = new System.Drawing.Size(126, 30);
             this.btnInactive.TabIndex = 49;
             this.btnInactive.Text = "Inactive";
             this.btnInactive.UseVisualStyleBackColor = false;
@@ -282,10 +266,9 @@
             this.btnActive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActive.ForeColor = System.Drawing.Color.Black;
-            this.btnActive.Location = new System.Drawing.Point(953, 102);
-            this.btnActive.Margin = new System.Windows.Forms.Padding(4);
+            this.btnActive.Location = new System.Drawing.Point(715, 83);
             this.btnActive.Name = "btnActive";
-            this.btnActive.Size = new System.Drawing.Size(168, 37);
+            this.btnActive.Size = new System.Drawing.Size(126, 30);
             this.btnActive.TabIndex = 50;
             this.btnActive.Text = "Active";
             this.btnActive.UseVisualStyleBackColor = false;
@@ -297,10 +280,9 @@
             this.pbUnsearch.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.unsearch;
             this.pbUnsearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbUnsearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbUnsearch.Location = new System.Drawing.Point(1351, 102);
-            this.pbUnsearch.Margin = new System.Windows.Forms.Padding(4);
+            this.pbUnsearch.Location = new System.Drawing.Point(1013, 83);
             this.pbUnsearch.Name = "pbUnsearch";
-            this.pbUnsearch.Size = new System.Drawing.Size(40, 37);
+            this.pbUnsearch.Size = new System.Drawing.Size(30, 30);
             this.pbUnsearch.TabIndex = 48;
             this.pbUnsearch.TabStop = false;
             this.pbUnsearch.Click += new System.EventHandler(this.pbUnsearch_Click);
@@ -310,10 +292,9 @@
             this.pbSearch.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.search;
             this.pbSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbSearch.Location = new System.Drawing.Point(1303, 102);
-            this.pbSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.pbSearch.Location = new System.Drawing.Point(977, 83);
             this.pbSearch.Name = "pbSearch";
-            this.pbSearch.Size = new System.Drawing.Size(40, 37);
+            this.pbSearch.Size = new System.Drawing.Size(30, 30);
             this.pbSearch.TabIndex = 47;
             this.pbSearch.TabStop = false;
             this.pbSearch.Click += new System.EventHandler(this.pbSearch_Click);
@@ -323,10 +304,9 @@
             this.lbl_.AutoSize = true;
             this.lbl_.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_.Location = new System.Drawing.Point(1341, 11);
-            this.lbl_.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_.Location = new System.Drawing.Point(1006, 9);
             this.lbl_.Name = "lbl_";
-            this.lbl_.Size = new System.Drawing.Size(20, 24);
+            this.lbl_.Size = new System.Drawing.Size(16, 18);
             this.lbl_.TabIndex = 54;
             this.lbl_.Text = "_";
             this.lbl_.Click += new System.EventHandler(this.lbl__Click);
@@ -336,10 +316,9 @@
             this.lblX.AutoSize = true;
             this.lblX.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblX.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblX.Location = new System.Drawing.Point(1367, 11);
-            this.lblX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblX.Location = new System.Drawing.Point(1025, 9);
             this.lblX.Name = "lblX";
-            this.lblX.Size = new System.Drawing.Size(24, 24);
+            this.lblX.Size = new System.Drawing.Size(18, 18);
             this.lblX.TabIndex = 55;
             this.lblX.Text = "X";
             this.lblX.Click += new System.EventHandler(this.lblX_Click);
@@ -349,10 +328,9 @@
             this.pbPrint.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.print;
             this.pbPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbPrint.Location = new System.Drawing.Point(1196, 46);
-            this.pbPrint.Margin = new System.Windows.Forms.Padding(4);
+            this.pbPrint.Location = new System.Drawing.Point(897, 37);
             this.pbPrint.Name = "pbPrint";
-            this.pbPrint.Size = new System.Drawing.Size(63, 52);
+            this.pbPrint.Size = new System.Drawing.Size(47, 42);
             this.pbPrint.TabIndex = 61;
             this.pbPrint.TabStop = false;
             this.pbPrint.Click += new System.EventHandler(this.pbPrint_Click);
@@ -362,10 +340,9 @@
             this.pbAdd.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.addtp;
             this.pbAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbAdd.Location = new System.Drawing.Point(1267, 46);
-            this.pbAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.pbAdd.Location = new System.Drawing.Point(950, 37);
             this.pbAdd.Name = "pbAdd";
-            this.pbAdd.Size = new System.Drawing.Size(124, 52);
+            this.pbAdd.Size = new System.Drawing.Size(93, 42);
             this.pbAdd.TabIndex = 60;
             this.pbAdd.TabStop = false;
             this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
@@ -373,28 +350,26 @@
             // lblBranch
             // 
             this.lblBranch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBranch.Location = new System.Drawing.Point(903, 59);
-            this.lblBranch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBranch.Location = new System.Drawing.Point(677, 48);
             this.lblBranch.Name = "lblBranch";
-            this.lblBranch.Size = new System.Drawing.Size(200, 22);
+            this.lblBranch.Size = new System.Drawing.Size(150, 18);
             this.lblBranch.TabIndex = 97;
             this.lblBranch.Text = "-";
             // 
             // lblUser
             // 
             this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(552, 59);
-            this.lblUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUser.Location = new System.Drawing.Point(414, 48);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(343, 22);
+            this.lblUser.Size = new System.Drawing.Size(257, 18);
             this.lblUser.TabIndex = 96;
             this.lblUser.Text = "-";
             // 
             // Contact
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1407, 726);
+            this.ClientSize = new System.Drawing.Size(1055, 590);
             this.Controls.Add(this.lblBranch);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.pbPrint);
@@ -421,7 +396,6 @@
             this.Controls.Add(this.pbSearch);
             this.Controls.Add(this.pbIcon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Contact";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "a";

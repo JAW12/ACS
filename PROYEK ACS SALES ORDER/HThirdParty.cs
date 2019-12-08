@@ -45,29 +45,39 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             {
                 btnStatus.Enabled = false;
                 lblStatus.Text = "Active";
+                tbName.Text = "";
+                tbCity.Text = "";
+                tbAddress.Text = "";
+                tbEmail.Text = "";
+                tbWeb.Text = "";
+                tbTelp.Text = "";
+                tbPostal.Text = "";
+                tbAlias.Text = "";
             }
             else
             {
+                tbName.Text = name;
+                tbCity.Text = city;
+                tbAddress.Text = address;
+                tbEmail.Text = email;
+                tbWeb.Text = website;
+                tbTelp.Text = telp;
+                tbPostal.Text = postal;
+                tbAlias.Text = alias;
                 btnStatus.Enabled = true;
             }
-            tbName.Text = name;
-            tbCity.Text = city;
-            tbAddress.Text = address;
-            tbEmail.Text = email;
-            tbWeb.Text = website;
             if (status == "0")
             {
+                active = "0";
                 lblStatus.Text = "Non Active";
                 btnStatus.Text = "Active";
             }
             else
             {
+                active = "1";
                 lblStatus.Text = "Active";
                 btnStatus.Text = "Non Active";
             }
-            tbTelp.Text = telp;
-            tbPostal.Text = postal;
-            tbAlias.Text = alias;
             if(type == "0")
             {
                 cbType.SelectedIndex = 0;

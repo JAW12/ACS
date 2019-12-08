@@ -121,6 +121,11 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 lblUserID.Text = newId.ToString();
                 lblStatus.Text = "Active";
                 btnStatus.Enabled = false;
+                tbFirst.Text = "";
+                tbLast.Text = "";
+                tbEmail.Text = "";
+                tbCity.Text = "";
+                cbType.SelectedIndex = 0;
             }
             else
             {
@@ -144,11 +149,13 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             }
             if(status == "0")
             {
+                active = "0";
                 lblStatus.Text = "Non Active";
                 btnStatus.Text = "Active";
             }
             else
             {
+                active = "1";
                 lblStatus.Text = "Active";
                 btnStatus.Text = "Non Active";
             }

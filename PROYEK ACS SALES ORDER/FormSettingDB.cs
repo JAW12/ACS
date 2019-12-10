@@ -138,8 +138,9 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 conn.Close();
                 success = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 success = false;
             }
             return success;

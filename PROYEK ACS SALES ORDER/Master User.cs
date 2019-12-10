@@ -67,7 +67,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             dgvUser.Columns.Clear();
             if (jabatan != "0" && status_user != "2")
             {
-                dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS TYPE,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{jabatan}%' AND ID_BRANCH like '%{branch}%' AND U_A    TIVE_STATUS like '%{status_user}%' ORDER BY 1");
+                dgvUser.DataSource = login.db.executeDataTable($"SELECT USERNAME,U_NAME as NAME, CASE U_STATUS WHEN '1' THEN 'ADMIN' WHEN '2' THEN 'MANAGER' WHEN '3' THEN 'SALES' END AS TYPE,ID_BRANCH AS BRANCH ,CASE U_ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM USER_DATA WHERE USERNAME like '%{username}%' AND U_NAME like '%{nama}%' AND U_STATUS like '%{jabatan}%' AND ID_BRANCH like '%{branch}%' AND U_ACTIVE_STATUS like '%{status_user}%' ORDER BY 1");
             }
             else if (jabatan != "0" && status_user == "2")
             {

@@ -62,7 +62,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         private void pbPrint_Click(object sender, EventArgs e)
         {
             RThirdParties crm = new RThirdParties();
-            crm.SetDatabaseLogon("proyekacs", "proryekacs", "XE", "");
+            crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
             login.print.crViewer.ReportSource = crm;
             login.print.ShowDialog();
         }

@@ -267,5 +267,14 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             login.hUser.ShowDialog();
             loadDGV();
         }
+
+        private void Master_User_MouseClick(object sender, MouseEventArgs e)
+        {
+            RMaster crm = new RMaster();
+
+            crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
+            login.print.crViewer.ReportSource = crm;
+            login.print.ShowDialog();
+        }
     }
 }

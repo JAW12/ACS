@@ -72,9 +72,10 @@
             // 
             this.lblJudul.AutoSize = true;
             this.lblJudul.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJudul.Location = new System.Drawing.Point(191, 44);
+            this.lblJudul.Location = new System.Drawing.Point(255, 54);
+            this.lblJudul.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblJudul.Name = "lblJudul";
-            this.lblJudul.Size = new System.Drawing.Size(121, 24);
+            this.lblJudul.Size = new System.Drawing.Size(154, 29);
             this.lblJudul.TabIndex = 13;
             this.lblJudul.Text = "Master User";
             // 
@@ -84,27 +85,30 @@
             this.dgvUser.AllowUserToDeleteRows = false;
             this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUser.Location = new System.Drawing.Point(12, 142);
+            this.dgvUser.Location = new System.Drawing.Point(16, 175);
+            this.dgvUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.ReadOnly = true;
-            this.dgvUser.Size = new System.Drawing.Size(1031, 437);
+            this.dgvUser.Size = new System.Drawing.Size(1375, 538);
             this.dgvUser.TabIndex = 16;
             this.dgvUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellClick);
             this.dgvUser.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellDoubleClick);
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(51, 117);
+            this.tbUsername.Location = new System.Drawing.Point(68, 144);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(167, 20);
+            this.tbUsername.Size = new System.Drawing.Size(221, 22);
             this.tbUsername.TabIndex = 19;
             // 
             // cbStatus
             // 
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(723, 117);
+            this.cbStatus.Location = new System.Drawing.Point(964, 144);
+            this.cbStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(149, 21);
+            this.cbStatus.Size = new System.Drawing.Size(197, 24);
             this.cbStatus.TabIndex = 25;
             // 
             // menuStrip1
@@ -119,74 +123,79 @@
             this.logOutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1055, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1407, 33);
             this.menuStrip1.TabIndex = 34;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // masterUserToolStripMenuItem
             // 
             this.masterUserToolStripMenuItem.Name = "masterUserToolStripMenuItem";
-            this.masterUserToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
+            this.masterUserToolStripMenuItem.Size = new System.Drawing.Size(125, 29);
             this.masterUserToolStripMenuItem.Text = "Master User";
             // 
             // thirdPartyToolStripMenuItem
             // 
             this.thirdPartyToolStripMenuItem.Name = "thirdPartyToolStripMenuItem";
-            this.thirdPartyToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
+            this.thirdPartyToolStripMenuItem.Size = new System.Drawing.Size(115, 29);
             this.thirdPartyToolStripMenuItem.Text = "Third Party";
             this.thirdPartyToolStripMenuItem.Click += new System.EventHandler(this.thirdPartyToolStripMenuItem_Click);
             // 
             // contactToolStripMenuItem
             // 
             this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
-            this.contactToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
+            this.contactToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
             this.contactToolStripMenuItem.Text = "Contact";
             this.contactToolStripMenuItem.Click += new System.EventHandler(this.contactToolStripMenuItem_Click);
             // 
             // salesOrderToolStripMenuItem
             // 
             this.salesOrderToolStripMenuItem.Name = "salesOrderToolStripMenuItem";
-            this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
+            this.salesOrderToolStripMenuItem.Size = new System.Drawing.Size(121, 29);
             this.salesOrderToolStripMenuItem.Text = "Sales Order";
             this.salesOrderToolStripMenuItem.Click += new System.EventHandler(this.salesOrderToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(91, 29);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // lblUser
             // 
             this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(436, 48);
+            this.lblUser.Location = new System.Drawing.Point(581, 59);
+            this.lblUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(200, 18);
+            this.lblUser.Size = new System.Drawing.Size(267, 22);
             this.lblUser.TabIndex = 37;
             this.lblUser.Text = "-";
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(224, 117);
+            this.tbName.Location = new System.Drawing.Point(299, 144);
+            this.tbName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(157, 20);
+            this.tbName.Size = new System.Drawing.Size(208, 22);
             this.tbName.TabIndex = 49;
             // 
             // tbBranch
             // 
-            this.tbBranch.Location = new System.Drawing.Point(547, 117);
+            this.tbBranch.Location = new System.Drawing.Point(729, 144);
+            this.tbBranch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbBranch.Name = "tbBranch";
-            this.tbBranch.Size = new System.Drawing.Size(170, 20);
+            this.tbBranch.Size = new System.Drawing.Size(225, 22);
             this.tbBranch.TabIndex = 51;
             // 
             // pbLogo
             // 
             this.pbLogo.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.logo;
             this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbLogo.Location = new System.Drawing.Point(12, 38);
+            this.pbLogo.Location = new System.Drawing.Point(16, 47);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(119, 41);
+            this.pbLogo.Size = new System.Drawing.Size(159, 50);
             this.pbLogo.TabIndex = 39;
             this.pbLogo.TabStop = false;
             // 
@@ -194,9 +203,10 @@
             // 
             this.pbIcon.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.user;
             this.pbIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbIcon.Location = new System.Drawing.Point(136, 24);
+            this.pbIcon.Location = new System.Drawing.Point(181, 30);
+            this.pbIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbIcon.Name = "pbIcon";
-            this.pbIcon.Size = new System.Drawing.Size(70, 65);
+            this.pbIcon.Size = new System.Drawing.Size(93, 80);
             this.pbIcon.TabIndex = 40;
             this.pbIcon.TabStop = false;
             // 
@@ -205,9 +215,10 @@
             this.lbl_.AutoSize = true;
             this.lbl_.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_.Location = new System.Drawing.Point(1006, 9);
+            this.lbl_.Location = new System.Drawing.Point(1341, 11);
+            this.lbl_.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_.Name = "lbl_";
-            this.lbl_.Size = new System.Drawing.Size(16, 18);
+            this.lbl_.Size = new System.Drawing.Size(20, 24);
             this.lbl_.TabIndex = 52;
             this.lbl_.Text = "_";
             this.lbl_.Click += new System.EventHandler(this.lbl__Click);
@@ -217,9 +228,10 @@
             this.lblX.AutoSize = true;
             this.lblX.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblX.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblX.Location = new System.Drawing.Point(1025, 9);
+            this.lblX.Location = new System.Drawing.Point(1367, 11);
+            this.lblX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblX.Name = "lblX";
-            this.lblX.Size = new System.Drawing.Size(18, 18);
+            this.lblX.Size = new System.Drawing.Size(24, 24);
             this.lblX.TabIndex = 53;
             this.lblX.Text = "X";
             this.lblX.Click += new System.EventHandler(this.lblX_Click);
@@ -230,9 +242,10 @@
             this.btnInactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInactive.ForeColor = System.Drawing.Color.White;
-            this.btnInactive.Location = new System.Drawing.Point(745, 83);
+            this.btnInactive.Location = new System.Drawing.Point(993, 102);
+            this.btnInactive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInactive.Name = "btnInactive";
-            this.btnInactive.Size = new System.Drawing.Size(126, 30);
+            this.btnInactive.Size = new System.Drawing.Size(168, 37);
             this.btnInactive.TabIndex = 55;
             this.btnInactive.Text = "Inactive";
             this.btnInactive.UseVisualStyleBackColor = false;
@@ -245,9 +258,10 @@
             this.btnActive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActive.ForeColor = System.Drawing.Color.Black;
-            this.btnActive.Location = new System.Drawing.Point(613, 83);
+            this.btnActive.Location = new System.Drawing.Point(817, 102);
+            this.btnActive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnActive.Name = "btnActive";
-            this.btnActive.Size = new System.Drawing.Size(126, 30);
+            this.btnActive.Size = new System.Drawing.Size(168, 37);
             this.btnActive.TabIndex = 56;
             this.btnActive.Text = "Active";
             this.btnActive.UseVisualStyleBackColor = false;
@@ -257,9 +271,10 @@
             // cbRole
             // 
             this.cbRole.FormattingEnabled = true;
-            this.cbRole.Location = new System.Drawing.Point(387, 117);
+            this.cbRole.Location = new System.Drawing.Point(516, 144);
+            this.cbRole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(154, 21);
+            this.cbRole.Size = new System.Drawing.Size(204, 24);
             this.cbRole.TabIndex = 50;
             // 
             // pbPrint
@@ -267,9 +282,10 @@
             this.pbPrint.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.print;
             this.pbPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbPrint.Location = new System.Drawing.Point(745, 37);
+            this.pbPrint.Location = new System.Drawing.Point(993, 46);
+            this.pbPrint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbPrint.Name = "pbPrint";
-            this.pbPrint.Size = new System.Drawing.Size(47, 42);
+            this.pbPrint.Size = new System.Drawing.Size(63, 52);
             this.pbPrint.TabIndex = 59;
             this.pbPrint.TabStop = false;
             this.pbPrint.Click += new System.EventHandler(this.pbPrint_Click);
@@ -279,9 +295,10 @@
             this.pbAdd.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.addtp;
             this.pbAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbAdd.Location = new System.Drawing.Point(950, 37);
+            this.pbAdd.Location = new System.Drawing.Point(1267, 46);
+            this.pbAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAdd.Name = "pbAdd";
-            this.pbAdd.Size = new System.Drawing.Size(93, 42);
+            this.pbAdd.Size = new System.Drawing.Size(124, 52);
             this.pbAdd.TabIndex = 58;
             this.pbAdd.TabStop = false;
             this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
@@ -291,9 +308,10 @@
             this.pbStatistic.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.statistics;
             this.pbStatistic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbStatistic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStatistic.Location = new System.Drawing.Point(798, 37);
+            this.pbStatistic.Location = new System.Drawing.Point(1064, 46);
+            this.pbStatistic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbStatistic.Name = "pbStatistic";
-            this.pbStatistic.Size = new System.Drawing.Size(146, 42);
+            this.pbStatistic.Size = new System.Drawing.Size(195, 52);
             this.pbStatistic.TabIndex = 57;
             this.pbStatistic.TabStop = false;
             this.pbStatistic.Click += new System.EventHandler(this.pbStatistic_Click);
@@ -303,9 +321,10 @@
             this.pbCheck.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.check;
             this.pbCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbCheck.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbCheck.Location = new System.Drawing.Point(886, 113);
+            this.pbCheck.Location = new System.Drawing.Point(1181, 139);
+            this.pbCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCheck.Name = "pbCheck";
-            this.pbCheck.Size = new System.Drawing.Size(30, 30);
+            this.pbCheck.Size = new System.Drawing.Size(40, 37);
             this.pbCheck.TabIndex = 63;
             this.pbCheck.TabStop = false;
             this.pbCheck.Click += new System.EventHandler(this.pbCheck_Click);
@@ -315,9 +334,10 @@
             this.pbUncheck.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.uncheck;
             this.pbUncheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbUncheck.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbUncheck.Location = new System.Drawing.Point(930, 113);
+            this.pbUncheck.Location = new System.Drawing.Point(1240, 139);
+            this.pbUncheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbUncheck.Name = "pbUncheck";
-            this.pbUncheck.Size = new System.Drawing.Size(30, 30);
+            this.pbUncheck.Size = new System.Drawing.Size(40, 37);
             this.pbUncheck.TabIndex = 62;
             this.pbUncheck.TabStop = false;
             this.pbUncheck.Click += new System.EventHandler(this.pbUncheck_Click);
@@ -327,9 +347,10 @@
             this.pbUnsearch.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.unsearch;
             this.pbUnsearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbUnsearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbUnsearch.Location = new System.Drawing.Point(1013, 113);
+            this.pbUnsearch.Location = new System.Drawing.Point(1351, 139);
+            this.pbUnsearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbUnsearch.Name = "pbUnsearch";
-            this.pbUnsearch.Size = new System.Drawing.Size(30, 30);
+            this.pbUnsearch.Size = new System.Drawing.Size(40, 37);
             this.pbUnsearch.TabIndex = 61;
             this.pbUnsearch.TabStop = false;
             this.pbUnsearch.Click += new System.EventHandler(this.pbUnsearch_Click);
@@ -339,18 +360,19 @@
             this.pbSearch.BackgroundImage = global::PROYEK_ACS_SALES_ORDER_V1.Properties.Resources.search;
             this.pbSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbSearch.Location = new System.Drawing.Point(977, 113);
+            this.pbSearch.Location = new System.Drawing.Point(1303, 139);
+            this.pbSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbSearch.Name = "pbSearch";
-            this.pbSearch.Size = new System.Drawing.Size(30, 30);
+            this.pbSearch.Size = new System.Drawing.Size(40, 37);
             this.pbSearch.TabIndex = 60;
             this.pbSearch.TabStop = false;
             this.pbSearch.Click += new System.EventHandler(this.pbSearch_Click);
             // 
             // Master_User
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1055, 590);
+            this.ClientSize = new System.Drawing.Size(1407, 726);
             this.Controls.Add(this.dgvUser);
             this.Controls.Add(this.pbCheck);
             this.Controls.Add(this.pbUncheck);
@@ -374,10 +396,12 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pbIcon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Master_User";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "a";
             this.VisibleChanged += new System.EventHandler(this.Master_User_VisibleChanged);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Master_User_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

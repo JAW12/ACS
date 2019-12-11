@@ -136,7 +136,10 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void pbPrint_Click(object sender, EventArgs e)
         {
-
+            RMaster crm = new RMaster();
+            crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
+            login.print.crViewer.ReportSource = crm;
+            login.print.ShowDialog();
         }
 
         private void dgvUser_CellClick(object sender, DataGridViewCellEventArgs e)

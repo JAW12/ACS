@@ -382,7 +382,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
                 chStatistic.Series.Clear();
                 chStatistic.Legends.Clear();
-
+            
                 //Add a new chart-series
                 string seriesname = "Product Overview";
                 chStatistic.Series.Add(seriesname);
@@ -445,6 +445,30 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             showLine();
             showData();
+        }
+
+        private void pbPrint_Click(object sender, EventArgs e)
+        {
+            Rmargin crm = new Rmargin();
+            string paramtgl1 = dtpFrom.Value.ToString("yyyy,MM,dd");
+            string paramtgl2 = dtpTo.Value.ToString("yyyy,MM,dd");
+            crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
+            crm.SetParameterValue(0,paramtgl1);
+            crm.SetParameterValue(1,paramtgl2);
+            if (login.jabatanUser == "Admin")
+            {
+                crm.SetParameterValue(2, "");
+            }
+            else if (login.jabatanUser == "Manager")
+            {
+                crm.SetParameterValue(2, login.idBranchUser);
+            }
+            else if (login.jabatanUser == "Sales")
+            {
+                crm.SetParameterValue(2, login.idBranchUser);
+            }
+            login.print.crViewer.ReportSource = crm;
+            login.print.ShowDialog();
         }
     }
 }

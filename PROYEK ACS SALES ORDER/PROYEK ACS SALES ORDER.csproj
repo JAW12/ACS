@@ -102,6 +102,12 @@
       <DependentUpon>RDetailSalesOrder.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Rmargin.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rmargin.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RMaster.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -204,6 +210,10 @@
     <EmbeddedResource Include="RDetailSalesOrder.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RDetailSalesOrder.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rmargin.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rmargin.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RMaster.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

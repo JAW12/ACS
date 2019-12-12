@@ -61,10 +61,29 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void pbPrint_Click(object sender, EventArgs e)
         {
-            RThirdParties crm = new RThirdParties();
-            crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
-            login.print.crViewer.ReportSource = crm;
-            login.print.ShowDialog();
+            if (login.jabatanUser == "Admin")
+            {
+                RThirdParties crm = new RThirdParties();
+                crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
+                crm.SetParameterValue(0, cbSales.SelectedValue.ToString());
+                login.print.crViewer.ReportSource = crm;
+                login.print.ShowDialog();
+            }
+            else if (login.jabatanUser == "Manager")
+            {
+                RThirdParties crm = new RThirdParties();
+                crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
+                crm.SetParameterValue(0, cbSales.SelectedValue.ToString());
+                login.print.crViewer.ReportSource = crm;
+                login.print.ShowDialog();
+            }
+            else {
+                RThirdParties crm = new RThirdParties();
+                crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
+                crm.SetParameterValue(0, login.idUser.ToString());
+                login.print.crViewer.ReportSource = crm;
+                login.print.ShowDialog();
+            }
         }
 
         private void pbAdd_Click(object sender, EventArgs e)

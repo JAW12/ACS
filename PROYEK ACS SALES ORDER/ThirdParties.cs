@@ -214,6 +214,12 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                         dgvTP.DataSource = login.db.executeDataTable($"SELECT FORMAL_NAME AS NAME,ALIAS_NAME AS ALIAS, ID_THIRD_PARTY AS CODE,CITY,POSTAL_CODE AS POSTCODE,PHONE_NUMBER AS PHONE,CASE THIRD_PARTY_TYPE WHEN '1' THEN 'PROSPECT' WHEN '2' THEN 'CUSTOMER' WHEN '3' THEN 'VENDOR' WHEN '4' THEN 'OTHERS' END AS TYPE,CASE ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM THIRD_PARTY WHERE FORMAL_NAME like '%{name}%' AND ALIAS_NAME like '%{alias}%' AND ID_THIRD_PARTY like '%{id}%' AND CITY like '%{city}%' AND POSTAL_CODE like '%{code}%' AND PHONE_NUMBER like '%{phone}%' AND THIRD_PARTY_TYPE like '%{""}%' AND ACTIVE_STATUS like '%{""}%' AND USER_ROW_ID={cbSales.SelectedValue} ORDER BY 1");
                     }
                 }
+                else
+                {
+                    dgvTP.DataSource = login.db.executeDataTable($"SELECT FORMAL_NAME AS NAME,ALIAS_NAME AS ALIAS, ID_THIRD_PARTY AS CODE,CITY,POSTAL_CODE AS POSTCODE,PHONE_NUMBER AS PHONE,CASE THIRD_PARTY_TYPE WHEN '1' THEN 'PROSPECT' WHEN '2' THEN 'CUSTOMER' WHEN '3' THEN 'VENDOR' WHEN '4' THEN 'OTHERS' END AS TYPE,CASE ACTIVE_STATUS WHEN '0' THEN 'NON ACTIVE' WHEN '1' THEN 'ACTIVE' END AS STATE FROM THIRD_PARTY WHERE 1=2");
+                    cbSales.SelectedIndex = -1;
+                    cbSales.Text = "";
+                }
             }
             else if (login.jabatanUser == "Sales")
             {

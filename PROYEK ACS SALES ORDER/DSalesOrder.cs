@@ -566,7 +566,6 @@ namespace PROYEK_ACS_SALES_ORDER_V1
 
         private void pbPrint_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(lblSOCode.Text);
             RDetailSalesOrder crm = new RDetailSalesOrder();
             crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
             crm.SetParameterValue(0, lblSOCode.Text);

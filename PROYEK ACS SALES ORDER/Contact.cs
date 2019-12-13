@@ -64,6 +64,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
             crm.SetParameterValue(0, tbTP.Text);
             try
             {
+
                 foreach (CrystalDecisions.CrystalReports.Engine.Table table in crm.Database.Tables)
                 {
                     TableLogOnInfo ci = new TableLogOnInfo();
@@ -74,7 +75,7 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                      * @see https://stackoverflow.com/questions/4864169/crystal-report-and-problem-with-connection
                      */
                     ci.ConnectionInfo.DatabaseName = "";
-                    ci.ConnectionInfo.ServerName = login.dbSource; //ganti ipnya
+                    ci.ConnectionInfo.ServerName = login.dbIP; //ganti ipnya
                     ci.ConnectionInfo.UserID = "proyekacs";
                     ci.ConnectionInfo.Password = "proyekacs";
                     table.ApplyLogOnInfo(ci);

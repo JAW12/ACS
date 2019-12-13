@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrystalDecisions.Shared;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -66,6 +67,30 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 RThirdParties crm = new RThirdParties();
                 crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
                 crm.SetParameterValue(0, cbSales.SelectedValue.ToString());
+                try
+                {
+
+                    foreach (CrystalDecisions.CrystalReports.Engine.Table table in crm.Database.Tables)
+                    {
+                        TableLogOnInfo ci = new TableLogOnInfo();
+                        /** 
+                         * @notes Ini itterate di masing-masing tabel pada RPT yang dibuat, sehingga koneksi berubah jadi ini
+                         * Database itu dikosongi agar databasenya tetap seperti sebelumnya
+                         * @see https://stackoverflow.com/q/17914605 
+                         * @see https://stackoverflow.com/questions/4864169/crystal-report-and-problem-with-connection
+                         */
+                        ci.ConnectionInfo.DatabaseName = "";
+                        ci.ConnectionInfo.ServerName = login.dbIP; //ganti ipnya
+                        ci.ConnectionInfo.UserID = "proyekacs";
+                        ci.ConnectionInfo.Password = "proyekacs";
+                        table.ApplyLogOnInfo(ci);
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
                 login.print.crViewer.ReportSource = crm;
                 login.print.ShowDialog();
             }
@@ -74,6 +99,30 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 RThirdParties crm = new RThirdParties();
                 crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
                 crm.SetParameterValue(0, cbSales.SelectedValue.ToString());
+                try
+                {
+
+                    foreach (CrystalDecisions.CrystalReports.Engine.Table table in crm.Database.Tables)
+                    {
+                        TableLogOnInfo ci = new TableLogOnInfo();
+                        /** 
+                         * @notes Ini itterate di masing-masing tabel pada RPT yang dibuat, sehingga koneksi berubah jadi ini
+                         * Database itu dikosongi agar databasenya tetap seperti sebelumnya
+                         * @see https://stackoverflow.com/q/17914605 
+                         * @see https://stackoverflow.com/questions/4864169/crystal-report-and-problem-with-connection
+                         */
+                        ci.ConnectionInfo.DatabaseName = "";
+                        ci.ConnectionInfo.ServerName = login.dbIP; //ganti ipnya
+                        ci.ConnectionInfo.UserID = "proyekacs";
+                        ci.ConnectionInfo.Password = "proyekacs";
+                        table.ApplyLogOnInfo(ci);
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
                 login.print.crViewer.ReportSource = crm;
                 login.print.ShowDialog();
             }
@@ -81,6 +130,30 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                 RThirdParties crm = new RThirdParties();
                 crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
                 crm.SetParameterValue(0, login.idUser.ToString());
+                try
+                {
+
+                    foreach (CrystalDecisions.CrystalReports.Engine.Table table in crm.Database.Tables)
+                    {
+                        TableLogOnInfo ci = new TableLogOnInfo();
+                        /** 
+                         * @notes Ini itterate di masing-masing tabel pada RPT yang dibuat, sehingga koneksi berubah jadi ini
+                         * Database itu dikosongi agar databasenya tetap seperti sebelumnya
+                         * @see https://stackoverflow.com/q/17914605 
+                         * @see https://stackoverflow.com/questions/4864169/crystal-report-and-problem-with-connection
+                         */
+                        ci.ConnectionInfo.DatabaseName = "";
+                        ci.ConnectionInfo.ServerName = login.dbIP; //ganti ipnya
+                        ci.ConnectionInfo.UserID = "proyekacs";
+                        ci.ConnectionInfo.Password = "proyekacs";
+                        table.ApplyLogOnInfo(ci);
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
                 login.print.crViewer.ReportSource = crm;
                 login.print.ShowDialog();
             }

@@ -20,6 +20,11 @@ namespace PROYEK_ACS_SALES_ORDER_V1
                     "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=" + datasource + ")));" +
                     "user id=" + user + ";password=" + pass);
         }
+
+        public OracleConnection getConnection()
+        {
+            return conn;
+        }
         
         public Object executeScalar(string query)
         {

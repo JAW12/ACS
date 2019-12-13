@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions.Shared;
 using Oracle.DataAccess.Client;
 
 namespace PROYEK_ACS_SALES_ORDER_V1
@@ -138,6 +139,30 @@ namespace PROYEK_ACS_SALES_ORDER_V1
         {
             RMaster crm = new RMaster();
             crm.SetDatabaseLogon(login.dbUser, login.dbPass, login.dbSource, "");
+            try
+            {
+
+                foreach (CrystalDecisions.CrystalReports.Engine.Table table in crm.Database.Tables)
+                {
+                    TableLogOnInfo ci = new TableLogOnInfo();
+                    /** 
+                     * @notes Ini itterate di masing-masing tabel pada RPT yang dibuat, sehingga koneksi berubah jadi ini
+                     * Database itu dikosongi agar databasenya tetap seperti sebelumnya
+                     * @see https://stackoverflow.com/q/17914605 
+                     * @see https://stackoverflow.com/questions/4864169/crystal-report-and-problem-with-connection
+                     */
+                    ci.ConnectionInfo.DatabaseName = "";
+                    ci.ConnectionInfo.ServerName = login.dbIP; //ganti ipnya
+                    ci.ConnectionInfo.UserID = "proyekacs";
+                    ci.ConnectionInfo.Password = "proyekacs";
+                    table.ApplyLogOnInfo(ci);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             login.print.crViewer.ReportSource = crm;
             login.print.ShowDialog();
         }
